@@ -1,0 +1,55 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Brady%
+\ \BBA {} Collier%
+}{%
+Brady%
+\ \BBA {} Collier%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+RSI2010}
+\APACinsertmetastar {%
+RSI2010}%
+\begin{APACrefauthors}%
+Brady, H\BPBI E.%
+\BCBT {}\ \BBA {} Collier, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2010}.
+\newblock
+\APACrefbtitle {Rethinking social inquiry: Diverse tools, shared standards}
+  {Rethinking social inquiry: Diverse tools, shared standards}.
+\newblock
+\APACaddressPublisher{}{Rowman \& Littlefield Publishers}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+King%
+, Keohane%
+\BCBL {}\ \BBA {} Verba%
+}{%
+King%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1994}}%
+}]{%
+KKV1994}
+\APACinsertmetastar {%
+KKV1994}%
+\begin{APACrefauthors}%
+King, G.%
+, Keohane, R\BPBI O.%
+\BCBL {}\ \BBA {} Verba, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1994}.
+\newblock
+\APACrefbtitle {Designing social inquiry} {Designing social inquiry}.
+\newblock
+\APACaddressPublisher{}{Princeton university press}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

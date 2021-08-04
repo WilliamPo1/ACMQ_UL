@@ -1,0 +1,239 @@
+\documentclass[10.5pt,a4paper]{article} 
+\usepackage[utf8]{inputenc}  
+
+\usepackage[T1]{fontenc} 
+\usepackage[light]{merriweather} 
+\usepackage{ulem}
+\usepackage{setspace} 
+\usepackage[hang]{footmisc} 
+\renewcommand{\footnotesize}{\scriptsize} 
+\usepackage[hyphens]{url}\urlstyle{same} 
+\usepackage[hidelinks]{hyperref} 
+% e-mail
+\usepackage{etoolbox}
+\makeatletter
+\newcommand\myemail[3]{%                %\newcommand\tpj@compose@mailto[3]{%
+\edef\@tempa{mailto:#1?subject=#2 }%
+\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+\href{\@tempb}{#3}}
+\catcode\%=11
+\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+\catcode\%=14
+\makeatother
+% Colour
+\usepackage{xcolor}
+\hypersetup{breaklinks=true} 
+\Urlmuskip=0mu plus 1mu\relax 
+\usepackage[margin=2.5cm]{geometry} 
+\usepackage{fancyhdr} % Required for modifying headers and footers
+\fancyhead[L]{\textsf{\rightmark}} % Top left header
+\fancyhead[R]{\textsf{\leftmark}} % Top right header
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
+\fancyfoot[C]{\textbf{\textsf{\thepage}}} % Bottom center footer
+\renewcommand{\footrulewidth}{1.4pt} % Rule under the footer
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+
+\newcommand{\entry}[3]{\textbf{#1}\markboth{#1}{#1}\ {\footnotesize{#2}}\ $\bullet$\ {\footnotesize{#3}}} % Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
+
+
+\usepackage{multicol} % Required for splitting text into multiple columns
+
+\usepackage{lipsum,afterpage}
+\usepackage{dirtytalk} 
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+\usepackage {parskip}
+\usepackage{epigraph}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\pagenumbering{arabic} 
+\usepackage{ntheorem}
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand\thesubhyp{\thehyp.\alph{subhyp}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[bf,sf,center]{titlesec}
+
+\renewcommand{\refname}{Bibliography}
+\setcounter{secnumdepth}{0}
+\usepackage[autostyle]{csquotes}
+\usepackage{enumitem} % to remove vspace for itemize with [noitemsep]
+
+\begin{document} 
+
+%----------------------------------------------------------------------------------------
+%	SECTION A
+%----------------------------------------------------------------------------------------
+
+\section*{A}
+
+%\begin{multicols}{2}
+%\end{multicols}
+%\entry{}{}{}
+
+\entry{Autocorrélation}{\citep{RSI2010}}{Un bris du \textbf{postulat} d'\textbf{indépendance des observations}, en raison de modèles d'influence parmi des observations qui sont temporellement ou spatialement reliées.}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION B
+%----------------------------------------------------------------------------------------
+\section*{B}
+
+%----------------------------------------------------------------------------------------
+%	SECTION C
+%----------------------------------------------------------------------------------------
+\section*{C}
+
+\entry{Cas}{\citep{RSI2010}}{L'unité d'analyse dans une étude donnée. Les cas sont les entités ou phénomènes politiques, sociaux, institutionnels ou individuels sur lesquels des informations sont collectées et des \textbf{inférences} sont réalisées. Des exemples de cas sont les États-nations, les mouvements sociaux, les partis politiques, les membres de syndicats et les épisodes de mise en œuvre de politiques.}
+%----------------------------------------------------------------------------------------
+%	SECTION D
+%----------------------------------------------------------------------------------------
+\section*{D}
+
+%----------------------------------------------------------------------------------------
+%	SECTION E
+%----------------------------------------------------------------------------------------
+\section*{E}
+
+\entry{Échantillon}{\citep{RSI2010}}{L'ensemble de cas sur lesquels l'analyse est centrée, et qui sont souvent sélectionnés parmi un \textbf{univers de cas} plus large. La sélection des cas est une tâche fondamentale de la conception d'un devis de recherche, et les chercheurs de différentes traditions ont abordé cette tâche de diverses manières. Voir \textbf{échantillon aléatoire}.}
+
+\entry{Échantillon aléatoire}{\citep{RSI2010}}{Un échantillon sélectionné de manière à ce que tous les cas de l'\textbf{univers des cas} aient la même probabilité d'être sélectionnés.}
+
+%----------------------------------------------------------------------------------------
+%	SECTION F
+%----------------------------------------------------------------------------------------
+\section*{F}
+
+%----------------------------------------------------------------------------------------
+%	SECTION G
+%----------------------------------------------------------------------------------------
+\section*{G}
+
+%----------------------------------------------------------------------------------------
+%	SECTION H
+%----------------------------------------------------------------------------------------
+\section*{H}
+
+%----------------------------------------------------------------------------------------
+%	SECTION I
+%----------------------------------------------------------------------------------------
+\section*{I}
+
+\entry{Indépendance des observations}{}{\textbf{Postulat} selon lequel pour chaque observation, un résultat donné se produit indépendamment de son occurrence ou de sa non-occurrence dans d'autres observations.}
+
+\entry{Inférence}{\citep{KKV1994}}{Le processus d'utilisation des faits que nous connaissons pour en apprendre sur les faits que nous ne connaissons pas.}
+
+\entry{Inférence causale}{\citep{RSI2010}}{Le processus de tirer des conclusions sur la causalité sur la base des données observées.}
+
+\entry{Inférence causale, le problème fondamentale de}{\citep{RSI2010}}{Le problème critique de l'inférence causale selon de nombreux philosophes des sciences. Étant donné une définition contrefactuelle de la causalité, le problème est que - pour un cas donné à un moment donné - le chercheur peut observer soit la \emph{présence} de la cause, soit l'\emph{absence} de la cause, mais pas les deux. Par conséquent, le chercheur ne pourra jamais faire les comparaisons qui répondent directement aux critères de la définition contrefactuelle de la causalité, et doit plutôt se tourner vers des comparaisons imparfaites entre des cas du monde réel.}
+
+\entry{Inférence descriptive}{\citep{RSI2010}}{Le processus de parvenir à des conclusions descriptives sur la base de données observées. Cela peut impliquer l'utilisation d'informations inévitablement partielles ou imparfaites sur le monde réel pour faire des inférences sur un concept, ou cela peut impliquer l'utilisation de ces informations pour caractériser un ensemble plus large de cas.}
+
+%----------------------------------------------------------------------------------------
+%	SECTION J
+%----------------------------------------------------------------------------------------
+\section*{J}
+
+%----------------------------------------------------------------------------------------
+%	SECTION K
+%----------------------------------------------------------------------------------------
+\section*{K}
+
+%----------------------------------------------------------------------------------------
+%	SECTION L
+%----------------------------------------------------------------------------------------
+\section*{L}
+
+%----------------------------------------------------------------------------------------
+%	SECTION M
+%----------------------------------------------------------------------------------------
+\section*{M}
+
+%----------------------------------------------------------------------------------------
+%	SECTION N
+%----------------------------------------------------------------------------------------
+\section*{N}
+
+%----------------------------------------------------------------------------------------
+%	SECTION O
+%----------------------------------------------------------------------------------------
+\section*{O}
+
+%----------------------------------------------------------------------------------------
+%	SECTION P
+%----------------------------------------------------------------------------------------
+\section*{P}
+
+\entry{Population}{\citep{RSI2010}}{Voir \textbf{univers des cas}.}
+
+\entry{Postulat}{(Dictionnaire à trouver)}{Principe que l’on demande d’admettre comme vrai sans démonstration.}
+
+%----------------------------------------------------------------------------------------
+%	SECTION Q
+%----------------------------------------------------------------------------------------
+\section*{Q}
+
+%----------------------------------------------------------------------------------------
+%	SECTION R
+%----------------------------------------------------------------------------------------
+\section*{R}
+
+%----------------------------------------------------------------------------------------
+%	SECTION S
+%----------------------------------------------------------------------------------------
+\section*{S}
+
+%----------------------------------------------------------------------------------------
+%	SECTION T
+%----------------------------------------------------------------------------------------
+\section*{T}
+
+%----------------------------------------------------------------------------------------
+%	SECTION U
+%----------------------------------------------------------------------------------------
+\section*{U}
+
+\entry{Univers des cas}{\citep{RSI2010}}{L'univers des cas sur lesquels l'analyse cherche à réaliser une \textbf{inférence}. La recherche peut se concentrer sur un \textbf{échantillon} de cas de cet univers. Alternativement, dans certaines études, l'ensemble des cas analysés est l'univers. L'identification d'une définition conceptuellement et théoriquement appropriée de l'univers à l'étude est une tâche fondamentale de la recherche. L'univers des cas est souvent utilisé de manière interchangeable avec \textbf{population}.}
+
+%----------------------------------------------------------------------------------------
+%	SECTION V
+%----------------------------------------------------------------------------------------
+\section*{V}
+
+%----------------------------------------------------------------------------------------
+%	SECTION W
+%----------------------------------------------------------------------------------------
+\section*{W}
+
+%----------------------------------------------------------------------------------------
+%	SECTION X
+%----------------------------------------------------------------------------------------
+\section*{X}
+
+%----------------------------------------------------------------------------------------
+%	SECTION Y
+%----------------------------------------------------------------------------------------
+\section*{Y}
+
+%----------------------------------------------------------------------------------------
+%	SECTION Z
+%----------------------------------------------------------------------------------------
+\section*{Z}
+
+
+\section{Bibliographie}
+\begingroup
+\renewcommand{\section}[2]{}
+\bibliographystyle{apacite}
+\bibliography{mybibfile.bib}
+\vspace{10cm}
+\endgroup
+
+\end{document}
