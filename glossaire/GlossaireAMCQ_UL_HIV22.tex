@@ -3,7 +3,7 @@
 
 \usepackage[T1]{fontenc} 
 \usepackage[light]{merriweather} 
-\usepackage{ulem}
+%\usepackage{ulem}
 \usepackage{setspace} 
 \usepackage[hang]{footmisc} 
 \renewcommand{\footnotesize}{\scriptsize} 
@@ -33,7 +33,7 @@
 \renewcommand{\footrulewidth}{1.4pt} % Rule under the footer
 \pagestyle{fancy} % Use the custom headers and footers throughout the document
 
-\newcommand{\entry}[3]{\textbf{#1}\markboth{#1}{#1}\ {\footnotesize{#2}}\ $\bullet$\ {\footnotesize{#3}}} % Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
+\newcommand{\entry}[3]{\normalsize{\textbf{#1}}\markboth{#1}{#1}\ $\bullet$\ \footnotesize{#2}\ \footnotesize{#3}} % Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
 
 
 \usepackage{multicol} % Required for splitting text into multiple columns
@@ -66,19 +66,61 @@
 \usepackage[autostyle]{csquotes}
 \usepackage{enumitem} % to remove vspace for itemize with [noitemsep]
 
+\usepackage{xparse}
+\ExplSyntaxOn
+
+\makeatletter
+\NewDocumentCommand{\multicitep}{m}
+ {
+  \NAT@open
+  \mjb_multicitep:n { #1 }
+  \NAT@close
+ }
+\makeatother
+\seq_new:N \l_mjb_multicite_in_seq
+\seq_new:N \l_mjb_multicite_out_seq
+\seq_new:N \l_mjb_cite_seq
+
+\cs_new_protected:Npn \mjb_multicitep:n #1
+ {
+  \seq_set_split:Nnn \l_mjb_multicite_in_seq { ; } { #1 }
+  \seq_clear:N \l_mjb_multicite_out_seq
+  \seq_map_inline:Nn \l_mjb_multicite_in_seq
+   {
+    \mjb_cite_process:n { ##1 }
+   }
+  \seq_use:Nn \l_mjb_multicite_out_seq { ;~ }
+ }
+
+\cs_new_protected:Npn \mjb_cite_process:n #1
+ {
+  \seq_set_split:Nnn \l_mjb_cite_seq { , } { #1 }
+  \int_compare:nTF { \seq_count:N \l_mjb_cite_seq == 1 }
+   {
+    \seq_put_right:Nn \l_mjb_multicite_out_seq
+     { \citeauthor{#1},~\citeyear{#1} }
+   }
+   {
+    \seq_put_right:Nx \l_mjb_multicite_out_seq
+     {
+      \exp_not:N \citeauthor{\seq_item:Nn \l_mjb_cite_seq { 1 }},~
+      \exp_not:N \citeyear{\seq_item:Nn \l_mjb_cite_seq { 1 }},~
+      \seq_item:Nn \l_mjb_cite_seq { 2 }
+     }
+   }
+ }
+\ExplSyntaxOff
 \begin{document} 
 
 %----------------------------------------------------------------------------------------
 %	SECTION A
 %----------------------------------------------------------------------------------------
 
+\begin{multicols}{2}
+
 \section*{A}
 
-%\begin{multicols}{2}
-%\end{multicols}
-%\entry{}{}{}
-
-\entry{Autocorrélation}{\citep{RSI2010}}{Un bris du \textbf{postulat} d'\textbf{indépendance des observations}, en raison de modèles d'influence parmi des observations qui sont temporellement ou spatialement reliées.}
+\entry{Autocorrélation}{Un bris du \textbf{postulat} d'\textbf{indépendance des observations}, en raison de modèles d'influence parmi des observations qui sont temporellement ou spatialement reliées. Survient lorsque les \textbf{erreurs de prédictions} sont corrélées entre elles. Affecte les \textbf{erreurs types}.}{\multicitep{RSI2010, p. 314 ; VAB2020, p. 104}}
 
 
 %----------------------------------------------------------------------------------------
@@ -91,7 +133,10 @@
 %----------------------------------------------------------------------------------------
 \section*{C}
 
-\entry{Cas}{\citep{RSI2010}}{L'unité d'analyse dans une étude donnée. Les cas sont les entités ou phénomènes politiques, sociaux, institutionnels ou individuels sur lesquels des informations sont collectées et des \textbf{inférences} sont réalisées. Des exemples de cas sont les États-nations, les mouvements sociaux, les partis politiques, les membres de syndicats et les épisodes de mise en œuvre de politiques.}
+\entry{Cas}{L'unité d'analyse dans une étude donnée. Les cas sont les entités ou phénomènes politiques, sociaux, institutionnels ou individuels sur lesquels des informations sont collectées et des \textbf{inférences} sont réalisées. Des exemples de cas sont les États-nations, les mouvements sociaux, les partis politiques, les membres de syndicats et les épisodes de mise en œuvre de politiques.}{\citep[p. 315]{RSI2010}}
+
+\entry{Constante}{Caractérise un \textbf{espace échantiollonnale} à \emph{un} seul élément. Se produit lorsque le phénomène retourne toujours le même résultat. En opposition à \textbf{variable}.}{\citep[p. 39]{VAB2020}}
+
 %----------------------------------------------------------------------------------------
 %	SECTION D
 %----------------------------------------------------------------------------------------
@@ -102,9 +147,19 @@
 %----------------------------------------------------------------------------------------
 \section*{E}
 
-\entry{Échantillon}{\citep{RSI2010}}{L'ensemble de cas sur lesquels l'analyse est centrée, et qui sont souvent sélectionnés parmi un \textbf{univers de cas} plus large. La sélection des cas est une tâche fondamentale de la conception d'un devis de recherche, et les chercheurs de différentes traditions ont abordé cette tâche de diverses manières. Voir \textbf{échantillon aléatoire}.}
+\entry{Échantillon}{L'ensemble de cas sur lesquels l'analyse est centrée, et qui sont souvent sélectionnés parmi un \textbf{univers de cas} plus large. La sélection des cas est une tâche fondamentale de la conception d'un devis de recherche, et les chercheurs de différentes traditions ont abordé cette tâche de diverses manières. Voir \textbf{échantillon aléatoire}.}{\citep[p. 347-48]{RSI2010}}
 
-\entry{Échantillon aléatoire}{\citep{RSI2010}}{Un échantillon sélectionné de manière à ce que tous les cas de l'\textbf{univers des cas} aient la même probabilité d'être sélectionnés.}
+\entry{Échantillon}{Sous-groupe des individus qui composent la population.}{\citep[p. 62]{VAB2020}}
+
+\entry{Échantillon aléatoire}{Un échantillon sélectionné de manière à ce que tous les cas de l'\textbf{univers des cas} aient la même probabilité d'être sélectionnés.}{\citep[p. 346]{RSI2010}}
+
+\entry{Échantillon aléatoire simple}{Forme la plus importante des \textbf{échantillons probabilistes}. Les individus y sont sélectionnés au hasard, en s'assurant que tout les membres de la \textbf{population} aient la même probabilité d'être choisis.}{\citep[p. 62]{VAB2020}}
+
+\entry{Échantillon probabiliste}{Caractéristique d'un échantillon où les individus qui en font partie ont été sélectionnés par une procédure aléatoire.}{\citep[p. 62]{VAB2020}}
+
+\entry{Espace échantillonnale}{Ensemble de tous les \textbf{événements} que peut produire un processus physique ou social. Par exemple, l'espace échantillonnale de processus physique de lancer une pièce de monnaie est composée de l'événement «\emph{tombe sur pile}» et de l'événement «\emph{tombe sur face}».}{\citep[p. 38-39]{VAB2020}}
+
+\entry{Événements}{Un résultat possible d'un processus physique ou social.}{\citep[p. 38-39]{VAB2020}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION F
@@ -126,15 +181,19 @@
 %----------------------------------------------------------------------------------------
 \section*{I}
 
-\entry{Indépendance des observations}{}{\textbf{Postulat} selon lequel pour chaque observation, un résultat donné se produit indépendamment de son occurrence ou de sa non-occurrence dans d'autres observations.}
+\entry{Indépendance des observations}{\textbf{Postulat} selon lequel pour chaque observation, un résultat donné se produit indépendamment de son occurrence ou de sa non-occurrence dans d'autres observations.}{\citep[p. 332]{RSI2010}}
 
-\entry{Inférence}{\citep{KKV1994}}{Le processus d'utilisation des faits que nous connaissons pour en apprendre sur les faits que nous ne connaissons pas.}
+\entry{Indicateur}{Définition à trouver (not in VAB, not satisfying in RSI, not in KKV, maybe Imai}{}
 
-\entry{Inférence causale}{\citep{RSI2010}}{Le processus de tirer des conclusions sur la causalité sur la base des données observées.}
+\entry{Inférence}{Le processus d'utilisation des faits que nous connaissons pour en apprendre sur les faits que nous ne connaissons pas.}{\citep[p. 46]{KKV1994}}
 
-\entry{Inférence causale, le problème fondamentale de}{\citep{RSI2010}}{Le problème critique de l'inférence causale selon de nombreux philosophes des sciences. Étant donné une définition contrefactuelle de la causalité, le problème est que - pour un cas donné à un moment donné - le chercheur peut observer soit la \emph{présence} de la cause, soit l'\emph{absence} de la cause, mais pas les deux. Par conséquent, le chercheur ne pourra jamais faire les comparaisons qui répondent directement aux critères de la définition contrefactuelle de la causalité, et doit plutôt se tourner vers des comparaisons imparfaites entre des cas du monde réel.}
+\entry{Inférence causale}{Le processus de tirer des conclusions sur la causalité sur la base des données observées.}{\citep[p. 317]{RSI2010}}
 
-\entry{Inférence descriptive}{\citep{RSI2010}}{Le processus de parvenir à des conclusions descriptives sur la base de données observées. Cela peut impliquer l'utilisation d'informations inévitablement partielles ou imparfaites sur le monde réel pour faire des inférences sur un concept, ou cela peut impliquer l'utilisation de ces informations pour caractériser un ensemble plus large de cas.}
+\entry{Inférence causale, le problème fondamentale de}{Le problème critique de l'inférence causale selon de nombreux philosophes des sciences. Étant donné une définition contrefactuelle de la causalité, le problème est que - pour un cas donné à un moment donné - le chercheur peut observer soit la \emph{présence} de la cause, soit l'\emph{absence} de la cause, mais pas les deux. Par conséquent, le chercheur ne pourra jamais faire les comparaisons qui répondent directement aux critères de la définition contrefactuelle de la causalité, et doit plutôt se tourner vers des comparaisons imparfaites entre des cas du monde réel.}{\citep[p. 317]{RSI2010}}
+
+\entry{Inférence descriptive}{Le processus de parvenir à des conclusions descriptives sur la base de données observées. Cela peut impliquer l'utilisation d'informations inévitablement partielles ou imparfaites sur le monde réel pour faire des inférences sur un concept, ou cela peut impliquer l'utilisation de ces informations pour caractériser un ensemble plus large de cas.}{\citep[p. 325-26]{RSI2010}}
+
+\entry{Inférence statistique}{Le processus scientifique qui consiste à former un jugement sur les caractéristiques d'une \textbf{population} à partir des caractéristiques d'un \textbf{échantillon}. L'inférence statistique est une forme d'extrapolation, qui permet au chercheur d'étudier un nombre limité d'observations pour tirer des conclusions au sujet d'un plus grand groupe.}{\citep[p. 61]{VAB2020}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION J
@@ -156,6 +215,8 @@
 %----------------------------------------------------------------------------------------
 \section*{M}
 
+\entry{Mesure}{Processus permettant d'établir des observations empiriques reliées à un concept donné. Un \textbf{indicateur} est une procédure spécifique de mesure. (Not in VAB, maybe better in Imai)}{\citep[p. 337]{RSI2010}}
+
 %----------------------------------------------------------------------------------------
 %	SECTION N
 %----------------------------------------------------------------------------------------
@@ -171,9 +232,11 @@
 %----------------------------------------------------------------------------------------
 \section*{P}
 
-\entry{Population}{\citep{RSI2010}}{Voir \textbf{univers des cas}.}
+\entry{Population}{Voir \textbf{univers des cas}.}{\citep[p. 343]{RSI2010}}
 
-\entry{Postulat}{(Dictionnaire à trouver)}{Principe que l’on demande d’admettre comme vrai sans démonstration.}
+\entry{Population}{Ensemble des individus, des objets, ou des phénomènes qui pourraient potentiellement être observés. En général, l'analyste n'aura pas suffisamment de ressources pour observer tous les membres d'une population.}{\citep[p. 61]{VAB2020}}
+
+\entry{Postulat}{Principe que l’on demande d’admettre comme vrai sans démonstration.}{(Dictionnaire à trouver)}
 
 %----------------------------------------------------------------------------------------
 %	SECTION Q
@@ -200,13 +263,24 @@
 %----------------------------------------------------------------------------------------
 \section*{U}
 
-\entry{Univers des cas}{\citep{RSI2010}}{L'univers des cas sur lesquels l'analyse cherche à réaliser une \textbf{inférence}. La recherche peut se concentrer sur un \textbf{échantillon} de cas de cet univers. Alternativement, dans certaines études, l'ensemble des cas analysés est l'univers. L'identification d'une définition conceptuellement et théoriquement appropriée de l'univers à l'étude est une tâche fondamentale de la recherche. L'univers des cas est souvent utilisé de manière interchangeable avec \textbf{population}.}
+\entry{Univers des cas}{L'univers des cas sur lesquels l'analyse cherche à réaliser une \textbf{inférence}. La recherche peut se concentrer sur un \textbf{échantillon} de cas de cet univers. Alternativement, dans certaines études, l'ensemble des cas analysés est l'univers. L'identification d'une définition conceptuellement et théoriquement appropriée de l'univers à l'étude est une tâche fondamentale de la recherche. L'univers des cas est souvent utilisé de manière interchangeable avec \textbf{population}.}{\citep[p. 357]{RSI2010}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION V
 %----------------------------------------------------------------------------------------
 \section*{V}
 
+\entry{Variable}{Une représentation algébrique de l'\textbf{espace échantillonnale}.}{\citep[p. 38-39]{VAB2020}}
+
+\entry{Variable binaire}{Lié à un espace échantillonnale qui comprend seulement deux éléments : vrai/faux, oui/non, 1/0, etc.}{\citep[p. 39]{VAB2020}}
+
+\entry{Variable continue}{Prend n'importe quelle valeur sur un intervalle donné : -3; $\pi$; 4,5; etc.}{\citep[p. 39]{VAB2020}}
+
+\entry{Variable de dénombrement}{Comprend des nombres entiers non négatifs : nombre d'accident de travail dans une usine, le nombre de pommes dans un pommier, etc.}{\citep[p. 39]{VAB2020}}
+
+\entry{Variable nominale}{Représente des catégories de données de façon \textbf{non ordonnées} : Bleu, Jaune, Rouge.}{\citep[p. 39]{VAB2020}}
+
+\entry{Variable ordinale}{Représente des catégories de données : Tout à fait d'accord, D'accord, Neutre, Pas d'accord, Pas du tout d'accord. La distance entre les catégories n'est pas nécessairement la même.}{\citep[p. 39]{VAB2020}}
 %----------------------------------------------------------------------------------------
 %	SECTION W
 %----------------------------------------------------------------------------------------
@@ -226,7 +300,7 @@
 %	SECTION Z
 %----------------------------------------------------------------------------------------
 \section*{Z}
-
+\end{multicols}
 
 \section{Bibliographie}
 \begingroup
