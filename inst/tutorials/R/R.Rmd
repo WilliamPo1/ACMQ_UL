@@ -782,7 +782,7 @@ En utilisant la fonction `ifelse`, indiquez les cérérales qui contiennent 260 
 ifelse(uscereal$calories >= 260, uscereal$calories, NA)
 ```
 
-
+<!--
 ## Le `tidyverse`
 
 Lorsqu'un utilisateur installe la librairie `tidyverse`, `R` installe automatiquement une longue liste d'autres librairies utiles. Celles-ci sont unies par le design et la philosophie développés par le statisticien Hadley Wickham. Le `tidyverse` offre un large éventail de fonctions. Pour ce livre, il suffit d'en considérer sept: `%>%`, `select`, `filter`, `arrange`, `mutate`, `summarize`, et `group_by`.
@@ -820,7 +820,7 @@ Si l'analyste veut modifier une variable (ou un data.frame) à l'aide de l'opér
 x <- x %>% sqrt
 x
 ```
-
+-->
 
 <!--
 Maintenant, imaginez que l'analyste s'intéresse aux colonnes "Lettre" et "Logique", mais seulement pour les observations où "Nombre" est plus petit que 5:
@@ -837,6 +837,7 @@ dat %>% filter(Logique == FALSE) %>%
         summarize(Nombre_Moyenne = mean(Nombre))
 ```
 -->
+<!--
 ### Choix de colonnes -- *`select`*
 
 La fonction `select` sert à choisir et à renommer les colonnes qui nous intéressent:
@@ -1018,3 +1019,4 @@ for (i in 1:4) {
 
 x
 ```
+-->
