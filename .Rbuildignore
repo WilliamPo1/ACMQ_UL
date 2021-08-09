@@ -1,2 +1,6 @@
 ^LICENSE\.md$
 ^inst/tutorials/R\.Rmd$
+^glossaire\.Rmd$
+^glossaire\.pdf$
+^glossaire\.tex$
+^glossaire\.bib$
