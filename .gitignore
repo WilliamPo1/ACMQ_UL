@@ -47,7 +47,7 @@ table.csv
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-#*.pdf
+*.pdf
 #*.png
 #*.jpg
 
