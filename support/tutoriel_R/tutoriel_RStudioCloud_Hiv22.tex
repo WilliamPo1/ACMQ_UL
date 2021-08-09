@@ -1,0 +1,205 @@
+\documentclass[10.5pt,a4paper]{article} 
+\usepackage[utf8]{inputenc}  
+
+\usepackage[T1]{fontenc} 
+\usepackage[light]{merriweather} 
+%\usepackage{ulem}
+\usepackage{setspace} 
+\usepackage[hang]{footmisc} 
+\renewcommand{\footnotesize}{\scriptsize} 
+\usepackage[hyphens]{url}\urlstyle{same} 
+\usepackage[hidelinks]{hyperref} 
+% e-mail
+\usepackage{etoolbox}
+\makeatletter
+\newcommand\myemail[3]{%                %\newcommand\tpj@compose@mailto[3]{%
+\edef\@tempa{mailto:#1?subject=#2 }%
+\edef\@tempb{\expandafter\html@spaces\@tempa\@empty}%
+\href{\@tempb}{#3}}
+\catcode\%=11
+\def\html@spaces#1 #2{#1%20\ifx#2\@empty\else\expandafter\html@spaces\fi#2}
+\catcode\%=14
+\makeatother
+% Colour
+\usepackage{xcolor}
+\definecolor{rstudio}{HTML}{4b84b7}
+\definecolor{cloud}{HTML}{e4eef8}
+\hypersetup{breaklinks=true} 
+\Urlmuskip=0mu plus 1mu\relax 
+\usepackage[margin=2.5cm]{geometry} 
+\usepackage{fancyhdr} % Required for modifying headers and footers
+\fancyhead[L]{} % Top left header
+\fancyhead[R]{} % Top right header
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
+\fancyfoot[C]{\textbf{\thepage}} % Bottom center footer
+\renewcommand{\footrulewidth}{1.4pt} % Rule under the footer
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+
+
+\usepackage{lipsum,afterpage}
+\usepackage{dirtytalk} 
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+\usepackage {parskip}
+\usepackage{epigraph}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\pagenumbering{arabic} 
+\usepackage{ntheorem}
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand\thesubhyp{\thehyp.\alph{subhyp}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[bf,sf]{titlesec}
+
+\renewcommand{\refname}{Bibliography}
+%\setcounter{secnumdepth}{0}
+\usepackage[autostyle]{csquotes}
+\usepackage{enumitem} % to remove vspace for itemize with [noitemsep]
+
+\usepackage{xparse}
+\ExplSyntaxOn
+
+\makeatletter
+\NewDocumentCommand{\multicitep}{m}
+ {
+  \NAT@open
+  \mjb_multicitep:n { #1 }
+  \NAT@close
+ }
+\makeatother
+\seq_new:N \l_mjb_multicite_in_seq
+\seq_new:N \l_mjb_multicite_out_seq
+\seq_new:N \l_mjb_cite_seq
+
+\cs_new_protected:Npn \mjb_multicitep:n #1
+ {
+  \seq_set_split:Nnn \l_mjb_multicite_in_seq { ; } { #1 }
+  \seq_clear:N \l_mjb_multicite_out_seq
+  \seq_map_inline:Nn \l_mjb_multicite_in_seq
+   {
+    \mjb_cite_process:n { ##1 }
+   }
+  \seq_use:Nn \l_mjb_multicite_out_seq { ;~ }
+ }
+
+\cs_new_protected:Npn \mjb_cite_process:n #1
+ {
+  \seq_set_split:Nnn \l_mjb_cite_seq { , } { #1 }
+  \int_compare:nTF { \seq_count:N \l_mjb_cite_seq == 1 }
+   {
+    \seq_put_right:Nn \l_mjb_multicite_out_seq
+     { \citeauthor{#1},~\citeyear{#1} }
+   }
+   {
+    \seq_put_right:Nx \l_mjb_multicite_out_seq
+     {
+      \exp_not:N \citeauthor{\seq_item:Nn \l_mjb_cite_seq { 1 }},~
+      \exp_not:N \citeyear{\seq_item:Nn \l_mjb_cite_seq { 1 }},~
+      \seq_item:Nn \l_mjb_cite_seq { 2 }
+     }
+   }
+ }
+\ExplSyntaxOff
+
+\title{Utiliser \textbf{\emph{RStudio Cloud}} pour les nuls}
+\author{William Poirier, Université Laval}
+\date{POL-2000 -- Août 2021}
+
+\begin{document} 
+
+% ----------------------------------------------------------------
+\begin{titlepage}
+\newgeometry{left=7.5cm} %defines the geometry for the titlepage
+\pagecolor{rstudio}
+\noindent
+\includegraphics[width=13.6cm]{cloud.jpg}\\[-1em]
+\color{cloud}
+\makebox[0pt][l]{\rule{1.4\textwidth}{2pt}}
+\par
+\noindent
+\color{white}
+\textbf{Université Laval}
+\vfill
+\noindent
+{\huge Utiliser \textbf{\emph{RStudio Cloud}} pour les nuls}
+\vskip\baselineskip
+\noindent
+POL-2000 -- Août 2021
+\end{titlepage}
+\restoregeometry % restores the geometry
+\nopagecolor% Use this to restore the color pages to white
+% ----------------------------------------------------------------
+
+\tableofcontents
+
+\pagebreak
+
+\section{C'est quoi R?}
+  \subsection{Recomendations}
+Something\footnote{Tutoriel basé sur le travail de Vincent Arel-Bundock, Yannick Dufresne, et Florence Vallée-Dubois}
+\section{R vs RStudio vs RStudio Cloud}
+
+\section{RStudio Cloud - La base}
+  \subsection{Connexion}
+  \subsection{Interface}
+  \subsection{Projets}
+
+\section{Commandes de base}
+  \subsection{Workflow}
+    \subsubsection{Arborescence}
+    \subsubsection{Commentaires}
+    \subsubsection{Raccourcis clavier}
+  \subsection{Mathématiques}
+    \subsubsection{Calculatrice}
+    \subsubsection{Calculatrice+ (table,mean,sd,var etc.}
+    \subsubsection{Opérateurs de comparaison}
+
+
+\section{Intro à la programmation en R}
+  \subsection{Ça va bien aller}
+  \subsection{L'assignation d'objets}
+    \subsubsection{Un peu de vocabulaire}
+  \subsection{Les types d'objets}
+    \subsubsection{Classes d'éléments}
+    \subsubsection{Constante}
+    \subsubsection{Vecteurs}
+    \subsubsection{Dataframe}
+  \subsection{Normes d'assignation - C'est pour votre bien}
+
+  
+\section{Importation de données}
+  \subsection{Logique de projet RStudio Cloud}
+  \subsection{Type de fichier}
+  \subsection{Domestication}
+
+  
+\section{Analyse - Description}
+  \subsection{Univariée}
+  \subsection{Bivariée}
+  \subsection{Visualisation}
+
+
+\section{Analyse - Régression}
+  \subsection{Linéaire}
+  \subsection{Linéaire multiple}
+
+  
+\section{Pour aller plus loins}
+ 
+%\section{Bibliographie}
+%\begingroup
+%\renewcommand{\section}[2]{}
+%\bibliographystyle{apacite}
+%\bibliography{mybibfile.bib}
+%\vspace{10cm}
+%\endgroup
+
+\end{document}
