@@ -102,26 +102,28 @@ getwd()
 Pour fixer le dossier de travail, il faut utiliser la commande `setwd`. Par exemple, si les banques de données avec lesquelles nous voulons travailler ont été sauvegardées sur le "bureau" d'un ordinateur Apple, la commande ressemblerait à:
 
 ```{r, eval = FALSE}
-setwd("/Users/arelbundock/Desktop")
+setwd("/Users/nomDelaSession/nomDuDossier/nomDuSousDossier")
 ```
 
 Sur un ordinateur Windows, la commande serait plutôt:
 
 ```{r, eval = FALSE}
-setwd("C:/Users/arelbundock/Desktop")
+setwd("C:/Users/nomDelaSession/nomDuSousDossier")
 ```
 
 Dans les commandes ci-haut, il est important de noter l'utilisation précise des guillemets et des barres obliques penchées vers l'avant. Évidemment, chaque utilisateur devra modifier les chemins de fichier pour pointer vers l'endroit approprié sur son disque dur.
 
 Il existe plusieurs types de fichiers pour sauvegarder et partager les bases de données. `R` peut lire la plupart d'entre eux. Le menu déroulant de `RStudio` permet de lire plusieurs types de banque de données en mémoire automatiquement. Il est aussi possible de lire les données manuellement avec les commandes de base du logiciel `R` (e.g., `read.csv`), ou avec la commande `import` de la librairie `rio`, qui permet d'importer facilement des données sauvegardées dans plus de 30 formats différents.
 
-Un des formats de sauvegarde les plus populaires est le CSV, un fichier texte bien adapté pour les bases de données de petite à moyenne taille (e.g., moins de 1 000 000 de rangées). Le fichier `titanic.csv` contient des informations sur les passagers à bord du Titanic lors de son dernier voyage. Pour lire cette banque de données et la transformer en data frame, nous utilisons la fonction `read.csv`:
+Un des formats de sauvegarde les plus populaires est le CSV (*Comma Separated Values*, littéralement valeurs séparées par des virgules), un fichier texte bien adapté pour les bases de données de petite à moyenne taille (e.g., moins de 1 000 000 de rangées). Le fichier `titanic.csv` contient des informations sur les passagers à bord du Titanic lors de son dernier voyage. Pour lire cette banque de données et la transformer en data frame, nous utilisons la fonction `read.csv`:
 
 ```{r, eval = FALSE, echo=TRUE}
-url <- 'https://raw.githubusercontent.com/vincentarelbundock/ACMQ/master/inst/tutorials/R/data/titanic.csv'
+url <- 'https://raw.githubusercontent.com/WilliamPo1/ACMQ_UL/master/inst/tutorials/R/data/titanic.csv'
 titanic <- read.csv(url)
 head(titanic)
 ```
+
+ATTENTION! Dans le cadre du cours, les exercices et devoirs que vous aurez à faire contiendront déjà les données nécessaires à leur réalisation. Vous n'aurez donc pas, en temps normal, à changer d'arborescence. 
 
 ## Types de données 
 
