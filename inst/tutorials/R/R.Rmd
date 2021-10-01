@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Installation
 
-Pour analyser des données avec `R`, je vous recommande d'installer trois logiciels complémentaires. Premièrement, il est essentiel d'installer le langage de programmation et les outils de calcul de `R`. Ces outils peuvent être installés sur des ordinateurs Windows, Mac, ou Linux. Ils sont disponibles gratuitement sur le site web de l'organisation `R`: 
+Pour les étudiants comptant poursuivre leurs études au cycle suppérieur, je vous recommande d'installer trois logiciels directement sur votre ordinateur. Premièrement,le langage de programmation lui-même et les ses outils de calcul. Ces outils peuvent être installés sur des ordinateurs Windows, Mac, ou Linux. Ils sont disponibles gratuitement sur le site web de l'organisation `R`: 
 
 * <https://cran.r-project.org/>
 
@@ -26,6 +26,8 @@ Deuxièmement, les utilisateurs Windows voudront installer `Rtools`. Ce logiciel
 Troisièmement, il est utile d'installer l'interface graphique `RStudio`. Ce logiciel est développé par une compagnie privée qui rend disponible une version gratuite en libre accès:
 
 * <https://www.rstudio.com>
+
+ATTENTION! Dans le cadre du cours, je vous le rappel, nous utiliserons `RStudio Cloud`. 
 
 ## Interface graphique
 
@@ -54,6 +56,70 @@ Chaque commande du langage `R` est accompagnée d'un manuel d'instruction. Pour 
 \end{framed}
 \end{figure}
 
+
+## Librairies externes
+
+Le plus grand avantage du logiciel en libre accès `R`, est qu'une vaste communauté scientifique développe des logiciels en libre accès pour bonifier les fonctions de base du langage. Les utilisateurs peuvent facilement télécharger ces librairies, et ainsi bénéficier des outils spécialisés créés par des milliers de programmeurs bénévoles.
+
+Par exemple, la librairie `ggplot2` dessine de superbes graphiques statistiques, et `gganimate` met ces graphiques en mouvement; `haven` lit plusieurs types de bases de données, dont celles produites par les logiciels Stata, SPSS, et SAS; `quanteda` facilite l'analyse quantitative de textes; et `modelsummary` produit de beaux tableaux pour résumer plusieurs modèles statistiques côte-à-côte; `skimr` produit d'utiles résumés des données. Plusieurs librairies permettent de télécharger facilement des données, dont `quantmod` pour les données financières, `WDI` pour les données de la banque mondiale, et `rvest` pour les données qui doivent être moissonnées à partir du web. `R` a aussi de nombreuses librairies pour analyser les données spatiales, pour faire de l'analyse de réseau, de la cartographie, etc.
+
+Pour télécharger et installer ces librairies, il faut utiliser la fonction `install.packages`. Dans le contexte de ce livre, nous utiliserons cinq librairies, en plus des commandes de base. 
+
+Vous pouvez maintenant installer les librairies nécessaires pour compléter le livre ACMQ en copiant le code suivant dans la fenêtre "Console" de `RStudio`. Cette opération peut prendre quelques minutes:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages('tidyverse')
+install.packages('prediction')
+install.packages('margins')
+install.packages('mediation')
+install.packages('lme4')
+```
+
+Pour activer une librairie et gagner accès à ses fonctions et commandes, il faut exécuter la commande `library`:
+
+```{r, eval=FALSE, echo=TRUE}
+library('tidyverse')
+library('prediction')
+library('margins')
+library('mediation')
+library('lme4')
+```
+
+Lorsque les librairies ont été installées une fois, elles le reste. Il est donc inutile de réinstaller une librairie à chaque séance de travail. Par contre, à chaque fois que vous ouvrez `R`, il faudra à nouveau activer les librairies dont vous avez besoin avec la commande `library`.
+
+## Importer des données
+
+Avant d'importer des données dans `R`, nous devons dire au logiciel dans quel dossier nous désirons travailler sur le disque dur. C'est là où `R` cherchera les banques de données existantes, et c'est là où `R` sauvegardera nos nouveaux résultats.
+
+Pour connaître le dossier de travail actuel, tapez:
+
+```{r, eval=FALSE}
+getwd()
+```
+
+Pour fixer le dossier de travail, il faut utiliser la commande `setwd`. Par exemple, si les banques de données avec lesquelles nous voulons travailler ont été sauvegardées sur le "bureau" d'un ordinateur Apple, la commande ressemblerait à:
+
+```{r, eval = FALSE}
+setwd("/Users/arelbundock/Desktop")
+```
+
+Sur un ordinateur Windows, la commande serait plutôt:
+
+```{r, eval = FALSE}
+setwd("C:/Users/arelbundock/Desktop")
+```
+
+Dans les commandes ci-haut, il est important de noter l'utilisation précise des guillemets et des barres obliques penchées vers l'avant. Évidemment, chaque utilisateur devra modifier les chemins de fichier pour pointer vers l'endroit approprié sur son disque dur.
+
+Il existe plusieurs types de fichiers pour sauvegarder et partager les bases de données. `R` peut lire la plupart d'entre eux. Le menu déroulant de `RStudio` permet de lire plusieurs types de banque de données en mémoire automatiquement. Il est aussi possible de lire les données manuellement avec les commandes de base du logiciel `R` (e.g., `read.csv`), ou avec la commande `import` de la librairie `rio`, qui permet d'importer facilement des données sauvegardées dans plus de 30 formats différents.
+
+Un des formats de sauvegarde les plus populaires est le CSV, un fichier texte bien adapté pour les bases de données de petite à moyenne taille (e.g., moins de 1 000 000 de rangées). Le fichier `titanic.csv` contient des informations sur les passagers à bord du Titanic lors de son dernier voyage. Pour lire cette banque de données et la transformer en data frame, nous utilisons la fonction `read.csv`:
+
+```{r, eval = FALSE, echo=TRUE}
+url <- 'https://raw.githubusercontent.com/vincentarelbundock/ACMQ/master/inst/tutorials/R/data/titanic.csv'
+titanic <- read.csv(url)
+head(titanic)
+```
 
 ## Types de données 
 
@@ -682,5 +748,3 @@ En utilisant la fonction `ifelse`, indiquez les cérérales qui contiennent 260 
 ```{r superieur-solution}
 ifelse(uscereal$calories >= 260, uscereal$calories, NA)
 ```
-
-
