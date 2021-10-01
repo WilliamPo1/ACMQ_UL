@@ -15,6 +15,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Installation
 
+Typiquement, pour analyser des données avec `R`, il est nécessaire d’installer trois logiciels complémentaires. Or, aux fins de ce cours, il est uniquement nécessaire de créer un compte `RStudio Cloud`. Ceci est un programme infonuagique qui permet de faire l’analyse de données sans avoir à télécharger des programmes sur votre ordinateur personnel. Tous les travaux et exercices avec R dans ce cours se feront à partir de `RStudio Cloud`.
+
+Pour créer votre compte, cliquez [ici](https://login.rstudio.cloud/register?redirect=https%3A%2F%2Fclient.login.rstudio.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0%26show_setup%3D0).
+
+Une fois que votre compte est créé, cliquez sur ce lien (à venir) pour accéder au *Workspace* du cours. Tous les exercices et travaux pratiques s’y trouvent.
+
 Pour les étudiants comptant poursuivre leurs études au cycle supérieur, je vous recommande d'installer trois logiciels directement sur votre ordinateur. Premièrement,le langage de programmation lui-même et les ses outils de calcul. Ces outils peuvent être installés sur des ordinateurs Windows, Mac, ou Linux. Ils sont disponibles gratuitement sur le site web de l'organisation `R`: 
 
 * <https://cran.r-project.org/>
