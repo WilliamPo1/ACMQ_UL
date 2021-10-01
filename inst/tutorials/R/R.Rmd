@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Installation
 
-Pour les étudiants comptant poursuivre leurs études au cycle suppérieur, je vous recommande d'installer trois logiciels directement sur votre ordinateur. Premièrement,le langage de programmation lui-même et les ses outils de calcul. Ces outils peuvent être installés sur des ordinateurs Windows, Mac, ou Linux. Ils sont disponibles gratuitement sur le site web de l'organisation `R`: 
+Pour les étudiants comptant poursuivre leurs études au cycle supérieur, je vous recommande d'installer trois logiciels directement sur votre ordinateur. Premièrement,le langage de programmation lui-même et les ses outils de calcul. Ces outils peuvent être installés sur des ordinateurs Windows, Mac, ou Linux. Ils sont disponibles gratuitement sur le site web de l'organisation `R`: 
 
 * <https://cran.r-project.org/>
 
@@ -27,7 +27,7 @@ Troisièmement, il est utile d'installer l'interface graphique `RStudio`. Ce log
 
 * <https://www.rstudio.com>
 
-ATTENTION! Dans le cadre du cours, je vous le rappel, nous utiliserons `RStudio Cloud`. 
+ATTENTION! Dans le cadre du cours, je vous le rappelle, nous utiliserons `RStudio Cloud`. 
 
 ## Interface graphique
 
@@ -86,6 +86,8 @@ library('lme4')
 ```
 
 Lorsque les librairies ont été installées une fois, elles le reste. Il est donc inutile de réinstaller une librairie à chaque séance de travail. Par contre, à chaque fois que vous ouvrez `R`, il faudra à nouveau activer les librairies dont vous avez besoin avec la commande `library`.
+
+ATTENTION! Dans le cadre du cours, les exercices et devoirs que vous aurez à faire contiendront déjà les librairies nécessaires à leur réalisation. Vous n'aurez donc pas, en temps normal, à ajouter des libraires au code. 
 
 ## Importer des données
 
