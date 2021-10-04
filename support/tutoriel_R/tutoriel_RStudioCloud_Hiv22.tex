@@ -27,7 +27,7 @@
 \catcode\%=14
 \makeatother
 % Colour
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 \definecolor{rstudio}{HTML}{4b84b7}
 \definecolor{cloud}{HTML}{e4eef8}
 
@@ -70,6 +70,17 @@
 %\setcounter{secnumdepth}{0}
 \usepackage[autostyle]{csquotes}
 \usepackage{enumitem} % to remove vspace for itemize with [noitemsep]
+
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,_,/},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{Chocolate},
+    commentstyle=\color{DarkSlateGrey}
+}
 
 \usepackage{xparse}
 \ExplSyntaxOn
@@ -127,7 +138,7 @@
 \newgeometry{left=7.5cm} %defines the geometry for the titlepage
 \pagecolor{rstudio}
 \noindent
-\includegraphics[width=13.6cm]{cloud.jpg}\\[-1em]
+\includegraphics[width=13.6cm]{_graphs/cloud.jpg}\\[-1em]
 \color{cloud}
 \makebox[0pt][l]{\rule{1.4\textwidth}{2pt}}
 \par
@@ -193,13 +204,13 @@ Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programm
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{login.png}
+  \includegraphics[width=1\linewidth]{_graphs/login.png}
   \caption{Création du compte}
   \label{login}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{workspace.png}
+  \includegraphics[width=1\linewidth]{_graphs/workspace.png}
   \caption{Inscription à l'environnement}
   \label{workspace}
 \end{subfigure}
@@ -208,11 +219,79 @@ Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programm
 \end{figure}
   
   \subsection{Interface}
-  \subsection{Projets}
+  \textbf{RStudio Cloud} a deux interfaces, l'interface des espaces de travail et l'interface des projets. L'interface des espaces de travail est la première chose que vous rencontrez en vous connectant à \textbf{RStudio Cloud}. C'est ce qui vous permet de vous déplacer d'un projet à l'autre et d'un espace de travail à l'autre. La section \emph{menu} de cette interface offre aussi plusieurs liens à des ressources externes sur 1) l'utilisation de \textbf{RStudio Cloud}, 2) l'utilisation de \textbf{R} et 3) de ses \emph{packages} les plus populaires. Les figures \ref{home} et \ref{homeMenu} présentent un aperçu de l'interface des espaces de travail de \textbf{RStudio Cloud} et ses principaux points d'intérêt.
+  
+\begin{figure}[H]
+  \centering
+  \fbox{\includegraphics[width=1\linewidth]{_graphs/firstpage.png}}
+  \caption{Page d'accueil}
+  \label{home}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\includegraphics[width=1\linewidth]{_graphs/firstpage.png}}
+  \caption{Menu d'accueil}
+  \label{homeMenu}
+\end{figure}
+
+  La seconde interface est celle qui nous intéresse le plus, c'est où vous écrirez et exécuterez votre code. La figure \ref{rstudio1} présente les points d'intérêts les plus importants. L'\emph{environnement} contiendra les bases de données que vous importerez ainsi que tous les objets créés lors de la session\footnote{Ici, \emph{session} fait référence à la période de travail sur \textbf{RStudio Cloud}.}. Vous pouvez avoir accès à vos dossiers, les librairies utilisées, un aperçus des graphiques produits ainsi qu'à de l'aide dans la fenêtre en bas à droite. La plus grande fenêtre par défaut est celle contenant la console. La \textbf{console} est un environnement d'exécution directe. En d'autres mots, vous pouvez y écrire des commendes qui seront exécutées immédiatement. C'est utile pour faire des tests et exécuter de petite manipulation. Or, la \textbf{console} n'enregistre pas la suite de commende que vous lui demander de faire, ce n'est pas son rôle. Pour ce faire, il faut ouvrir l'\textbf{éditeur} tel que spécifié par la figure \ref{rstudio1}. L'\textbf{éditeur} c'est où l'on écrit un script (une suite de commandes permettant d'atteindre un but quelconque, comme la production d'un graphique) afin qu'il puisse être enregistré et réutilisé.  
+  
+\begin{figure}[H]
+  \centering
+  \fbox{\includegraphics[width=0.98\linewidth]{_graphs/rstudio1.png}}
+  \caption{État par défaut}
+  \label{rstudio1}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\includegraphics[width=0.98\linewidth]{_graphs/rstudio2.png}}
+  \caption{Début de la personnalisation}
+  \label{rstudio2}
+\end{figure}
+
+Avant d'entrer dans la syntaxe d'utilisation de \textbf{R}, je recommande fortement la personnalisation de votre environnement. Non seulement cela vous permettra d'avoir une expérience esthétique plus agréable, cela vous aidera à long terme à reconnaître les structures du langage. Les figures \ref{rstudio2} et \ref{rstudio3} montrent comment accéder aux options de l'environnement global. Vous y trouverez ma mise en place préférée. Je tends à préférer coder sur fond plus foncé, mais je vous encourage à explorer les options et à trouver ce qui vous correspond le mieux. C'est pour vos yeux, pas ceux de l'équipe d'enseignement. 
+
+\begin{figure}[H]
+  \centering
+  \fbox{\includegraphics[width=0.98\linewidth]{_graphs/rstudio3.png}}
+  \caption{Fin de la personnalisation}
+  \label{rstudio3}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\includegraphics[width=0.98\linewidth]{_graphs/rstudio4.png}}
+  \caption{Votre première ligne de code!}
+  \label{rstudio4}
+\end{figure}
+
 
 \section{Hello World}
+
+Vous vous apprêtez désormais à écrire votre première ligne de code. Allez dans l'éditeur, et tapez la commande suivante :
+\begin{lstlisting}
+> print("Hello World")
+\end{lstlisting}
+À présent, il faut l'exécuter. Pour ce faire, sélectionnez la ligne, puis cliquez sur le bouton \textit{\textbf{RUN}} en haut à droite. La figure \ref{rstudio4} vous montre un exemple. Remarquez que le résultat s'affiche dans la console en bas. C'est sa deuxième utilité. La console vous indique les résultats des commandes que vous exécutez à partir de l'éditeur. Félicitation, vous êtes désormais des programmeurs, le fun peu commencer! 
+
   \subsection{Workflow}
+  
+  Un facteur important en prendre en considération lorsque l'on programme ou que l'on gère des bases de données, c'est l'organisation de notre «\emph{flux de travail}». Plusieurs facteurs sont à prendre en considération lorsque l'on veut optimiser son travail. Nous aborderons les principaux dans cette section.
+  
     \subsubsection{Arborescence}
+    Si vous avez lu le titre de la section et que vous ne savez pas ce à quoi nous faisons référence, ne vous inquiétiez pas, la plupart des gens utilisent l'arborescence de leur ordinateur sans s'en rendre compte. C'est tout simplement le chemin par lequel vous (ou votre ordinateur) doit passer pour accéder à un fichier. Comme quand vous voulez retrouver un vieux travail, votre ordinateur doit connaître où se trouvent les fichiers que vous mobilisez dans votre script. Pour se faire, il faut établir le «répertoire de travail» (\emph{working directory}) de la session \textbf{R}. On utilise alors la fonction \texttt{setwd()} et on y inscrit l'arborescence (le chemin) :
+    
+    \begin{lstlisting}
+    # Pour les Mac
+    > setwd("/Users/nomDelaSession/nomDuDossier/nomDuSousDossier")
+    # Pour les PC
+    > setwd("C:/Users/nomDelaSession/nomDuSousDossier")
+    \end{lstlisting}
+    
+    Remarquez la façon dont l'arborescence est écrit. Chaque dossier est suivi d'une barre oblique (/) et d'un sous-dossier. C'est donc important de bien organiser les dossiers de sorte à éviter de devoir changer de répertoire de travail trop souvent. L'idéal c'est de référer à un dossier général contenant les dossiers spécifiques. Par exemple, vous pourriez avoir un dossier \texttt{ElectionFed21} qui contient un dossier \texttt{codeR}, un dossier \texttt{graphs} et un dossier \texttt{Data}. 
+    
     \subsubsection{Commentaires}
     \subsubsection{Raccourcis clavier}
   \subsection{Mathématiques}
