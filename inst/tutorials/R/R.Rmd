@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Typiquement, pour analyser des données avec `R`, il est nécessaire d’installer trois logiciels complémentaires. Or, aux fins de ce cours, il est uniquement nécessaire de créer un compte `RStudio Cloud`. Ceci est un programme infonuagique qui permet de faire l’analyse de données sans avoir à télécharger des programmes sur votre ordinateur personnel. Tous les travaux et exercices avec R dans ce cours se feront à partir de `RStudio Cloud`.
 
-Pour créer votre compte, cliquez [ici](https://login.rstudio.cloud/register?redirect=https%3A%2F%2Fclient.login.rstudio.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D0%26show_setup%3D0).
+Pour créer votre compte, cliquez [ici](https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogin.rstudio.cloud%2Finvite%3Fspace_name%3DPOL%2B2000-Z%2BM%25C3%25A9thodes%2Bquantitatives%26code%3D9tltN%252ByVLqitCL1rVgCB%252F%252B0V8rk0Wtqxp%252Fl6uW8J&amp;data=04%7C01%7Cwilliam.poirier.1%40ulaval.ca%7C9119a0b3a3fa4119007208d987439312%7C56778bd56a3f4bd3a26593163e4d5bfe%7C1%7C0%7C637689547430424200%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0&amp;sdata=EMbletbv2%2Bu9%2FKSqkqJbRadybcaee2t2S2%2F8MNRvJgQ%3D&amp;reserved=0).
 
 Une fois que votre compte est créé, cliquez sur ce lien (à venir) pour accéder au *Workspace* du cours. Tous les exercices et travaux pratiques s’y trouvent.
 

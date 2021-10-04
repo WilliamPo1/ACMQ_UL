@@ -1,14 +1,20 @@
 \documentclass[10.5pt,a4paper]{article} 
 \usepackage[utf8]{inputenc}  
 
-\usepackage[T1]{fontenc} 
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
 \usepackage[light]{merriweather} 
 %\usepackage{ulem}
 \usepackage{setspace} 
 \usepackage[hang]{footmisc} 
 \renewcommand{\footnotesize}{\scriptsize} 
 \usepackage[hyphens]{url}\urlstyle{same} 
-\usepackage[hidelinks]{hyperref} 
+\usepackage[colorlinks = true,
+            linkcolor = black,
+            urlcolor  = blue,
+            citecolor = black,
+            anchorcolor = black]{hyperref}
 % e-mail
 \usepackage{etoolbox}
 \makeatletter
@@ -24,7 +30,7 @@
 \usepackage{xcolor}
 \definecolor{rstudio}{HTML}{4b84b7}
 \definecolor{cloud}{HTML}{e4eef8}
-\hypersetup{breaklinks=true} 
+
 \Urlmuskip=0mu plus 1mu\relax 
 \usepackage[margin=2.5cm]{geometry} 
 \usepackage{fancyhdr} % Required for modifying headers and footers
@@ -109,9 +115,9 @@
  }
 \ExplSyntaxOff
 
-\title{Utiliser \textbf{\emph{RStudio Cloud}} pour les nuls}
+\title{\textbf{\emph{RStudio Cloud}} pour les nuls}
 \author{William Poirier, Université Laval}
-\date{POL-2000 -- Août 2021}
+\date{POL-2000 -- Automne 2021}
 
 \begin{document} 
 
@@ -129,10 +135,10 @@
 \textbf{Université Laval}
 \vfill
 \noindent
-{\huge Utiliser \textbf{\emph{RStudio Cloud}} pour les nuls}
+{\huge\textbf{\emph{RStudio Cloud}} pour les nuls}
 \vskip\baselineskip
 \noindent
-POL-2000 -- Août 2021
+POL-2000 -- Automne 2021
 \end{titlepage}
 \restoregeometry % restores the geometry
 \nopagecolor% Use this to restore the color pages to white
@@ -143,16 +149,43 @@ POL-2000 -- Août 2021
 \pagebreak
 
 \section{C'est quoi R?}
-  \subsection{Recomendations}
-Something\footnote{Tutoriel basé sur le travail de Vincent Arel-Bundock, Yannick Dufresne, et Florence Vallée-Dubois}
+Bonjour et bienvenue au cours Pol-2000, ce tutoriel sera votre guide de démarrage ainsi qu'un document de référencement tout au long du cours\footnote{Tutoriel basé sur le travail de Vincent Arel-Bundock, Yannick Dufresne, et Florence Vallée-Dubois}. Le cours ayant pour objectif d'introduire les étudiants de sciences politiques aux méthodes quantitatives et à l'analyse causale en science sociale, nous avons cru bons de vous initier au langage de programmation R. N'ayez crainte, c'est plus simple qu'il n'y paraît et vous en tirerez beaucoup d'avantages. 
+
+Pour la petite histoire, la première version de \textbf{R} a été publiée en 1995 par Ross Ihaka et Robert Gentleman, mais le langage s'inspire des travaux de John Chambers aux laboratoires Bell dans les années 1970. Aujourd'hui, \textbf{R} est un outil d'analyse statistique populaire, tant dans le secteur privé que dans le monde universitaire. \textbf{R} est-ce que l'on appelle un \textit{logiciel libre}, ce qui signifie que son code source est ouvert. Ceci permet à des utilisateurs bénévoles de développer des \textit{packages} (micrologiciel ou librairie de fonctions) qui sont ensuite rendu disponible à la communauté (pour la plupart gratuitement). Ceci fait de \textbf{R} un outil puissant,flexible et public, ce qui le rend particulièrement adapté à la méthode scientifique. 
+
+Le reste du document vous permettra de vous familiariser avec \textbf{R} et son environnement de travail. Nous encourageons donc sa lecture attentive.
+
 \section{R vs RStudio vs RStudio Cloud}
+
+Une distinction importante à effectuer est la différence entre le langage \textbf{R} et l'\textit{IDE}\footnote{\emph{Itegrated development environment} ou environnement de développement intégré.} \textbf{RStudio}. L'\textit{IDE} a pour fonction principale de recevoir le code et de le compiler. En d'autres mots, \textbf{R} c'est la langue que l'on écrit et le papier c'est l'\textit{IDE}. Plusieurs \textit{IDE} existent et il est facile de se perdre dans leurs différents paramètres et fonctionnalités. C'est pourquoi nous imposons l'utilisation de \textbf{RStudio} ou, à proprement parler, de \textbf{RStudio Cloud}. \textbf{RStudio Cloud} est une reproduction de l'environnement \textbf{RStudio} en ligne. De cette façon, tous les étudiants ont accès au même environnement de travail, peu importe l'ordinateur utilisé.  
+
+Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programmation \textbf{R} à partir de l'environnement \textbf{RStudio Cloud}. Cette distinction s'affinera au cours de la session, n'ayez crainte. Pour les plus curieux d'entre-vous, de nombreuses ressources, francophone et anglophone, existent sur internet :
+
+\begin{itemize}
+  \item \href{https://stackoverflow.com}{Stackoverflow}
+    \begin{itemize}
+      \item Google est le meilleur ami des programmeurs. Si vous rencontrez un problème, Google vous fournira sans doute la solution sous la forme d'un \textit{post} sur Stackoverflow. Il s'agit d'un site répertoriant les questions d'utilisateurs concernant la plupart des langages de programmation, incluant \textbf{R}. À la manière du logiciel libre, ce sont les autres utilisateurs du site qui se chargent de répondre avec grande précision. C'est vraiment un outil important. 
+    \end{itemize}
+  \item \href{https://www.r-bloggers.com}{Stackoverflow}
+    \begin{itemize}
+      \item 
+    \end{itemize}
+  \item \href{https://stackoverflow.com}{Stackoverflow}
+    \begin{itemize}
+      \item 
+    \end{itemize}
+  \item \href{https://stackoverflow.com}{Stackoverflow}
+    \begin{itemize}
+      \item 
+    \end{itemize}
+\end{itemize}
 
 \section{RStudio Cloud - La base}
   \subsection{Connexion}
   \subsection{Interface}
   \subsection{Projets}
 
-\section{Commandes de base}
+\section{Hello World}
   \subsection{Workflow}
     \subsubsection{Arborescence}
     \subsubsection{Commentaires}
