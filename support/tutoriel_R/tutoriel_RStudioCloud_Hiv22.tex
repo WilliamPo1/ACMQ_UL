@@ -63,6 +63,7 @@
 \renewcommand\thesubhyp{\thehyp.\alph{subhyp}}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{float}
 \usepackage[bf,sf]{titlesec}
 
 \renewcommand{\refname}{Bibliography}
@@ -166,22 +167,46 @@ Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programm
     \begin{itemize}
       \item Google est le meilleur ami des programmeurs. Si vous rencontrez un problème, Google vous fournira sans doute la solution sous la forme d'un \textit{post} sur Stackoverflow. Il s'agit d'un site répertoriant les questions d'utilisateurs concernant la plupart des langages de programmation, incluant \textbf{R}. À la manière du logiciel libre, ce sont les autres utilisateurs du site qui se chargent de répondre avec grande précision. C'est vraiment un outil important. 
     \end{itemize}
-  \item \href{https://www.r-bloggers.com}{Stackoverflow}
+  \item \href{https://www.r-bloggers.com}{r-bloggers}
     \begin{itemize}
-      \item 
+      \item Pour être informé sur les nouveaux développements de R et de RStudio. Encore une fois, il s'agit d'un point de rencontre de la communauté.
     \end{itemize}
-  \item \href{https://stackoverflow.com}{Stackoverflow}
+  \item \href{https://www.coursera.org}{Coursera}
     \begin{itemize}
-      \item 
+      \item Site de formation en ligne. Les cours ont le format de cours universitaires, mais avec la version gratuite: pas besoin de suivre l’entièreté des plans de cours (ni de remettre les travaux).
     \end{itemize}
-  \item \href{https://stackoverflow.com}{Stackoverflow}
+  \item \href{https://www.datacamp.com}{DataCamp}
     \begin{itemize}
-      \item 
+      \item Similaire à Coursera, DataCamp se concentre sur des exercices pratiques en \textbf{Python}, \textbf{R} et \textbf{SQL}. Avec une approche très pratique, c'est un bon moyen d'accélérer l'intégration de connaissances techniques. 
+    \end{itemize}
+\item \href{https://www.datanovia.com/en/}{Datanovia}
+    \begin{itemize}
+      \item Sous forme de tutoriel et de blogue, Datanovia est une excellente source d'information bilingue, spécialement lorsqu'il s'agit de visualisation de données.
     \end{itemize}
 \end{itemize}
 
-\section{RStudio Cloud - La base}
+\section{RStudio Cloud -- La base}
   \subsection{Connexion}
+  Dans le cadre du cours, nous utiliserons un espace de travail commun. Pour y accéder, veuillez d'abords vous créer un compte \textbf{RStudio Cloud} en cliquant \href{https://login.rstudio.cloud/register?redirect=https\%3A\%2F\%2Fclient.login.rstudio.cloud\%2Foauth\%2Flogin\%3Fshow_auth\%3D0\%26show_login\%3D0\%26show_setup\%3D0}{\textbf{ici}}. Une fois que votre compte est créé, cliquez \href{https://can01.safelinks.protection.outlook.com/?url=https\%3A\%2F\%2Flogin.rstudio.cloud\%2Finvite\%3Fspace_name\%3DPOL\%2B2000-Z\%2BM\%25C3\%25A9thodes\%2Bquantitatives\%26code\%3D9tltN\%252ByVLqitCL1rVgCB\%252F\%252B0V8rk0Wtqxp\%252Fl6uW8J&amp;data=04\%7C01\%7Cwilliam.poirier.1\%40ulaval.ca\%7C9119a0b3a3fa4119007208d987439312\%7C56778bd56a3f4bd3a26593163e4d5bfe\%7C1\%7C0\%7C637689547430424200\%7CUnknown\%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0\%3D\%7C0&amp;sdata=EMbletbv2\%2Bu9\%2FKSqkqJbRadybcaee2t2S2\%2F8MNRvJgQ\%3D&amp;reserved=0}{\textbf{ici}} pour accéder à l'environnement du cours. Tous les exercices et travaux pratiques s’y trouvent.
+  
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{login.png}
+  \caption{Création du compte}
+  \label{login}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{workspace.png}
+  \caption{Inscription à l'environnement}
+  \label{workspace}
+\end{subfigure}
+\caption{Connexion à \textbf{RStudio Cloud}}
+\label{connexion}
+\end{figure}
+  
   \subsection{Interface}
   \subsection{Projets}
 
