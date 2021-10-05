@@ -105,7 +105,7 @@ Pour connaître le dossier de travail actuel, tapez:
 getwd()
 ```
 
-Pour fixer le dossier de travail, il faut utiliser la commande `setwd`. Par exemple, si les banques de données avec lesquelles nous voulons travailler ont été sauvegardées sur le "bureau" d'un ordinateur Apple, la commande ressemblerait à:
+Pour fixer le dossier de travail, il faut utiliser la commande `setwd`. Par exemple, si les banques de données avec lesquelles nous voulons travailler ont été sauvegardées sur un ordinateur Apple, la commande ressemblerait à:
 
 ```{r, eval = FALSE}
 setwd("/Users/nomDelaSession/nomDuDossier/nomDuSousDossier")

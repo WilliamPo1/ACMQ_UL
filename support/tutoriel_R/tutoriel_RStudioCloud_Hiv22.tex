@@ -235,7 +235,7 @@ Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programm
   \label{homeMenu}
 \end{figure}
 
-  La seconde interface est celle qui nous intéresse le plus, c'est où vous écrirez et exécuterez votre code. La figure \ref{rstudio1} présente les points d'intérêts les plus importants. L'\emph{environnement} contiendra les bases de données que vous importerez ainsi que tous les objets créés lors de la session\footnote{Ici, \emph{session} fait référence à la période de travail sur \textbf{RStudio Cloud}.}. Vous pouvez avoir accès à vos dossiers, les librairies utilisées, un aperçus des graphiques produits ainsi qu'à de l'aide dans la fenêtre en bas à droite. La plus grande fenêtre par défaut est celle contenant la console. La \textbf{console} est un environnement d'exécution directe. En d'autres mots, vous pouvez y écrire des commendes qui seront exécutées immédiatement. C'est utile pour faire des tests et exécuter de petite manipulation. Or, la \textbf{console} n'enregistre pas la suite de commende que vous lui demander de faire, ce n'est pas son rôle. Pour ce faire, il faut ouvrir l'\textbf{éditeur} tel que spécifié par la figure \ref{rstudio1}. L'\textbf{éditeur} c'est où l'on écrit un script (une suite de commandes permettant d'atteindre un but quelconque, comme la production d'un graphique) afin qu'il puisse être enregistré et réutilisé.  
+  La seconde interface est celle qui nous intéresse le plus, c'est où vous écrirez et exécuterez votre code. La figure \ref{rstudio1} présente les points d'intérêts les plus importants. L'\emph{environnement} contiendra les bases de données que vous importerez ainsi que tous les objets créés lors de la session\footnote{Ici, \emph{session} fait référence à la période de travail sur \textbf{RStudio Cloud}.}. Vous pouvez avoir accès à vos dossiers, les librairies utilisées, un aperçus des graphiques produits ainsi qu'à de l'aide dans la fenêtre en bas à droite. La plus grande fenêtre par défaut est celle contenant la console. La \textbf{console} est un environnement d'exécution directe. En d'autres mots, vous pouvez y écrire des commendes qui seront exécutées immédiatement. C'est utile pour faire des tests et exécuter de petite manipulation. Or, la \textbf{console} n'enregistre pas la suite de commende que vous lui demander de faire, ce n'est pas son rôle. Pour ce faire, il faut ouvrir l'\textbf{éditeur} tel que spécifié par la figure \ref{rstudio1}. L'\textbf{éditeur} c'est où l'on écrit un code (une suite de commandes permettant d'atteindre un but quelconque, comme la production d'un graphique) afin qu'il puisse être enregistré et réutilisé.  
   
 \begin{figure}[H]
   \centering
@@ -271,9 +271,9 @@ Avant d'entrer dans la syntaxe d'utilisation de \textbf{R}, je recommande fortem
 \section{Hello World}
 
 Vous vous apprêtez désormais à écrire votre première ligne de code. Allez dans l'éditeur, et tapez la commande suivante :
-\begin{lstlisting}
-> print("Hello World")
-\end{lstlisting}
+    \begin{lstlisting}
+    > print("Hello World")
+    \end{lstlisting}
 À présent, il faut l'exécuter. Pour ce faire, sélectionnez la ligne, puis cliquez sur le bouton \textit{\textbf{RUN}} en haut à droite. La figure \ref{rstudio4} vous montre un exemple. Remarquez que le résultat s'affiche dans la console en bas. C'est sa deuxième utilité. La console vous indique les résultats des commandes que vous exécutez à partir de l'éditeur. Félicitation, vous êtes désormais des programmeurs, le fun peu commencer! 
 
   \subsection{Workflow}
@@ -281,7 +281,7 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
   Un facteur important en prendre en considération lorsque l'on programme ou que l'on gère des bases de données, c'est l'organisation de notre «\emph{flux de travail}». Plusieurs facteurs sont à prendre en considération lorsque l'on veut optimiser son travail. Nous aborderons les principaux dans cette section.
   
     \subsubsection{Arborescence}
-    Si vous avez lu le titre de la section et que vous ne savez pas ce à quoi nous faisons référence, ne vous inquiétiez pas, la plupart des gens utilisent l'arborescence de leur ordinateur sans s'en rendre compte. C'est tout simplement le chemin par lequel vous (ou votre ordinateur) doit passer pour accéder à un fichier. Comme quand vous voulez retrouver un vieux travail, votre ordinateur doit connaître où se trouvent les fichiers que vous mobilisez dans votre script. Pour se faire, il faut établir le «répertoire de travail» (\emph{working directory}) de la session \textbf{R}. On utilise alors la fonction \texttt{setwd()} et on y inscrit l'arborescence (le chemin) :
+    Si vous avez lu le titre de la section et que vous ne savez pas ce à quoi nous faisons référence, ne vous inquiétiez pas, la plupart des gens utilisent l'arborescence de leur ordinateur sans s'en rendre compte. C'est tout simplement le chemin par lequel vous (ou votre ordinateur) doit passer pour accéder à un fichier. Comme quand vous voulez retrouver un vieux travail, votre ordinateur doit connaître où se trouvent les fichiers que vous mobilisez dans votre code. Pour se faire, il faut établir le «répertoire de travail» (\emph{working directory}) de la session \textbf{R}. On utilise alors la fonction \texttt{setwd()} et on y inscrit l'arborescence (le chemin) :
     
     \begin{lstlisting}
     # Pour les Mac
@@ -290,9 +290,19 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
     > setwd("C:/Users/nomDelaSession/nomDuSousDossier")
     \end{lstlisting}
     
-    Remarquez la façon dont l'arborescence est écrit. Chaque dossier est suivi d'une barre oblique (/) et d'un sous-dossier. C'est donc important de bien organiser les dossiers de sorte à éviter de devoir changer de répertoire de travail trop souvent. L'idéal c'est de référer à un dossier général contenant les dossiers spécifiques. Par exemple, vous pourriez avoir un dossier \texttt{ElectionFed21} qui contient un dossier \texttt{codeR}, un dossier \texttt{graphs} et un dossier \texttt{Data}. 
+    Remarquez la façon dont l'arborescence est écrit. Chaque dossier est suivi d'une barre oblique (/) et d'un sous-dossier. C'est donc important de bien organiser les dossiers de sorte à éviter de devoir changer de répertoire de travail trop souvent. L'idéal c'est de référer à un dossier général contenant les dossiers spécifiques. Par exemple, vous pourriez avoir un dossier \texttt{ElectionFed21} qui contient un dossier \texttt{codeR}, un dossier \texttt{graphs} et un dossier \texttt{Data}. De cette façon, vous pouvez indiquer un répertoire de travail général au début de votre code pour ensuite utiliser des arborescence relative. Ne vous inquiétez pas, tout ceci s'éclairera durant la session.
     
     \subsubsection{Commentaires}
+    
+    Commenter un code c'est l'habitude la plus importante à prendre, surtout lorsqu'on est en apprentissage. Que voulons-nous dire par là? Imaginez que vous êtes en train d'explorer une forêt. Vous pourrez sans doute retrouver votre chemin de mémoire, mais l'idéal c'est de laisser des repères le long du chemin. Surtout si vous n'y retournez pas avant un moment. Coder c'est la même chose. Vous allez développer une suite d'instruction logique qui permettra de produire un résultat spécifique. Il faut donc vous assurer de pouvoir bien comprendre les différentes étapes de votre code, et ce, même après plusieurs mois ou années. La mémoire étant une faculté qui oublie, ce n'est peut-être pas l'outil le plus fiable pour cette tâche. Donc, pour commenter, il vous suffit de précéder ce que vous écrivez par un «$\#$» comme ceci :
+    
+    \begin{lstlisting}
+    # Separation en trois niveaux de la variable ses_health
+    > Data$ses_health[Data$ses_health==0.75 | Data$ses_health==1] <- 1 
+    > Data$ses_health[Data$ses_health==0.5] <- 0.5
+    > Data$ses_health[Data$ses_health==0.25 | Data$ses_health==0] <- 0
+    \end{lstlisting}
+    
     \subsubsection{Raccourcis clavier}
   \subsection{Mathématiques}
     \subsubsection{Calculatrice}
