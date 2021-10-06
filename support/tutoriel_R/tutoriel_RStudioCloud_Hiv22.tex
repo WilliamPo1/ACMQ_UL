@@ -67,7 +67,13 @@
 \usepackage[bf,sf]{titlesec}
 
 \renewcommand{\refname}{Bibliography}
-%\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 \usepackage[autostyle]{csquotes}
 \usepackage{enumitem} % to remove vspace for itemize with [noitemsep]
 
@@ -304,11 +310,33 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
     \end{lstlisting}
     
     \subsubsection{Raccourcis clavier}
-  \subsection{Mathématiques}
-    \subsubsection{Calculatrice}
-    \subsubsection{Calculatrice+ (table,mean,sd,var etc.}
-    \subsubsection{Opérateurs de comparaison}
-
+    
+    Comme dans toute chose, avec de l'expérience, vous allez acquérir de la rapidité en codant. Or, certains raccourcis clavier de \textbf{RStudio} et \textbf{RStudio Cloud} pourrons vous éviter de perdre de précieuses secondes. Ceux-ci varient en fonction du système d'opération de votre ordinateur, les deux prochaines sections s'adressent donc aux utilisateurs Mac et PC respectivement. 
+    
+      \paragraph{Raccourcis clavier -- Utilisateurs Mac}
+      \begin{enumerate}
+        \item \texttt{cmd + enter}, permet de rouler la partie du code sélectionnée.
+        \item \texttt{alt + sélection}, permet de sélectionner une portion de plusieurs lignes en même temps. Voir la figure \ref{altSelect}.
+        \item \texttt{shift + flèches}, permet de sélectionner à l'aide des flèches (gauche, droite, bas, haut) du clavier.
+        \item \texttt{cmd + flèches}, permet d'accéder au début (avec la flèche du haut) et à la fin (avec la flèche du bas) d'un document.
+        \item \texttt{alt + flèche}, permet d'inverser une ligne avec celle du haut (avec la flèche du haut) ou avec celle du bas (avec la flèche du bas).
+      \end{enumerate}
+      
+      \begin{figure}[H]
+      \centering
+      \fbox{\includegraphics[width=0.98\linewidth]{_graphs/altSelect.png}}
+      \caption{Sélection multiple de lignes}
+      \label{altSelect}
+      \end{figure}
+      
+      \paragraph{Raccourcis clavier -- Utilisateurs PC À MODIFIER!!}
+      \begin{enumerate}
+        \item \texttt{cmd + enter}, permet de rouler la partie du code sélectionnée.
+        \item \texttt{alt + sélection}, permet de sélectionner une portion de plusieurs lignes en même temps. Voir la figure \ref{altSelect}.
+        \item \texttt{shift + flèches}, permet de sélectionner à l'aide des flèches (gauche, droite, bas, haut) du clavier.
+        \item \texttt{cmd + flèches}, permet d'accéder au début (avec la flèche du haut) et à la fin (avec la flèche du bas) d'un document.
+        \item \texttt{alt + flèche}, permet d'inverser une ligne avec celle du haut (avec la flèche du haut) ou avec celle du bas (avec la flèche du bas).
+      \end{enumerate}
 
 \section{Intro à la programmation en R}
   \subsection{Ça va bien aller}
@@ -320,6 +348,10 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
     \subsubsection{Vecteurs}
     \subsubsection{Dataframe}
   \subsection{Normes d'assignation - C'est pour votre bien}
+  \subsection{Mathématiques}
+    \subsubsection{Calculatrice}
+    \subsubsection{Calculatrice+ (table,mean,sd,var etc.)}
+    \subsubsection{Opérateurs de comparaison}
 
   
 \section{Importation de données}
