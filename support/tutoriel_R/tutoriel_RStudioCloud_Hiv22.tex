@@ -173,7 +173,7 @@ Pour la petite histoire, la première version de \textbf{R} a été publiée en 
 
 Le reste du document vous permettra de vous familiariser avec \textbf{R} et son environnement de travail. Nous encourageons donc sa lecture attentive.
 
-\section{R vs RStudio vs RStudio Cloud}
+\section{R vs RStudio vs RStudio Cloud}\label{R vs RStudio vs RStudio Cloud}
 
 Une distinction importante à effectuer est la différence entre le langage \textbf{R} et l'\textit{IDE}\footnote{\emph{Itegrated development environment} ou environnement de développement intégré.} \textbf{RStudio}. L'\textit{IDE} a pour fonction principale de recevoir le code et de le compiler. En d'autres mots, \textbf{R} c'est la langue que l'on écrit et le papier c'est l'\textit{IDE}. Plusieurs \textit{IDE} existent et il est facile de se perdre dans leurs différents paramètres et fonctionnalités. C'est pourquoi nous imposons l'utilisation de \textbf{RStudio} ou, à proprement parler, de \textbf{RStudio Cloud}. \textbf{RStudio Cloud} est une reproduction de l'environnement \textbf{RStudio} en ligne. De cette façon, tous les étudiants ont accès au même environnement de travail, peu importe l'ordinateur utilisé.  
 
@@ -329,22 +329,109 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
       \label{altSelect}
       \end{figure}
       
-      \paragraph{Raccourcis clavier -- Utilisateurs PC À MODIFIER!!}
+      \paragraph{Raccourcis clavier -- Utilisateurs PC}
       \begin{enumerate}
-        \item \texttt{cmd + enter}, permet de rouler la partie du code sélectionnée.
+        \item \texttt{ctrl + enter}, permet de rouler la partie du code sélectionnée.
         \item \texttt{alt + sélection}, permet de sélectionner une portion de plusieurs lignes en même temps. Voir la figure \ref{altSelect}.
         \item \texttt{shift + flèches}, permet de sélectionner à l'aide des flèches (gauche, droite, bas, haut) du clavier.
-        \item \texttt{cmd + flèches}, permet d'accéder au début (avec la flèche du haut) et à la fin (avec la flèche du bas) d'un document.
+        \item \texttt{ctrl + flèches}, permet d'accéder au début (avec la flèche du haut) et à la fin (avec la flèche du bas) d'un document.
         \item \texttt{alt + flèche}, permet d'inverser une ligne avec celle du haut (avec la flèche du haut) ou avec celle du bas (avec la flèche du bas).
       \end{enumerate}
 
 \section{Intro à la programmation en R}
+Nous pouvons désormais entrer dans le vif du sujet, la programmation en \textbf{R}. Que vous utilisiez \textbf{RStudio}ou \textbf{RStudio Cloud}, les prochaines indications ne changent pas. 
+
   \subsection{Ça va bien aller}
+  Plusieurs étudiants sont anxieux face à la tâche d'apprendre un langage de programmation. C'est tout à fait normal. La programmation vient avec une aura cryptique, un jargon et des programmeurs qui ne sont pas toujours à même d'expliquer ce qu'ils font. Or, pour ce cours, nous nous considérerons \textbf{R} comme une calculatrice +, c'est-à-dire d'un outil permettant d'effectuer des opérations mathématiques plus ou moins complexes. Vous ne deviendrez pas des développeurs à la fin de ce cours et ce n'est pas l'objectif. Le but est plutôt de vous former pour que vous soyez en mesure d'effectuer des analyses de bases, une compétence qui vous distinguera sur le marché du travail.
+
+Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'équipe d'enseignement est bien entendue disponible pour répondre à vos questions. Cependant, nous préférons que vous développiez votre autonomie. Pour ce faire, nous vous encourageons à consulter les ressources en ligne mentionnée à la section \ref{R vs RStudio vs RStudio Cloud}. D'autres ressources sont également offertent par \textbf{R} lui-même. En précédent toute fonction d'un «?» dans la console\footnote{Lorsqu'une fonction n'est pas dans votre environnement de travail et que vous utilisé \texttt{?ggplot()}, \textbf{R} retournera une erreur du genre «\textcolor{BlueViolet}{\texttt{Error in .helpForCall(topicExpr, parent.frame()) : no methods for ‘ggplot’ and no documentation for it as a function}}». Lorsque c'est le cas, vous pouvez précéder la fonction d'un double «?». Ceci indiquera à \textbf{R} de chercher dans toute la documentation des serveurs de CRAN.}:
+
+  \begin{lstlisting}
+    # Dans la console, pour obtenir de l'aide pour la fonction sample()
+    > ?sample()
+  \end{lstlisting}
+  
+  \subsection{Opérateurs}
+  Les différents types d'opérateurs sont la base de la programmation en \textbf{R}. C'est en manipulant ces opérateurs qu'il est possible de calculer une moyenne, de faire un graphique, ou de faire de l'apprentissage machine. Les prochaines sections vous présenteront aux opérateurs de bases auxquels vous allez avoir affaire dans le cadre du cours. 
+  
+    \subsubsection{Opérateurs de calcul}
+    Les opérateurs de calcul sont les opérateurs mathématiques que vous connaissez (+,-,*,/). Il existe aussi l'opérateur modulo (\%\%) qui permet de calculer le reste d'une division euclidienne. C'est pratique pour identifier si un nombre est un diviseur d'un autre nombre.  
+      \begin{lstlisting}
+      > 1+2 # l'addition
+      [1] 3
+      > 1-2 # la soustraction
+      [1] -1
+      > 1*2 # la multiplication
+      [1] 2
+      > 1/2 # la division
+      [1] 0.5
+      > 1\%\%2 # modulo
+      [1] 1
+      \end{lstlisting}
+      
+    \subsubsection{Opérateurs d'assignement}
+    Les opérateurs d'assignement, comme leur nom l'indique, permettent d'assigner des valeurs à des objets. Deux options s'offrent à vous. Vous pouvez utiliser le signe d'égalité (=), mais il est fortement recommandé d'utiliser la flèche d'assignement (<-). Pourquoi? Il s'agit d'un standard de bonne pratique. Souvent en programmation, il y a plusieurs façons d'arriver au même résultat. Les standards de bonne pratique nous permettent d'identifier les pratiques optimales sans avoir à comprendre pourquoi une pratique est meilleure qu'une autre dans toutes ces nuances. Pour ce cours, utilisez la flèche d'assignement (<-). Par exemple :
+    \begin{lstlisting}
+      # Combien de bananes aie-je dans mon frigidaire? 
+      > nbBananes <- 2
+      \end{lstlisting}
+    
+    \subsubsection{Opérateurs logiques}
+    Les opérateurs logiques retournent l'une de deux valeurs, vrais ou faux. Ils sont donc utilisé pour comparer deux objets. Voici les principaux : 
+    \begin{itemize}
+      \item A < B    : A est plus petit que B
+      \item A > B    : A est plus grand que B
+      \item A <= B   : A est plus petit ou égale à B
+      \item A >= B   : A est plus grand ou égale à B
+      \item A == B   : A est égale à B
+      \item A != B   : A n'est pas égale à B
+      \item \&       : Une condition \textbf{ET} une autre condition
+      \item |        : Une condition \textbf{OU} une autre condition
+      \item A\%in\%B : A est contenu dans B
+    \end{itemize}
+    
+    Pour éclaircir un peu, je vous invite à faire ce petit test en tentant de répondre par vous même à la comparaison, puis en les testant dans la console.
+    
+    \begin{lstlisting}
+      > 1>2  # TRUE ou FALSE?
+      > 2>=2 # TRUE ou FALSE?
+      > 1<2  # TRUE ou FALSE?
+      > 2<=2 # TRUE ou FALSE?
+      > 2==2 # TRUE ou FALSE?
+      > 2!=2 # TRUE ou FALSE?
+      > 1<2 & 1 < 0 # TRUE ou FALSE?
+      > 1<2 | 1 < 0 # TRUE ou FALSE?
+      > 1 \%in\% c(0,1) # TRUE ou FALSE?
+      \end{lstlisting}
+    
+    \subsubsection{Instructions de contrôle}
+  
+  
+  
+  
+  
   \subsection{L'assignation d'objets}
-    \subsubsection{Un peu de vocabulaire}
+  Pour être en mesure de manipuler des données avec \textbf{R}, il faut assigner des objets. Un objet, c'est un peu comme un conteneur de données avec un nom. Par exemple, je peux assigner la valeur $2$ à l'objet $nbBananes$ à l'aide de l'opérateur '<-'. Je peux ensuite demander à l'ordinateur combien de bananes je possède en imprimant le contenue de l'objet $nbBananes$.
+   
+    \begin{lstlisting}
+      # Assignation du nombre de bananes.
+      > nbBananes <- 2
+      # Combien j'ai de bananes?
+      > print(nbBananes)
+      > 2
+    \end{lstlisting}
+    
   \subsection{Les types d'objets}
+   L'assignation d'objet se trouvera à être la base de votre utilisation de \textbf{R}. Toutes les opérations, de la simple soustraction à la régression logistique se base sur les objets. Il est donc important que vous compreniez bien les nuances entre chaque type d'objets et ce qu'ils peuvent contenir.
+   
     \subsubsection{Classes d'éléments}
-    \subsubsection{Constante}
+    On entend par classe d'élément le type de donnée dont il est question. Est-ce un chiffre ou des caractères ? Voici les différents types d'éléments que vous rencontrerez dans le cadre du cours : 
+    
+    \begin{itemize}
+    \item Numérique (numeric)
+    \item Caractère (character) 
+    \end{itemize}
+    
     \subsubsection{Vecteurs}
     \subsubsection{Dataframe}
   \subsection{Normes d'assignation - C'est pour votre bien}
