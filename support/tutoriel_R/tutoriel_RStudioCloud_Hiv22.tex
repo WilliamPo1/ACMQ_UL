@@ -356,25 +356,11 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
   
     \subsubsection{Opérateurs de calcul}
     Les opérateurs de calcul sont les opérateurs mathématiques que vous connaissez (+,-,*,/). Il existe aussi l'opérateur modulo (\%\%) qui permet de calculer le reste d'une division euclidienne. C'est pratique pour identifier si un nombre est un diviseur d'un autre nombre.  
-      \begin{lstlisting}
-      > 1+2 # l'addition
-      [1] 3
-      > 1-2 # la soustraction
-      [1] -1
-      > 1*2 # la multiplication
-      [1] 2
-      > 1/2 # la division
-      [1] 0.5
-      > 1\%\%2 # modulo
-      [1] 1
-      \end{lstlisting}
+
       
     \subsubsection{Opérateurs d'assignement}
-    Les opérateurs d'assignement, comme leur nom l'indique, permettent d'assigner des valeurs à des objets. Deux options s'offrent à vous. Vous pouvez utiliser le signe d'égalité (=), mais il est fortement recommandé d'utiliser la flèche d'assignement (<-). Pourquoi? Il s'agit d'un standard de bonne pratique. Souvent en programmation, il y a plusieurs façons d'arriver au même résultat. Les standards de bonne pratique nous permettent d'identifier les pratiques optimales sans avoir à comprendre pourquoi une pratique est meilleure qu'une autre dans toutes ces nuances. Pour ce cours, utilisez la flèche d'assignement (<-). Par exemple :
-    \begin{lstlisting}
-      # Combien de bananes aie-je dans mon frigidaire? 
-      > nbBananes <- 2
-      \end{lstlisting}
+    Les opérateurs d'assignement, comme leur nom l'indique, permettent d'assigner des valeurs à des objets. Deux options s'offrent à vous. Vous pouvez utiliser le signe d'égalité (=), mais il est fortement recommandé d'utiliser la flèche d'assignement (<-). Pourquoi? Il s'agit d'un standard de bonne pratique. Souvent en programmation, il y a plusieurs façons d'arriver au même résultat. Les standards de bonne pratique nous permettent d'identifier les pratiques optimales sans avoir à comprendre pourquoi une pratique est meilleure qu'une autre dans toutes ces nuances. Pour ce cours, utilisez la flèche d'assignement (<-). Voir la figure XXX pour un exemple.
+
     
     \subsubsection{Opérateurs logiques}
     Les opérateurs logiques retournent l'une de deux valeurs, vrais ou faux. Ils sont donc utilisé pour comparer deux objets. Voici les principaux : 
@@ -392,54 +378,34 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
     
     Pour éclaircir un peu, je vous invite à faire ce petit test en tentant de répondre par vous même à la comparaison, puis en les testant dans la console.
     
-    \begin{lstlisting}
-      > 1>2  # TRUE ou FALSE?
-      > 2>=2 # TRUE ou FALSE?
-      > 1<2  # TRUE ou FALSE?
-      > 2<=2 # TRUE ou FALSE?
-      > 2==2 # TRUE ou FALSE?
-      > 2!=2 # TRUE ou FALSE?
-      > 1<2 & 1 < 0 # TRUE ou FALSE?
-      > 1<2 | 1 < 0 # TRUE ou FALSE?
-      > 1 \%in\% c(0,1) # TRUE ou FALSE?
-      \end{lstlisting}
+
     
     \subsubsection{Instructions de contrôle}
+    Les instructions de contrôle sont ce qui rend R beaucoup plus puissant que votre calculatrice. En effet, elles permettent d'automatiser des procédures et des calculs. Trois instructions de contrôle principales sont à retenir :
+    
+    \begin{itemize}
+      \item \textbf{if} (\emph{condition}) \{\emph{suite d'opération}\}
+      \item \textbf{else} \{\emph{suite d'opération}\}
+      \item \textbf{for} (\emph{facteur d'itération}) \{\emph{suite d'opération}\}
+    \end{itemize}
+    
+    Les instructions de contrôle sont souvent ce qu'il y a de plus difficile à apprendre lorsqu'on commence à programmer. Leur maîtrise n'est donc pas essentielle pour la réussite de ce cours. Il est cependant important que vous ayez connaissance de leur existence. Je vous donne donc le défi de bien comprendre ce qui se passe dans le script de l'exemple à la figure XXX. Vous remarquerez que les commendes \emph{if} et \emph{else} peuvent être combiné en \emph{else if} et ainsi former une suite d'instructions. Avec le code de la «\emph{for loop}», vous devriez être en mesure d'écrire un code vous permettant d'imprimer (\emph{print()}) une étoile (*), puis deux, puis trois, jusqu'à $X$. C'est un exercice un peu futile, mais qui vous permettra de bien comprendre la logique des boucles en \textbf{R}. 
   
+  \subsection{Structure de données}
+  Vous savez désormais comment effectuer des opérations de bases sur des objets. Or, pour ce faire, il vous faut des objets à exploiter. Ces objets peuvent prendre plusieurs formes différentes ayant chacune des caractéristiques et fonctionnalités différentes qui les rendent plus ou moins adaptées à différent type d'utilisation. Vous verrez ici les trois formats principaux qui seront utilisés dans le cours. 
   
-  
-  
-  
-%  \subsection{L'assignation d'objets}
-%  Pour être en mesure de manipuler des données avec \textbf{R}, il faut assigner des objets. Un objet, c'est un peu comme %un conteneur de données avec un nom. Par exemple, je peux assigner la valeur $2$ à l'objet $nbBananes$ à l'aide de %l'opérateur '<-'. Je peux ensuite demander à l'ordinateur combien de bananes je possède en imprimant le contenue de %l'objet $nbBananes$.
-%   
-%    \begin{lstlisting}
-%      # Assignation du nombre de bananes.
-%      > nbBananes <- 2
-%      # Combien j'ai de bananes?
-%      > print(nbBananes)
-%      > 2
-%    \end{lstlisting}
-%    
-%  \subsection{Les types d'objets}
-%   L'assignation d'objet se trouvera à être la base de votre utilisation de \textbf{R}. Toutes les opérations, de la %simple soustraction à la régression logistique se base sur les objets. Il est donc important que vous compreniez bien les %nuances entre chaque type d'objets et ce qu'ils peuvent contenir.
-%   
-%    \subsubsection{Classes d'éléments}
-%    On entend par classe d'élément le type de donnée dont il est question. Est-ce un chiffre ou des caractères ? Voici %les différents types d'éléments que vous rencontrerez dans le cadre du cours : 
-  %  
-  %  \begin{itemize}
-  %  \item Numérique (numeric)
-  %  \item Caractère (character) 
-  %  \end{itemize}
-  %  
-  %  \subsubsection{Vecteurs}
-  %  \subsubsection{Dataframe}
-  %\subsection{Normes d'assignation - C'est pour votre bien}
-  %\subsection{Mathématiques}
-  %  \subsubsection{Calculatrice}
-  %  \subsubsection{Calculatrice+ (table,mean,sd,var etc.)}
-  %  \subsubsection{Opérateurs de comparaison}
-
+    \subsubsection{Types de données}
+    Quatre types de données principales sont à maîtriser. Les données de classe \emph{caractère} (ou «\emph{character}») sont considérées comme du texte par \textbf{R}. Il ne peuvent donc pas être sujet aux opérations mathématiques standard. Par exemple, la figure XXX présente l'objet \texttt{veggiesName} qui contient la valeur textuelle \emph{carotte}. Pour assigner une donnée textuelle, il faut l'encadrer de guillemets « "" ». Si vous exécuté la ligne 56 vous obtiendrez une erreur puisque l'opération demandé ne peu pas s'appliquer à la classe de l'objet. Chose importante, même s'il s'agit d'un chiffre, si vous l'encadrer de guillemets comme à la ligne 58, \textbf{R} considérera l'objet comme du texte et la même erreur se produira. 
+    
+    Un format alternatif 
+    
+    Pour faire des opérations mathématiques, il faut utiliser des valeurs numériques ou booléenne. Les valeurs numériques sont des chiffres. Ceci inclus les nombres entiers, rationnels ($\pi$ ou $e$), et décimaux. Les valeurs booléenne ont deux valeurs possibles et correspondent aux réponses possibles des opérateurs logiques, soit \texttt{FALSE} ou \texttt{TRUE}. Bien qu'à première vu les valeurs booléennes ressemble à des données textuelles, \textbf{R} les comprends comme 0 et 1 respectivement. C'est pourquoi si j'additionne \texttt{tomatoFruit} et \texttt{potatoFruit} j'obtient 1.
+    
+    Il est possible de connaître la classe d'un objet en 
+    
+    \subsubsection{Constantes}
+    \subsubsection{Vecteurs}
+    \subsubsection{Data frames}
   
 \section{Importation de données}
   \subsection{Logique de projet RStudio Cloud}
