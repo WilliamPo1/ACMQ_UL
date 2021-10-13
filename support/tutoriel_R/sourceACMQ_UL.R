@@ -51,7 +51,7 @@ for (i in 1:length(fruitsVeggies)){
 }
 
 #### 2. Structure de données ####
-#### ~2.1 Types de données ####
+#### ~2.1 Types de données et constantes ####
 ## Lorsque l'objet est de type "character", on ne peu y assigner des opérations
 ## mathématiques.
 veggiesName <- "carotte"
@@ -67,8 +67,19 @@ tomatoFruit <- TRUE
 potatoFruit <- FALSE
 tomatoFruit + potatoFruit #Pas d'erreur, pourquoi?
 
-myFruits <- c("pomme","banane","orange","tomate")
-myFruitsFactor <- factor(myFruits)
+myFruitsNames <- c("pomme","banane","orange","tomate")
+myFruitsFactor <- factor(myFruitsNames)
 myFruitsFactor #Remarquez l'ordre alphabétique des "Levels"
-myFruitsFactor <- factor(myFruits,levels=c("orange","pomme","banane","tomate"))
+myFruitsFactor <- factor(myFruitsNames,levels=c("orange","pomme","banane","tomate"))
 myFruitsFactor #Remarquez comment le meilleur fruit est au début!
+
+#### ~2.2 Vecteurs ####
+myFruitsNames <- c("pomme","banane","orange","tomate")
+nbFruits <- c(5,2,7,1)
+length(nbFruits)
+names(nbFruits) <- myFruitsNames
+nbFruits
+class(nbFruits) #Est-ce numérique ou caractère? 
+nbFruits <- c(nbFruits,"concombre"="trois")
+nbFruits
+class(nbFruits) #Et maintenant ?
