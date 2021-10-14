@@ -6,11 +6,14 @@
 #### 1. Opérateurs ####
 #### ~1.1 Opérateurs de calcul ####
 ## Vous pouvez utiliser R comme une calculatrice 
-1+2 # l'addition
-1-2 # la soustraction
-1*2 # la multiplication
-1/2 # la division
-1%%2 # modulo
+1+2     # l'addition
+1-2     # la soustraction
+1*2     # la multiplication
+1/2     # la division
+2^2     # L'exposant
+sqrt(4) # La racine carrée
+log(2)  # Le logarithme naturel
+1%%2    # modulo
 
 #### ~1.2 Opérateurs d'assignement ####
 ## Deux options s'offrent à vous, mais la meilleure pratique est d'utiliser <-
@@ -75,11 +78,53 @@ myFruitsFactor #Remarquez comment le meilleur fruit est au début!
 
 #### ~2.2 Vecteurs ####
 myFruitsNames <- c("pomme","banane","orange","tomate")
+
 nbFruits <- c(5,2,7,1)
 length(nbFruits)
+
 names(nbFruits) <- myFruitsNames
 nbFruits
 class(nbFruits) #Est-ce numérique ou caractère? 
+
 nbFruits <- c(nbFruits,"concombre"="trois")
 nbFruits
 class(nbFruits) #Et maintenant ?
+
+## Opérations mathématiques sur des vecteurs
+friendsAge <- c(18,21,23,24,23,22,23,20,31,26,28,35,23,22,21)
+
+friendsAgePlusOne <- friendsAge + 1 #ajoute 1 à tous les éléments
+friendsAgePlusOne
+
+friendsAgePlusOne - friendsAge #soustrait les éléments i de chaque vecteur
+
+sum(friendsAge)    #retourne la somme de tous les éléments du vecteur
+
+mean(friendsAge)   #retourne la moyenne de tous les éléments du vecteur
+
+median(friendsAge) #retourne la médiane de tous les éléments du vecteur
+
+range(friendsAge)  #retourne le min et le max d'un vecteur
+
+min(friendsAge)    #retourne le min d'un vecteur
+
+max(friendsAge)    #retourne le max d'un vecteur
+
+sd(friendsAge)     #retourne l'écart type d'un vecteur
+
+var(friendsAge)    #retourne la variance d'un vecteur
+
+quantile(friendsAge)#retourne les quartile d'un vecteur
+
+#retourne le min, le 1er quart., la médiane, la moyenne, le 3e quartile et le max
+summary(friendsAge) 
+
+#retourne la fréquence de chaque éléments unique du vecteur
+table(friendsAge)
+
+favoriteFruit <- myFruitsNames[3]
+goodFruits <- myFruitsNames[1:3]
+allButBananas <- myFruitsNames[c(1,3,4)]
+noBananas <- myFruitsNames[-2] #est-ce qu'il y a une différence avec allButBananas?
+#qu'est-ce qui arrive si on met un - devant le c ? 
+allButBananas <- myFruitsNames[-c(1,3,4)]
