@@ -153,13 +153,14 @@ for (i in 1:length(someMovies)){
 view(DataMovies)
 
 #Je peux ajouter mon propre score à chaque film!
-DataMovies$persScore <- c(9.5,9,9,8,7,8.5,8,5,5)
+DataMovies$persScore <- c(9.5,9,9,8,7,8.5,8,6,5)
 
 # C'est quoi le score IMDB de De père en flic?
 DataMovies$imdbRating[DataMovies$Title=="De père en flic"]
 #C'est quoi le meilleur film selon IMDB?
 DataMovies$Title[DataMovies$imdbRating==max(DataMovies$imdbRating)]
-#Et le pire? 
+#Et le pire passé? 
 DataMovies$Title[DataMovies$imdbRating==min(DataMovies$imdbRating)] #Remaquez le nombre d'éléments à la sortie!
+
 #C'est quoi le score moyen de notre sélection?
 mean(DataMovies$imdbRating)
