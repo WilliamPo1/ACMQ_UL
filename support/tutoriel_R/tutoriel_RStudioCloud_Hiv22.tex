@@ -91,6 +91,8 @@
 \usepackage{xparse}
 \ExplSyntaxOn
 
+\usepackage{wrapfig}
+
 \makeatletter
 \NewDocumentCommand{\multicitep}{m}
  {
@@ -169,7 +171,7 @@ POL-2000 -- Automne 2021
 \section{C'est quoi R?}
 Bonjour et bienvenue au cours Pol-2000, ce tutoriel sera votre guide de démarrage ainsi qu'un document de référencement tout au long du cours\footnote{Tutoriel basé sur le travail de Vincent Arel-Bundock, Yannick Dufresne, et Florence Vallée-Dubois}. Le cours ayant pour objectif d'introduire les étudiants de sciences politiques aux méthodes quantitatives et à l'analyse causale en science sociale, nous avons cru bons de vous initier au langage de programmation R. N'ayez crainte, c'est plus simple qu'il n'y paraît et vous en tirerez beaucoup d'avantages. 
 
-Pour la petite histoire, la première version de \textbf{R} a été publiée en 1995 par Ross Ihaka et Robert Gentleman, mais le langage s'inspire des travaux de John Chambers aux laboratoires Bell dans les années 1970. Aujourd'hui, \textbf{R} est un outil d'analyse statistique populaire, tant dans le secteur privé que dans le monde universitaire. \textbf{R} est-ce que l'on appelle un \textit{logiciel libre}, ce qui signifie que son code source est ouvert. Ceci permet à des utilisateurs bénévoles de développer des \textit{packages} (micrologiciel ou librairie de fonctions) qui sont ensuite rendu disponible à la communauté (pour la plupart gratuitement). Ceci fait de \textbf{R} un outil puissant,flexible et public, ce qui le rend particulièrement adapté à la méthode scientifique. 
+Pour la petite histoire, la première version de \textbf{R} a été publiée en 1995 par Ross Ihaka et Robert Gentleman, mais le langage s'inspire des travaux de John Chambers aux laboratoires Bell dans les années 1970. Aujourd'hui, \textbf{R} est un outil d'analyse statistique populaire, tant dans le secteur privé que dans le monde universitaire. \textbf{R} est-ce que l'on appelle un \textit{logiciel libre}, ce qui signifie que son code source est ouvert. Ceci permet à des utilisateurs bénévoles de développer des \textit{packages} (micrologiciel ou librairie de fonctions) qui sont ensuite rendus disponibles à la communauté (pour la plupart gratuitement). Ceci fait de \textbf{R} un outil puissant,flexible et public, ce qui le rend particulièrement adapté à la méthode scientifique. 
 
 Le reste du document vous permettra de vous familiariser avec \textbf{R} et son environnement de travail. Nous encourageons donc sa lecture attentive.
 
@@ -177,7 +179,7 @@ Le reste du document vous permettra de vous familiariser avec \textbf{R} et son 
 
 Une distinction importante à effectuer est la différence entre le langage \textbf{R} et l'\textit{IDE}\footnote{\emph{Itegrated development environment} ou environnement de développement intégré.} \textbf{RStudio}. L'\textit{IDE} a pour fonction principale de recevoir le code et de le compiler. En d'autres mots, \textbf{R} c'est la langue que l'on écrit et le papier c'est l'\textit{IDE}. Plusieurs \textit{IDE} existent et il est facile de se perdre dans leurs différents paramètres et fonctionnalités. C'est pourquoi nous imposons l'utilisation de \textbf{RStudio} ou, à proprement parler, de \textbf{RStudio Cloud}. \textbf{RStudio Cloud} est une reproduction de l'environnement \textbf{RStudio} en ligne. De cette façon, tous les étudiants ont accès au même environnement de travail, peu importe l'ordinateur utilisé.  
 
-Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programmation \textbf{R} à partir de l'environnement \textbf{RStudio Cloud}. Cette distinction s'affinera au cours de la session, n'ayez crainte. Pour les plus curieux d'entre-vous, de nombreuses ressources, francophone et anglophone, existent sur internet :
+Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programmation \textbf{R} à partir de l'environnement \textbf{RStudio Cloud}. Cette distinction s'affinera au cours de la session, n'ayez crainte. Pour les plus curieux d'entre-vous, de nombreuses ressources, francophones et anglophones, existent sur internet :
 
 \begin{itemize}
   \item \href{https://stackoverflow.com}{Stackoverflow}
@@ -241,7 +243,7 @@ Ainsi, dans le cadre du cours, les étudiants utiliserons le langage de programm
   \label{homeMenu}
 \end{figure}
 
-  La seconde interface est celle qui nous intéresse le plus, c'est où vous écrirez et exécuterez votre code. La figure \ref{rstudio1} présente les points d'intérêts les plus importants. L'\emph{environnement} contiendra les bases de données que vous importerez ainsi que tous les objets créés lors de la session\footnote{Ici, \emph{session} fait référence à la période de travail sur \textbf{RStudio Cloud}.}. Vous pouvez avoir accès à vos dossiers, les librairies utilisées, un aperçus des graphiques produits ainsi qu'à de l'aide dans la fenêtre en bas à droite. La plus grande fenêtre par défaut est celle contenant la console. La \textbf{console} est un environnement d'exécution directe. En d'autres mots, vous pouvez y écrire des commendes qui seront exécutées immédiatement. C'est utile pour faire des tests et exécuter de petite manipulation. Or, la \textbf{console} n'enregistre pas la suite de commende que vous lui demander de faire, ce n'est pas son rôle. Pour ce faire, il faut ouvrir l'\textbf{éditeur} tel que spécifié par la figure \ref{rstudio1}. L'\textbf{éditeur} c'est où l'on écrit un code (une suite de commandes permettant d'atteindre un but quelconque, comme la production d'un graphique) afin qu'il puisse être enregistré et réutilisé.  
+  La seconde interface est celle qui nous intéresse le plus, c'est où vous écrirez et exécuterez votre code. La figure \ref{rstudio1} présente les points d'intérêts les plus importants. L'\emph{environnement} contiendra les bases de données que vous importerez ainsi que tous les objets créés lors de la session\footnote{Ici, \emph{session} fait référence à la période de travail sur \textbf{RStudio Cloud}.}. Vous pouvez avoir accès à vos dossiers, les librairies utilisées, un aperçu des graphiques produits ainsi qu'à de l'aide dans la fenêtre en bas à droite. La plus grande fenêtre par défaut est celle contenant la console. La \textbf{console} est un environnement d'exécution directe. En d'autres mots, vous pouvez y écrire des commandes qui seront exécutées immédiatement. C'est utile pour faire des tests et exécuter de petites manipulations. Or, la \textbf{console} n'enregistre pas la suite de commandes que vous lui demander de faire, ce n'est pas son rôle. Pour ce faire, il faut ouvrir l'\textbf{éditeur} tel que spécifié par la figure \ref{rstudio1}. L'\textbf{éditeur} c'est où l'on écrit un code (une suite de commandes permettant d'atteindre un but quelconque, comme la production d'un graphique) afin qu'il puisse être enregistré et réutilisé.  
   
 \begin{figure}[H]
   \centering
@@ -274,13 +276,15 @@ Avant d'entrer dans la syntaxe d'utilisation de \textbf{R}, je recommande fortem
 \end{figure}
 
 
-\section{Hello World}
+\section{HelloWorld}
 
 Vous vous apprêtez désormais à écrire votre première ligne de code. Allez dans l'éditeur, et tapez la commande suivante :
     \begin{lstlisting}
-    > print("Hello World")
+    > print("HelloWorld!")
     \end{lstlisting}
 À présent, il faut l'exécuter. Pour ce faire, sélectionnez la ligne, puis cliquez sur le bouton \textit{\textbf{RUN}} en haut à droite. La figure \ref{rstudio4} vous montre un exemple. Remarquez que le résultat s'affiche dans la console en bas. C'est sa deuxième utilité. La console vous indique les résultats des commandes que vous exécutez à partir de l'éditeur. Félicitation, vous êtes désormais des programmeurs, le fun peu commencer! 
+
+ATTENTION! Pour la suite du tutoriel, on vous invite tout de suite à repérer ces symboles sur votre clavier d'ordinateur : <, >, =, ", ', \$, |, \&, \%, [ \,, ] \,, \{, \}.
 
   \subsection{Workflow}
   
@@ -300,7 +304,7 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
     
     \subsubsection{Commentaires}
     
-    Commenter un code c'est l'habitude la plus importante à prendre, surtout lorsqu'on est en apprentissage. Que voulons-nous dire par là? Imaginez que vous êtes en train d'explorer une forêt. Vous pourrez sans doute retrouver votre chemin de mémoire, mais l'idéal c'est de laisser des repères le long du chemin. Surtout si vous n'y retournez pas avant un moment. Coder c'est la même chose. Vous allez développer une suite d'instruction logique qui permettra de produire un résultat spécifique. Il faut donc vous assurer de pouvoir bien comprendre les différentes étapes de votre code, et ce, même après plusieurs mois ou années. La mémoire étant une faculté qui oublie, ce n'est peut-être pas l'outil le plus fiable pour cette tâche. Donc, pour commenter, il vous suffit de précéder ce que vous écrivez par un «$\#$» comme ceci :
+    Commenter un code c'est l'habitude la plus importante à prendre, surtout lorsqu'on est en apprentissage. Que voulons-nous dire par là? Imaginez que vous êtes en train d'explorer une forêt. Vous pourrez sans doute retrouver votre chemin de mémoire, mais l'idéal c'est de laisser des repères le long du chemin. Surtout si vous n'y retournez pas avant un moment. Coder c'est la même chose. Vous allez développer une suite d'instructions logiques qui permettra de produire un résultat spécifique. Il faut donc vous assurer de pouvoir bien comprendre les différentes étapes de votre code, et ce, même après plusieurs mois ou années. La mémoire étant une faculté qui oublie, ce n'est peut-être pas l'outil le plus fiable pour cette tâche. Donc, pour commenter, il vous suffit de précéder ce que vous écrivez par un «$\#$» comme ceci :
     
     \begin{lstlisting}
     # Separation en trois niveaux de la variable ses_health
@@ -334,7 +338,7 @@ Vous vous apprêtez désormais à écrire votre première ligne de code. Allez d
         \item \texttt{ctrl + enter}, permet de rouler la partie du code sélectionnée.
         \item \texttt{alt + sélection}, permet de sélectionner une portion de plusieurs lignes en même temps. Voir la figure \ref{altSelect}.
         \item \texttt{shift + flèches}, permet de sélectionner à l'aide des flèches (gauche, droite, bas, haut) du clavier.
-        \item \texttt{ctrl + flèches}, permet d'accéder au début (avec la flèche du haut) et à la fin (avec la flèche du bas) d'un document.
+        \item \texttt{ctrl + flèches}, permet d'accéder au début (avec la flèche du haut) et à la fin (avec la flèche du bas) d'un élément du code.
         \item \texttt{alt + flèche}, permet d'inverser une ligne avec celle du haut (avec la flèche du haut) ou avec celle du bas (avec la flèche du bas).
       \end{enumerate}
 
@@ -359,7 +363,7 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
 
       
     \subsubsection{Opérateurs d'assignement}
-    Les opérateurs d'assignement, comme leur nom l'indique, permettent d'assigner des valeurs à des objets. Deux options s'offrent à vous. Vous pouvez utiliser le signe d'égalité (=), mais il est fortement recommandé d'utiliser la flèche d'assignement (<-). Pourquoi? Il s'agit d'un standard de bonne pratique. Souvent en programmation, il y a plusieurs façons d'arriver au même résultat. Les standards de bonne pratique nous permettent d'identifier les pratiques optimales sans avoir à comprendre pourquoi une pratique est meilleure qu'une autre dans toutes ces nuances. Pour ce cours, utilisez la flèche d'assignement (<-). Voir la figure XXX pour un exemple.
+    Les opérateurs d'assignement, comme leur nom l'indique, permettent d'assigner des valeurs à des objets. Deux options s'offrent à vous. Vous pouvez utiliser le signe d'égalité (=), mais il est fortement recommandé d'utiliser la flèche d'assignement (<-). Pourquoi? Il s'agit d'un standard de bonne pratique. Souvent en programmation, il y a plusieurs façons d'arriver au même résultat. Les standards de bonne pratique nous permettent d'identifier les pratiques optimales sans avoir à comprendre pourquoi une pratique est meilleure qu'une autre dans toutes ses nuances. Pour ce cours, utilisez la flèche d'assignement (<-). Voir la figure XXX pour un exemple.
 
     
     \subsubsection{Opérateurs logiques}
@@ -418,6 +422,17 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
     
     \subsubsection{Data frames}
     
+    \begin{wrapfigure}{r}{0.5\linewidth}
+      \centering
+      \fbox{\includegraphics[width=1\linewidth]{_graphs/lego.png}}
+      \caption{Représentation des types d'objets \textbf{R}}
+      \label{lego}
+    \end{wrapfigure}
+    
+    Un \emph{data frame} (il n'y a pas vraiment de traduction satisfaisante) contient des données organisées en rangées et en colonnes, comme un tableau excel. Chaque colonne peut avoir une classe différente, mais les données au sein d’une même colonne doivent être de la même classe. Généralement, les colonnes seront associées aux variables, tandis que chaque rangée correspondra à une observation. 
+    
+    Les \emph{data frame} sont composés de vecteurs comme les vecteurs sont composés de constantes. On peut donc avoir un film préféré (une constante), une liste de film que nous avons vu (un vecteur) ainsi qu'un fichier Excel regroupant ces films, leur année de publication, leur genre et leur score IMDB (un \emph{data frame} de 3 colonnes). 
+
   
 \section{Importation de données}
   \subsection{Logique de projet RStudio Cloud}
@@ -436,7 +451,7 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
   \subsection{Linéaire multiple}
 
   
-\section{Pour aller plus loins}
+\section{Pour aller plus loin}
  
 %\section{Bibliographie}
 %\begingroup
