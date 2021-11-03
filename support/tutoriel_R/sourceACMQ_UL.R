@@ -128,3 +128,38 @@ allButBananas <- myFruitsNames[c(1,3,4)]
 noBananas <- myFruitsNames[-2] #est-ce qu'il y a une différence avec allButBananas?
 #qu'est-ce qui arrive si on met un - devant le c ? 
 allButBananas <- myFruitsNames[-c(1,3,4)]
+
+#### ~2.3 Dataframes ####
+myFavMovie <- "The Grand Budapest Hotel"
+someMovies <- c(myFavMovie,"The Lord of the Rings: The Fellowship of the Ring",
+                "Star Wars: Episode V - The Empire Strikes Back",
+                "The Theory of Everything","Arrival","Les choristes",
+                "Amadeus","Astérix & Obélix: Mission Cléopâtre",
+                "De père en flic")
+
+DataMovies <- data.frame(Title=someMovies)
+
+for (i in 1:length(someMovies)){
+  #install.packages("imdbapi") si nécessaire
+  Info <- imdbapi::find_by_title(someMovies[i],include_tomatoes = FALSE, api_key = "333f9bc4")[1,]
+  if ( i == 1) {
+    DataMovies <- Info
+  }
+  else{
+    DataMovies <- rbind(DataMovies,Info)
+  }
+  print(DataMovies$Title[i])
+}
+view(DataMovies)
+
+#Je peux ajouter mon propre score à chaque film!
+DataMovies$persScore <- c(9.5,9,9,8,7,8.5,8,5,5)
+
+# C'est quoi le score IMDB de De père en flic?
+DataMovies$imdbRating[DataMovies$Title=="De père en flic"]
+#C'est quoi le meilleur film selon IMDB?
+DataMovies$Title[DataMovies$imdbRating==max(DataMovies$imdbRating)]
+#Et le pire? 
+DataMovies$Title[DataMovies$imdbRating==min(DataMovies$imdbRating)] #Remaquez le nombre d'éléments à la sortie!
+#C'est quoi le score moyen de notre sélection?
+mean(DataMovies$imdbRating)

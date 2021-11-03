@@ -431,10 +431,14 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
     
     Un \emph{data frame} (il n'y a pas vraiment de traduction satisfaisante) contient des données organisées en rangées et en colonnes, comme un tableau excel. Chaque colonne peut avoir une classe différente, mais les données au sein d’une même colonne doivent être de la même classe. Généralement, les colonnes seront associées aux variables, tandis que chaque rangée correspondra à une observation. 
     
-    Les \emph{data frame} sont composés de vecteurs comme les vecteurs sont composés de constantes. On peut donc avoir un film préféré (une constante), une liste de film que nous avons vu (un vecteur) ainsi qu'un fichier Excel regroupant ces films, leur année de publication, leur genre et leur score IMDB (un \emph{data frame} de 3 colonnes). 
+    Les \emph{data frame} sont composés de vecteurs de la même façon que les vecteurs sont composés de constantes. On peut donc avoir un film préféré (une constante), une liste de films que nous avons vu (un vecteur) ainsi qu'un fichier Excel regroupant ces films, leur année de publication, leur genre, leur score IMDB, etc\footnote{Vous remarquerez que je fais appel au \emph{package} "imdbapi" à la figure XXX. Il s'agit d'une librairie contenant des fonctions qui me permettent de communiquer avec l'API d'IMDB et de lui faire des requêtes. Dans le code, je fournis une clé pour y accéder, mais pour ceux qui désireraient leur propre clé c'est ici -> http://www.omdbapi.com/apikey.aspx. Pour de la documentation sur le package c'est là -> https://cran.r-project.org/web/packages/imdbapi/imdbapi.pdf}. 
+    
+    Pour créer des \emph{data frames}, on utilise la fonction \texttt{data.frame()} comme à la ligne 140 de la figure XXX. Ici, je créer un \emph{data frames} de 9 rangées (le nombres d'éléments du vecteur \texttt{someMovies}) avec une seule colonne nommée \emph{Title}. Il est possible de crée un \emph{data frames} avec autant de colonne que l'on désire, on a qu'à ajouter des vecteurs (en les séparant de virgules) à la fonction \texttt{data.frame()} lors de la création. Cependant, il est rare qu'un chercheur contruit manuellement sa base de données directement dans \textbf{R}. Le plus souvent se sera fait dans un fichier Excel au préalable ou à partir de différents logiciel (\textit{Qualtrics} pour faire des sondages par exemple). Dans le cas de la figure XXX, j'utilise un API pour créer mon propre \emph{data frames}. C'est une technique plus avancée qui va au delà du cours. Vous pouvez trouver des ressources externes dans la section \ref{further} qui vous aiderons à aller plus loin. 
+    
+    Une fois votre \emph{data frame} créé ou importé (ce que nous verrons à la section \ref{import}), il possible d'effectuer différentes opérations similaires à ce que nous avons vu pour les vecteurs. 
 
   
-\section{Importation de données}
+\section{Importation de données}\label{import}
   \subsection{Logique de projet RStudio Cloud}
   \subsection{Type de fichier}
   \subsection{Domestication}
@@ -451,7 +455,7 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
   \subsection{Linéaire multiple}
 
   
-\section{Pour aller plus loin}
+\section{Pour aller plus loin}\label{further}
  
 %\section{Bibliographie}
 %\begingroup
