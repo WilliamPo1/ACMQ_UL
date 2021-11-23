@@ -164,3 +164,15 @@ DataMovies$Title[DataMovies$imdbRating==min(DataMovies$imdbRating)] #Remaquez le
 
 #C'est quoi le score moyen de notre sélection?
 mean(DataMovies$imdbRating)
+
+
+DataMovie <- DataMovie %>% 
+  mutate(runtimeMinutes=as.numeric(runtimeMinutes)) %>% 
+  filter(runtimeMinutes < 360)
+
+ggplot(DataMovie[DataMovie$Fantasy==1],aes(x=as.numeric(startYear)))+
+  geom_histogram()
+
+ggplot(DataMovie,aes(x=directorBirth,y=averageRating)) +
+  geom_jitter(alpha=0.05)+
+  geom_smooth()
