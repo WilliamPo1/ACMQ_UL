@@ -9,8 +9,8 @@ Authors@R:
            comment = c(ORCID = "0000-0003-2042-7063"))
     person(given = "William",
            family = "Poirier",
-           role = c("ctb"),
-           email = "william.poirier.1@ulaval.ca",
+           role = c("ctb","cre"),
+           email = "wipoi@ulaval.ca",
            comment = c(ORCID = "0000-0002-3274-1351"))
 Description: Librairie qui accompagne le cours Pol-2000 de l'Université Laval (Package original "acmq")
 License: MIT + file LICENSE
