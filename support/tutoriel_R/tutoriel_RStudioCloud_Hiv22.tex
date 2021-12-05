@@ -290,7 +290,7 @@ ATTENTION! Pour la suite du tutoriel, on vous invite tout de suite à repérer c
   
   Un facteur important en prendre en considération lorsque l'on programme ou que l'on gère des bases de données, c'est l'organisation de notre «\emph{flux de travail}». Plusieurs facteurs sont à prendre en considération lorsque l'on veut optimiser son travail. Nous aborderons les principaux dans cette section.
   
-    \subsubsection{Arborescence}
+    \subsubsection{Arborescence}[\label{arborescence}]
     Si vous avez lu le titre de la section et que vous ne savez pas ce à quoi nous faisons référence, ne vous inquiétiez pas, la plupart des gens utilisent l'arborescence de leur ordinateur sans s'en rendre compte. C'est tout simplement le chemin par lequel vous (ou votre ordinateur) doit passer pour accéder à un fichier. Comme quand vous voulez retrouver un vieux travail, votre ordinateur doit connaître où se trouvent les fichiers que vous mobilisez dans votre code. Pour se faire, il faut établir le «répertoire de travail» (\emph{working directory}) de la session \textbf{R}. On utilise alors la fonction \texttt{setwd()} et on y inscrit l'arborescence (le chemin) :
     
     \begin{lstlisting}
@@ -445,9 +445,14 @@ Ceci étant dit, vous allez avoir besoin d'aide à un moment c'est certains. L'�
 
   
 \section{Importation de données}\label{import}
-  \subsection{Logique de projet RStudio Cloud}
-  \subsection{Type de fichier}
-  \subsection{Domestication}
+  \subsection{Importation de données}
+  Avant de débuter l'analyse, il faut des données à analyser. En science politique, les bases de données auxquelles vous ferez face seront typiquement rectangulaires. Elles auront donc la même structure qu'un \emph{data frame} tel que compris par \textbf{R}, un cas par ligne, une variable par colonne. Si vous êtes familiés avec Excel, vous reconnaîtrez certainement cette structure. 
+  
+  \textbf{R} étant un langage \emph{open source}, la communauté de développement donne accès à plusieurs librairies dédiées à la lecture de différents formats de données. Dans le cadre du cours, vous ferez uniquement face à des données enregistrées en format .csv, valeurs séparées par des virgules (comma-separated values). C'est ce qui se cache derrière les tableaux Excel. Or, les formats .sav, .spss, .rds, et .tsv sont également populaires. Si vous rencontrez un jour, l'un de ces formats, il est certain qu'une fonction pour les ouvrir existe déjà, \emph{Google} est votre meilleur ami! Une fois que la bonne fonction a été identifiée, la procédure est assez simple si l'on comprend bien le concept d'arborescence. Je vous invite donc à réviser la section \ref{arborescence} avant de continuer. 
+  
+  Pour ouvrir un fichier .csv, il faut exécuter la fonction \texttt{read.csv()} et assigner le résultat à un objet (typiquement appelé \emph{Data}) comme le montre la figure XXX. Il est important de constater que le seul argument requis est l'arborescence menant au fichier .csv que vous voulez ouvrir. Dans le cas de la figure XXX à la ligne XYZ, il s'agit d'une arborescence d'ordinateur Mac typique. Pour un PC, un \texttt{C:} aurait été ajouté devant \texttt{/Users}. La procédure est similaire pour un projet \textbf{RStudio Cloud}. Or, il faut d'abord télécharger le fichier dans le projet \textbf{RStudio Cloud}.
+  
+  \textbf{RStudio Cloud} est une plateforme web. Ce faisant, elle n'a pas directement accès à votre ordinateur comme c'est le cas si vous utilisez \textbf{RStudio}. Référez-vous à la figure \ref{homeMenu} pour savoir comment créer un projet. Une fois le projet créé, vous pouvez ajouter un fichier de données en appuyant sur le bouton \textit{upload}. Vous n'aurez toutefois pas à le faire normalement. En effet, les projets \textbf{RStudio Cloud} nous permettent de créer un environnement identique pour tous les étudiants et d'y ajouter les fichiers nécessaires. Ainsi, si vous créez votre propre projet à partir de l'espace de travail \emph{POL 2000-Z Méthodes Quantitatives}, vous aurez accès à tout ce dont vous aurez besoin. 
 
   
 \section{Analyse - Description}

@@ -176,3 +176,9 @@ ggplot(DataMovie[DataMovie$Fantasy==1],aes(x=as.numeric(startYear)))+
 ggplot(DataMovie,aes(x=directorBirth,y=averageRating)) +
   geom_jitter(alpha=0.05)+
   geom_smooth()
+
+#### 3. Importation des données ####
+Data <- read.csv("/Users/williampoirier/Dropbox/Travail/Ulaval/Contrats/acmq_ul/dataIMDB/movieData.csv")
+# Je suis sur Rstudio Cloud, donc ça ne fonctionne pas.
+Data <- read.csv("/Cloud/project/dataSets/movieData.csv")
+# Beaucoup mieux
