@@ -182,3 +182,59 @@ Data <- read.csv("/Users/williampoirier/Dropbox/Travail/Ulaval/Contrats/acmq_ul/
 # Je suis sur Rstudio Cloud, donc ça ne fonctionne pas.
 Data <- read.csv("/Cloud/project/dataSets/movieData.csv")
 # Beaucoup mieux
+
+#### 4. Analyse - Description ####
+#Est-ce que les films romantiques ont systématiquement plus de revenus que les films d'action? 
+names(Data)
+
+cashRomance <- Data$revenue[Data$Romance==1]
+cashAction <- Data$revenue[Data$Action==1]
+t.test(x=cashRomance,
+       y=cashAction,
+       conf.level=0.95)
+#ou
+t.test(x=Data$revenue[Data$Romance==1],
+       y=Data$revenue[Data$Action==1],
+       conf.level=0.95)
+#Dans les deux cas t=-0.019073 et p=0.9848
+#Pour qu'il y ait une différence, on veut un grand |t|
+# p < 0.001 => ***
+# p < 0.01  => **
+# p < 0.05  => *
+
+#C'est quoi la plus grande différence? 
+typeVec <- c(colnames(Data[12:31]))
+TtestData <- as.data.frame(typeVec)
+TtestData[,2:21] <- NA
+colnames(TtestData) <- c("types",typeVec)
+
+for (i in 1:length(typeVec)) {
+  colNum1 <- which(colnames(Data)==typeVec[i])
+  var1 <- Data$revenue[Data[,colNum1]==1]
+  for (j in 1:length(typeVec)) {
+    colNum2 <- which(colnames(Data)==typeVec[j])
+    var2 <- Data$revenue[Data[,colNum2]==1]
+    t <- t.test(x=var1,y=var2,conf.level=0.95)[1]
+    TtestData[i,j+1] <- t
+  }
+  print(i)
+}
+
+index <- which(TtestData[,2:ncol(TtestData)] == max(TtestData[,2:ncol(TtestData)]), arr.ind = T)
+typeVec[index[1]]
+typeVec[index[2]]
+t.test(x=Data$revenue[Data$Family==1],
+       y=Data$revenue[Data$Fantasy==1],
+       conf.level=0.95)
+# La plus grande différence est entre les film Familiaux et Fantastiques
+
+# Voyons leur corrélation avec le revenue 
+cor.test(Data$revenue,Data$Family,conf.level=0.95)
+cor.test(Data$revenue,Data$Fantasy,conf.level=0.95)
+#Pour qu'il y ait un effet, on veut un grand |cor|
+# p < 0.001 => ***
+# p < 0.01  => **
+# p < 0.05  => *
+# On peu voir qu'il y a une forte corrélation entre le revenue d'un film et le fait qu'il soit familial
+# Ce n'est pas le cas pour les films fantastiques
+
