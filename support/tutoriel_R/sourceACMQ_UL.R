@@ -307,3 +307,24 @@ ggplot(GraphData, aes(x=revenue,group=subTypes,fill=subTypes,color=subTypes)) +
 ggsave("/Users/williampoirier/Dropbox/Travail/Ulaval/Contrats/acmq_ul/ACMQ_UL/support/tutoriel_R/_graphs/revenueDistri.png",
        width = 8, height = 4.5)
 
+#### 5. Régression ####
+#Est-ce qu'on fait de meilleurs films qu'avant?
+modelA <- lm(averageRating ~ year,
+             data=Data)
+summary(modelA)
+
+#Est-ce que c'est vraiment lié à l'année de publication? 
+modelB <- lm(averageRating ~ year +
+               runtimeMinutes +
+               budget +
+               revenue +
+               Animation +
+               Comedy +
+               Drama +
+               Fantasy +
+               Horror +
+               Action +
+               History +
+               Sci.Fi,
+             data=Data)
+summary(modelB)
