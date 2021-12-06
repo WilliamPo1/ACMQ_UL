@@ -1,7 +1,7 @@
 \documentclass[10.5pt,a4paper]{article} 
 \usepackage[utf8]{inputenc}  
 
-\usepackage[scaled]{helvet}
+\usepackage{helvet}
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
 \usepackage[light]{merriweather} 
@@ -33,7 +33,9 @@
 \newcommand{\rcode}[1]{\texttt{\color{rstudio} #1}}
 
 \Urlmuskip=0mu plus 1mu\relax 
-\usepackage[margin=2.5cm]{geometry} 
+\usepackage[
+  ansiapaper,
+  margin=0.7in]{geometry}
 \usepackage{fancyhdr} % Required for modifying headers and footers
 \fancyhead[L]{} % Top left header
 \fancyhead[R]{} % Top right header
@@ -469,8 +471,37 @@ L'analyse descriptive des données est l'outil de base du chercheur voulant expl
   Le r de Pearson est un test de corrélation simple et pratique qui vous permettra de tester la relation entre deux variables. Distinguez bien les deux concepts. Le test-t permet de tester si deux distributions sont différentes, la corrélation permet elle de tester s'il y a une relation entre deux distributions. Attention, une corrélation entre deux variabes ne veux pas dire qu'il y a causation! La fonction \textbf{R} pour ce test est utilisez de la même manière que pour le test-t. Il suffit d'identifier les arguments x et y (les deux variables) de la fonction \rcode{cor.test()} et le tour est joué.
   
   \subsection{Visualisation}
-  Bien souvent, il est difficile de se souvenir de l'interprétation des différents tests et les chiffres sont rarement le meilleur moyen de transmettre l'information à un plus large public. Grâce à \textbf{R} et la fonction \rcode{ggplot()}, il est facile de montrer visuellement les résultats de nos analyses.\footnote{En fait, \rcode{ggplot()} est une fonction issue de la librarie \textit{ggplot2}, elle même issue de la meta-librarie \textit{tidyverse}.} 
+  Bien souvent, il est difficile de se souvenir de l'interprétation des différents tests et les chiffres sont rarement le meilleur moyen de transmettre l'information à un plus large public. Grâce à \textbf{R} et la fonction \rcode{ggplot()}, il est facile de montrer visuellement les résultats de nos analyses.\footnote{En fait, \rcode{ggplot()} est une fonction issue de la librairie \textit{ggplot2}, elle même issue de la meta-librarie \textit{tidyverse}.} Nous ne ferons ici qu'une introduction aux principales fonctionnalités de \textit{ggplot2}. Pour une revue exhaustive des fonctionnalités, consultez \href{https://ggplot2.tidyverse.org/reference/}{https://ggplot2.tidyverse.org/reference/}.
+  
+  \rcode{ggplot} s'attend à recevoir au moins 3 éléments présentés à la figure XXX : 1) un \emph{data frame}, 2) un \textit{aesthetic}, et 3) un \rcode{geom}. Le \emph{data frame} contient les informations qui composeront le graphique. Il peut s'agir de la base de données originale, d'un sous-échantillon ou même des résultats d'une analyse quelconque (une suite de moyenne par années par exemple). L'\textit{aesthetic} (ou \rcode{aes}) contient les arguments permettant d'identifier le rôle des variables d'intérêts du \emph{data frame}. C'est là où sont spécifiés l'axe des X, l'axe des Y, et la façon d'associer les groupes par couleur ou par texture. Par exemple, à la figure XXX, il est seulement spécifié que la variable \rcode{runtimeMinutes} correspond à l'axe des X. Pourquoi n'est-il pas spécifié un axe des Y ? C'est là qu'entrent en jeu les \rcode{geom}. Ce sont essentiellement les fonctions qui vous permettent de spécifier ce qui doit être dessiné. Voici une liste des principaux \rcode{geom} :
+  \begin{itemize}
+    \item \rcode{geom\_histogram()} $\mapsto$ un histogramme
+    \item \rcode{geom\_bar()} $\mapsto$ un graphique à barres
+    \item \rcode{geom\_col()} $\mapsto$ un graphique à barres\footnote{La différence entre \rcode{geom\_bar()} et \rcode{geom\_col()} est que \rcode{geom\_bar()} prend une fonction en Y (\rcode{..count..} par exemple) alors que \rcode{geom\_col()} prend une variable.}
+    \item \rcode{geom\_boxplot()} $\mapsto$ un graphique boîte à moustaches 
+    \item \rcode{geom\_density()} $\mapsto$ un tracé de densité
+    \item \rcode{geom\_violin()} $\mapsto$ un graphique en violon
+    \item \rcode{geom\_point()} $\mapsto$ un nuage de points
+    \item \rcode{geom\_jitter()} $\mapsto$ un nuage de points avec bruit
+    \item \rcode{geom\_line()} $\mapsto$ un graphique à lignes
+    \item \rcode{geom\_hline()} $\mapsto$ une ligne horizontale
+    \item \rcode{geom\_vline()} $\mapsto$ une ligne verticale
+    \item \rcode{geom\_smooth()} $\mapsto$ une courbe de régression
+    \item \rcode{geom\_errorbar()} $\mapsto$ des barres d'erreurs
+  \end{itemize}
 
+  Ce qu'il faut bien comprenre c'est que les arguments de l'\textit{aesthetic} doivent bien s'agencer avec le \rcode{geom} voulu. Par exemple, un histogramme n'a pas besoin d'une position en Y puisque le \rcode{geom} calcule la fréquence lui même. Or, pour un nuage de point, il faut spécifier à quelle variable correspond l'axe des X et l'axe des Y. Ainsi, le \emph{data frame}, l'\textit{aesthetic} et le \rcode{geom} doivent êtres en harmonie pour que la fonction retourne le graphique désiré. Pour vous faciliter la vie, je vous propose de toujours répondre à ces 3 questions avant de tenter la production d'un graphique : 
+  \begin{enumerate}
+  \item Comment vous imaginez-vous le graphique ? 
+  \item Quelles sont les variables d'intérêts ?
+  \item Est-ce que mon \emph{data frame} a le bon format ?
+  \end{enumerate}
+  De cette façon, vous vous assurerez de ne pas faire d'erreur de logique lors de l'écriture de la fonction. Bien entendu, ces trois questions et les \rcode{geom} vous permettent qu'une partie de l'ensemble des possibilités et fonctionnalités qu'offre \rcode{ggplot}. Que ce soit les couleurs, la taille des points ou des barres, l'espacement des barres, le nom des axes, leur gradation, l'ajout d'un titre, d'un sous-titre, d'une note en bas de page, ou même d'annoter le graphique en tant que tel, ajuster la légende, la taille et l'angle du texte, modifier la grille, la couleur de fond, etc., etc. Tout ceci s'apprend sur le tas à l'aide de Google. Si vous avez une idée de graphique, forte chance que quelqu'un se soit déjà posé la question, demandez à google.
+  
+  Le dernier concept à bien comprendre pour utiliser \rcode{ggplot()} à son plein potentiel est le concept de couche. C'est ce qui rend \rcode{ggplot()} aussi versatile. Vous avez sans doute remarqué les petits \rcode{+} à la fin de chaque ligne à la figure XXX. Ceux-ci se traduisent pour \textbf{R} comme «ajoute ce qui suit au-dessus de ce qui se trouve avant». Il est donc possible de superposer les \rcode{geom} afin de présenter plus d'information aux lecteurs ou de mettre en relief certaines informations. Par exemple, à la figure XXX, un \rcode{geom\_smooth()} est ajouté par-dessus un \rcode{geom\_point()} et un \rcode{geom\_line()} afin de présenter l'augmentation du nombre de films produits au fil des années. La figure XXX quant à elle présente le code du graphique de la figure XXX. Vous y trouverez un code de visualisation plus avancé qui cartographie les fonctions principales de modification de l'aspect visuel du graphique. Il est fortement recommandé d'exécuter le code ligne par ligne afin d'identifier ce que fait chaque partie de la fonction. Comme pour toute chose, c'est en pratiquant que vous apprendrez! 
+  
+  La fonction \rcode{ggsave()} permet d'enregistrer sous différents formats (pdf, png, jpeg, gif, mp4, etc.) les graphiques produits à l'aide de \rcode{ggplot()}. Pour se faire, il faut spécifier l'arborescence en la terminant par le nom du fichier suivi de l'extension (.png) désirée. Le ratio largeur:hauteur (\textit{width:height}) peut être spécifié ou non. Dans le cas de la figure XXX, le ratio spécifié permet de respecter le standard des images Twitter de 16:9. 
+  
 
 \section{Analyse - Régression}
   \subsection{Linéaire}

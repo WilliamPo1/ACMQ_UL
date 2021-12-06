@@ -184,6 +184,7 @@ Data <- read.csv("/Cloud/project/dataSets/movieData.csv")
 # Beaucoup mieux
 
 #### 4. Analyse - Description ####
+#### ~4.1 test-t ####
 #Est-ce que les films romantiques ont systématiquement plus de revenus que les films d'action? 
 names(Data)
 
@@ -203,7 +204,7 @@ t.test(x=Data$revenue[Data$Romance==1],
 # p < 0.05  => *
 
 #C'est quoi la plus grande différence? 
-typeVec <- c(colnames(Data[12:31]))
+typeVec <- c(colnames(Data[11:30]))
 TtestData <- as.data.frame(typeVec)
 TtestData[,2:21] <- NA
 colnames(TtestData) <- c("types",typeVec)
@@ -228,6 +229,7 @@ t.test(x=Data$revenue[Data$Family==1],
        conf.level=0.95)
 # La plus grande différence est entre les film Familiaux et Fantastiques
 
+#### ~4.2 r de Pearson ####
 # Voyons leur corrélation avec le revenue 
 cor.test(Data$revenue,Data$Family,conf.level=0.95)
 cor.test(Data$revenue,Data$Fantasy,conf.level=0.95)
@@ -237,4 +239,71 @@ cor.test(Data$revenue,Data$Fantasy,conf.level=0.95)
 # p < 0.05  => *
 # On peu voir qu'il y a une forte corrélation entre le revenue d'un film et le fait qu'il soit familial
 # Ce n'est pas le cas pour les films fantastiques
+
+#### ~4.3 Visualisation ####
+# Histogramme
+ggplot(Data,aes(x=runtimeMinutes)) +
+  geom_histogram()
+# Bars
+ggplot(Data,aes(x=runtimeMinutes,y=..count..)) +
+  geom_bar()
+# Moustaches
+ggplot(Data,aes(x=runtimeMinutes)) +
+  geom_boxplot()
+# Densité
+ggplot(Data,aes(x=runtimeMinutes)) +
+  geom_density()
+
+# Points
+ggplot(Data,aes(x=year,y=revenue)) +
+  geom_point() 
+# Jitter + alpha
+ggplot(Data,aes(x=year,y=revenue)) +
+  geom_jitter(alpha=0.5) 
+
+# Ligne
+GraphData <- as.data.frame(table(Data$year))
+names(GraphData) <- c("year","freq")
+ggplot(GraphData, aes(x=year,y=freq,group=1)) +
+  geom_line() +
+  theme(axis.text.x = element_text(angle=45,vjust = 0.5))
+#smooth
+ggplot(GraphData, aes(x=year,y=freq,group=1)) +
+  geom_smooth() +
+  theme(axis.text.x = element_text(angle=45,vjust = 0.5))
+
+# Principe de couche
+ggplot(GraphData, aes(x=year,y=freq,group=1)) +
+  geom_point(alpha=0.5) +
+  geom_line() +
+  geom_smooth() +
+  theme(axis.text.x = element_text(angle=45,vjust = 0.5))
+
+#Comparons la distribution des films Familiaux et Fantastiques
+Data$subTypes <- NA
+Data$subTypes[Data$Family==1] <- "Films familiaux"
+Data$subTypes[Data$Fantasy==1] <- "Films fantastiques"
+GraphData <- na.omit(Data)
+
+ggplot(GraphData, aes(x=revenue,group=subTypes,fill=subTypes,color=subTypes)) +
+  geom_density(alpha=0.5) +
+  geom_vline(xintercept=mean(Data$revenue[Data$Family ==1]), color="#2166ac")+ #la moyenne pour family
+  geom_vline(xintercept=mean(Data$revenue[Data$Fantasy==1]), color="#b2182b")+ #la moyenne pour Fantasy
+  scale_color_manual(values=c("#2166ac","#b2182b"))+ #spécification des couleurs en hex code
+  scale_fill_manual( values=c("#2166ac","#b2182b"))+ #spécification des couleurs en hex code
+  scale_y_continuous("Densité\n",
+                     expand=c(0,0))+
+  scale_x_continuous("\nRevenue au box office (million de USD)",
+                     labels=seq(0,500,50),
+                     breaks=seq(0,500000000,50000000),
+                     limits=c(0,500000000),
+                     expand=c(0,0))+
+  labs(title="Distribution du revenue des films familiaux et fantastiques de 1915 à 2017") + #ajout du titre
+  theme_bw() +
+  theme(legend.title = element_blank(),
+        legend.position = "top",
+        axis.text.x = element_text(hjust=1),
+        axis.text.y = element_text(angle=90,hjust=0))
+ggsave("/Users/williampoirier/Dropbox/Travail/Ulaval/Contrats/acmq_ul/ACMQ_UL/support/tutoriel_R/_graphs/revenueDistri.png",
+       width = 8, height = 4.5)
 
