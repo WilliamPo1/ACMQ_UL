@@ -55,7 +55,7 @@ for (i in 1:length(fruitsVeggies)){
 
 #### 2. Structure de données ####
 #### ~2.1 Types de données et constantes ####
-## Lorsque l'objet est de type "character", on ne peu y assigner des opérations
+## Lorsque l'objet est de type "character", on ne peut y assigner des opérations
 ## mathématiques.
 veggiesName <- "carotte"
 veggiesName + 1 #ERROR
@@ -114,12 +114,12 @@ sd(friendsAge)     #retourne l'écart type d'un vecteur
 
 var(friendsAge)    #retourne la variance d'un vecteur
 
-quantile(friendsAge)#retourne les quartile d'un vecteur
+quantile(friendsAge)#retourne les quartiles d'un vecteur
 
 #retourne le min, le 1er quart., la médiane, la moyenne, le 3e quartile et le max
 summary(friendsAge) 
 
-#retourne la fréquence de chaque éléments unique du vecteur
+#retourne la fréquence de chaque élément unique du vecteur
 table(friendsAge)
 
 favoriteFruit <- myFruitsNames[3]
@@ -237,7 +237,7 @@ cor.test(Data$revenue,Data$Fantasy,conf.level=0.95)
 # p < 0.001 => ***
 # p < 0.01  => **
 # p < 0.05  => *
-# On peu voir qu'il y a une forte corrélation entre le revenue d'un film et le fait qu'il soit familial
+# On peut voir qu'il y a une forte corrélation entre le revenu d'un film et le fait qu'il soit familial
 # Ce n'est pas le cas pour les films fantastiques
 
 #### ~4.3 Visualisation ####
@@ -298,7 +298,7 @@ ggplot(GraphData, aes(x=revenue,group=subTypes,fill=subTypes,color=subTypes)) +
                      breaks=seq(0,500000000,50000000),
                      limits=c(0,500000000),
                      expand=c(0,0))+
-  labs(title="Distribution du revenue des films familiaux et fantastiques de 1915 à 2017") + #ajout du titre
+  labs(title="Distribution du revenu des films familiaux et fantastiques de 1915 à 2017") + #ajout du titre
   theme_bw() +
   theme(legend.title = element_blank(),
         legend.position = "top",
@@ -308,7 +308,7 @@ ggsave("/Users/williampoirier/Dropbox/Travail/Ulaval/Contrats/acmq_ul/ACMQ_UL/su
        width = 8, height = 4.5)
 
 #### 5. Régression ####
-#Est-ce qu'on fait de meilleurs films qu'avant?
+#Est ce qu'on fait de meilleurs films qu'avant?
 modelA <- lm(averageRating ~ year,
              data=Data)
 summary(modelA)
