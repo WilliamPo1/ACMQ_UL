@@ -293,7 +293,7 @@ ggplot(GraphData, aes(x=revenue,group=subTypes,fill=subTypes,color=subTypes)) +
   scale_fill_manual( values=c("#2166ac","#b2182b"))+ #spécification des couleurs en hex code
   scale_y_continuous("Densité\n",
                      expand=c(0,0))+
-  scale_x_continuous("\nRevenue au box office (million de USD)",
+  scale_x_continuous("\nRevenu au box office (million de USD)",
                      labels=seq(0,500,50),
                      breaks=seq(0,500000000,50000000),
                      limits=c(0,500000000),
