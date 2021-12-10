@@ -1,6 +1,7 @@
 \documentclass[10.5pt,a4paper]{article} 
 \usepackage[utf8]{inputenc}  
-
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc} 
 \usepackage[light]{merriweather} 
 %\usepackage{ulem}
@@ -21,7 +22,10 @@
 \catcode\%=14
 \makeatother
 % Colour
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
+\definecolor{rstudio}{HTML}{4b84b7}
+\definecolor{rstudio2}{HTML}{111c1c}
+\definecolor{cloud}{HTML}{e4eef8}
 \hypersetup{breaklinks=true} 
 \Urlmuskip=0mu plus 1mu\relax 
 \usepackage[margin=2.5cm]{geometry} 
@@ -110,7 +114,36 @@
    }
  }
 \ExplSyntaxOff
+
+
+\title{\textbf{Glossaire POL 2000}}
+\author{William Poirier, Université Laval}
+\date{POL-2000 -- Automne 2021}
+
 \begin{document} 
+
+% ----------------------------------------------------------------
+\begin{titlepage}
+\newgeometry{left=7.5cm} %defines the geometry for the titlepage
+\pagecolor{rstudio2}
+\noindent
+\includegraphics[width=13.6cm]{_graphs/literary-joust-1.jpg}\\[-1em]
+\color{cloud}
+\makebox[0pt][l]{\rule{1.4\textwidth}{2pt}}
+\par
+\noindent
+\color{white}
+\textbf{Université Laval}
+\vfill
+\noindent
+{\huge\textbf{Glossaire POL 2000}}
+\vskip\baselineskip
+\noindent
+POL-2000 -- Automne 2021
+\end{titlepage}
+\restoregeometry % restores the geometry
+\nopagecolor% Use this to restore the color pages to white
+% ----------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	SECTION A
@@ -120,7 +153,7 @@
 
 \section*{A}
 
-\entry{Autocorrélation}{Un bris du \textbf{postulat} d'\textbf{indépendance des observations}, en raison de modèles d'influence parmi des observations qui sont temporellement ou spatialement reliées. Survient lorsque les \textbf{erreurs de prédictions} sont corrélées entre elles. Affecte les \textbf{erreurs types}.}{\multicitep{RSI2010, p.~314 ; VAB2020, p.~104}}
+\entry{Autocorrélation}{Un bris du \textbf{postulat} d'\textbf{indépendance des observations}, en raison de modèles d'influence parmi des observations qui sont temporellement ou spatialement reliées. Survient lorsque les \textbf{erreurs de prédictions} sont corrélées entre elles. Affecte les \textbf{erreurs types}}{\multicitep{RSI2010, p.~314 ; VAB2020, p.~104}}.
 
 
 %----------------------------------------------------------------------------------------
@@ -128,122 +161,122 @@
 %----------------------------------------------------------------------------------------
 \section*{B}
 
-\entry{Biais}{Est produit par une erreur systématique dans l'inférence. Avec la présence d'un biais systématique, on ne peut pas s'attendre à ce que les erreurs successives s'annulent entre elles, et les inférences seront donc erronées. Même avec des échantillons extrêmement grands, la présence d'un biais systématique empêche de réaliser une inférence \textbf{valide}. Contraste avec l'\textbf{erreur aléatoire}.}{\citep[p.~314]{RSI2010}}
+\entry{Biais}{Est produit par une erreur systématique dans l'inférence. Avec la présence d'un biais systématique, on ne peut pas s'attendre à ce que les erreurs successives s'annulent entre elles, et les inférences seront donc erronées. Même avec des échantillons extrêmement grands, la présence d'un biais systématique empêche de réaliser une inférence \textbf{valide}. Contraste avec l'\textbf{erreur aléatoire}}{\citep[p.~314]{RSI2010}}.
 
-\entry{Biais de sélection}{Le biais de sélection peut renvoyer à une \emph{sélection dans l'analyse}. Dans ce cas, certains individus ou certaines variables ne sont pas observés par l’analyste. Par conséquent, l’échantillon étudié n’est pas représentatif de la \textbf{population} d'intérêt, et l’effet causal n’est pas identifiable pour cette population. Le biais de sélection peut également renvoyer à une \emph{sélection dans le traitement}. Dans ce cas, le processus qui détermine qui reçoit le traitement (ou la valeur du traitement) est associé à la variable dépen2dante.}{\citep[p.~156]{VAB2020}}
+\entry{Biais de sélection}{Le biais de sélection peut renvoyer à une \emph{sélection dans l'analyse}. Dans ce cas, certains individus ou certaines variables ne sont pas observés par l’analyste. Par conséquent, l’échantillon étudié n’est pas représentatif de la \textbf{population} d'intérêt, et l’effet causal n’est pas identifiable pour cette population. Le biais de sélection peut également renvoyer à une \emph{sélection dans le traitement}. Dans ce cas, le processus qui détermine qui reçoit le traitement (ou la valeur du traitement) est associé à la variable dépendante}{\citep[p.~156]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION C
 %----------------------------------------------------------------------------------------
 \section*{C}
 
-\entry{Cas}{L'unité d'analyse dans une étude donnée. Les cas sont les entités ou phénomènes politiques, sociaux, institutionnels ou individuels sur lesquels des informations sont collectées et des \textbf{inférences} sont réalisées. Des exemples de cas sont les États-nations, les mouvements sociaux, les partis politiques, les membres de syndicats et les épisodes de mise en œuvre de politiques.}{\citep[p.~315]{RSI2010}}
+\entry{Cas}{L'unité d'analyse dans une étude donnée. Les cas sont les entités ou phénomènes politiques, sociaux, institutionnels ou individuels sur lesquels des informations sont collectées et des \textbf{inférences} sont réalisées. Des exemples de cas sont les États-nations, les mouvements sociaux, les partis politiques, les membres de syndicats et les épisodes de mise en œuvre de politiques}{\citep[p.~315]{RSI2010}}.
 
-\entry{Centile}{Les 99 valeurs qui divisent une variable $X$ en 100 groupes composés du même nombre d’observations. Le $1^{er}$ centile est la valeur qui sépare le $1~\%$ des plus petites valeurs de $X$ du reste, le $25^{e}$ centile est la valeur qui sépare les $25~\%$ des plus petites valeurs de $X$ du reste, etc. Voir aussi \textbf{quartile}.}{\citep[p.~54]{VAB2020}}
+\entry{Centile}{Les 99 valeurs qui divisent une variable $X$ en 100 groupes composés du même nombre d’observations. Le $1^{er}$ centile est la valeur qui sépare le $1~\%$ des plus petites valeurs de $X$ du reste, le $25^{e}$ centile est la valeur qui sépare les $25~\%$ des plus petites valeurs de $X$ du reste, etc. Voir aussi \textbf{quartile}}{\citep[p.~54]{VAB2020}}.
 
-\entry{Colinéarité}{Si deux \textbf{variables indépendantes} d'un modèle de régression sont fortement corrélées, on dit qu'elles sont colinéaires. Lorsque deux variables sont fortement associées, l’information indépendante qui est disponible pour estimer le coefficient de régression est pauvre. La pauvreté de l’information disponible se traduit par une hausse du niveau d’incertitude, et cette hausse est (correctement) saisie par une augmentation de l’erreur type du modèle de régression.}{\citep[p.~92-93]{VAB2020}}
+\entry{Colinéarité}{Si deux \textbf{variables indépendantes} d'un modèle de régression sont fortement corrélées, on dit qu'elles sont colinéaires. Lorsque deux variables sont fortement associées, l’information indépendante qui est disponible pour estimer le coefficient de régression est pauvre. La pauvreté de l’information disponible se traduit par une hausse du niveau d’incertitude, et cette hausse est (correctement) saisie par une augmentation de l’erreur type du modèle de régression}{\citep[p.~92-93]{VAB2020}}.
 
-\entry{Conceptualisation}{Processus de systématisation, à la lumière d'une revue de la littérature et des objectifs de recherche, du concept général devant être mesuré.}{\citep[p.~531]{adcock2001}}
+\entry{Conceptualisation}{Processus de systématisation, à la lumière d'une revue de la littérature et des objectifs de recherche, du concept général devant être mesuré}{\citep[p.~531]{adcock2001}}.
 
-\entry{Constante}{Caractérise un \textbf{espace échantillonnale} à \emph{un} seul élément. Se produit lorsque le phénomène retourne toujours le même résultat. En opposition à \textbf{variable}.}{\citep[p.~39]{VAB2020}}
+\entry{Constante}{Caractérise un \textbf{espace échantillonnal} à \emph{un} seul élément. Se produit lorsque le phénomène retourne toujours le même résultat. En opposition à \textbf{variable}}{\citep[p.~39]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION D
 %----------------------------------------------------------------------------------------
 \section*{D}
 
-\entry{Dispersion, mesure de}{Mesure qui permet d'identifier le positionnement des observations sur la distribution. Y-a-t-il une concentration d'observation autour du centre où sont elles éparpillées sur toute la distribution~?}{\citep[p.~52]{VAB2020}}
+\entry{Dispersion, mesure de}{Mesure qui permet d'identifier le positionnement des observations sur la distribution. Y-a-t-il une concentration d'observations autour du centre où sont elles éparpillées sur toute la distribution}{\citep[p.~52]{VAB2020}}?
 
-\entry{Distribution}{Une distribution est une fonction mathématique qui décrit la probabilité qu’un processus physique ou social produise certains événements. Lorsqu’un processus se conforme à une distribution donnée, nous sommes en mesure de quantifier la probabilité d’observer un résultat plutôt qu’un autre.}{\citep[p.~44]{VAB2020}}
+\entry{Distribution}{Une distribution est une fonction mathématique qui décrit la probabilité qu’un processus physique ou social produise certains événements. Lorsqu’un processus se conforme à une distribution donnée, nous sommes en mesure de quantifier la probabilité d’observer un résultat plutôt qu’un autre}{\citep[p.~44]{VAB2020}}.
 
-\entry{Distribution continue}{Ces distributions peuvent produire un nombre infini de valeurs pour la variable $X$. Le plus souvent représenté avec un graphique de densité (une courbe).}{\citep[p.~46]{VAB2020}}
+\entry{Distribution continue}{Ces distributions peuvent produire un nombre infini de valeurs pour la variable $X$. Le plus souvent représenté avec un graphique de densité (une courbe)}{\citep[p.~46]{VAB2020}}.
 
-\entry{Distribution discrète}{Ces distributions peuvent représentent la probabilité de variables dont les valeurs possibles sont dénombrables. Le plus souvent représenté avec un histogramme (des barres).}{\citep[p.~45]{VAB2020}}
+\entry{Distribution discrète}{Ces distributions peuvent représentent la probabilité de variables dont les valeurs possibles sont dénombrables. Le plus souvent représenté avec un histogramme (des barres)}{\citep[p.~45]{VAB2020}}.
 
-\entry{Distribution normale}{Une distribution continue symétrique, c’est-à-dire que la queue de gauche est le miroir de la queue de droite, et centré à sa moyenne. La forme de la distribution normale d'une variable est déterminée par deux paramètres : la moyenne $\mu$ (mu) et l’écart type $\sigma$ (sigma). Souvent représenté comme $X\sim N(\mu,\sigma)$ qui se lis «~la distribution de la variable $X$ suit une loi normale avec moyenne mu et écart-type sigma~».}{\multicitep{VAB2020, p.~46; imai2018, p.~287}}
+\entry{Distribution normale}{Une distribution continue symétrique, c’est-à-dire que la queue de gauche est le miroir de la queue de droite, et centrée à sa moyenne. La forme de la distribution normale d'une variable est déterminée par deux paramètres : la moyenne $\mu$ (mu) et l’écart type $\sigma$ (sigma). Souvent représenté comme $X\sim N(\mu,\sigma)$ qui se lis «~la distribution de la variable $X$ suit une loi normale avec moyenne mu et écart-type sigma~»}{\multicitep{VAB2020, p.~46; imai2018, p.~287}}.
 
-\entry{Distribution t-de Student}{Une distribution continue symétrique,\emph{centrée à zéro}, et déterminée par un paramètre $k$ appelé «~degrés de liberté~». La loi de Student ressemble beaucoup à la distribution normale, mais ses ailes sont légèrement plus épaisses. Lorsque $k$ augmente, la forme de la loi de Student converge vers celle de la distribution normale. Souvent représenté comme $X\sim t_{k}$ qui se lis «~la distribution de la variable $X$ suit une loi de Student avec $k$ degrés de liberté~».}{\multicitep{VAB2020, p.~46-47; imai2018, p.~339}}
+\entry{Distribution t-de Student}{Une distribution continue symétrique, \emph{centrée à zéro}, et déterminée par un paramètre $k$ appelé «~degrés de liberté~». La loi de Student ressemble beaucoup à la distribution normale, mais ses ailes sont légèrement plus épaisses. Lorsque $k$ augmente, la forme de la loi de Student converge vers celle de la distribution normale. Souvent représenté comme $X\sim t_{k}$ qui se lis «~la distribution de la variable $X$ suit une loi de Student avec $k$ degrés de liberté~»}{\multicitep{VAB2020, p.~46-47; imai2018, p.~339}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION E
 %----------------------------------------------------------------------------------------
 \section*{E}
 
-\entry{Écart interquartile}{\textbf{Mesure de dispersion} calculant la distance entre le $25^{e}$ \textbf{centile} (ou $1^{er}$ quartile) et le $75^{e}$ centile (ou $3^{e}$ quartile). Plus l’écart interquartile est grand, plus les observations ont tendance à s’éloigner du centre de la distribution. N'est pas affectés par les valeurs extrêmes ou aberrantes comme la \textbf{variance} ou l'\textbf{écart-type}.}{\citep[p.~54]{VAB2020}}
+\entry{Écart interquartile}{\textbf{Mesure de dispersion} calculant la distance entre le $25^{e}$ \textbf{centile} (ou $1^{er}$ quartile) et le $75^{e}$ centile (ou $3^{e}$ quartile). Plus l’écart interquartile est grand, plus les observations ont tendance à s’éloigner du centre de la distribution. Cette mesure n'est pas affectée par les valeurs extrêmes ou aberrantes comme la \textbf{variance} ou l'\textbf{écart-type}}{\citep[p.~54]{VAB2020}}.
 
-\entry{Écart-type}{\textbf{Mesure de dispersion} calculant la racine carrée de la somme du carré des écarts à la moyenne d'un ensemble d'observations. Essentiellement la moyenne des écarts de chaque observation avec la moyenne de l'ensemble. De façon similaire à la \textbf{variance}, plus l'écart-type est grand, plus les valeurs ont tendance à s’éloigner du centre de la distribution. La racine carrée est prise ici pour ramener la mesure sur la même échelle que la variable originale. L'interprétation d'un écart-type est donc plus facile à faire que pour la variance. \emph{Attention}, l'écart-type peut être affecté par les valeurs extrêmes ou aberrantes.}{\multicitep{VAB2020, p.~53; imai2018, p.~67}\begin{equation}\sigma_{X}=\sqrt{\sigma^{2}_{X}}\end{equation}}
+\entry{Écart-type}{\textbf{Mesure de dispersion} calculant la racine carrée de la somme du carré des écarts à la moyenne d'un ensemble d'observations. Essentiellement la moyenne des écarts de chaque observation avec la moyenne de l'ensemble. De façon similaire à la \textbf{variance}, plus l'écart-type est grand, plus les valeurs ont tendance à s’éloigner du centre de la distribution. La racine carrée est prise ici pour ramener la mesure sur la même échelle que la variable originale. L'interprétation d'un écart-type est donc plus facile à faire que pour la variance. \emph{Attention}, l'écart-type peut être affecté par les valeurs extrêmes ou aberrantes}{\multicitep{VAB2020, p.~53; imai2018, p.~67}.\begin{equation}\sigma_{X}=\sqrt{\sigma^{2}_{X}}\end{equation}}
 
-\entry{Échantillon}{L'ensemble de cas sur lesquels l'analyse est centrée, et qui sont souvent sélectionnés parmi un \textbf{univers de cas} plus large. La sélection des cas est une tâche fondamentale de la conception d'un devis de recherche, et les chercheurs de différentes traditions ont abordé cette tâche de diverses manières. Voir \textbf{échantillon aléatoire}.}{\citep[p.~347-48]{RSI2010}}
+\entry{Échantillon}{L'ensemble de cas sur lesquels l'analyse est centrée, et qui sont souvent sélectionnés parmi un \textbf{univers de cas} plus large. La sélection des cas est une tâche fondamentale de la conception d'un devis de recherche, et les chercheurs de différentes traditions ont abordé cette tâche de diverses manières. Voir \textbf{échantillon aléatoire}}{\citep[p.~347-48]{RSI2010}}.
 
-\entry{Échantillon}{Sous-groupe des individus qui composent la population.}{\citep[p.~62]{VAB2020}}
+\entry{Échantillon}{Sous-groupe des individus qui composent la population}{\citep[p.~62]{VAB2020}}.
 
-\entry{Échantillon aléatoire}{Un échantillon sélectionné de manière à ce que tous les cas de l'\textbf{univers des cas} aient la même probabilité d'être sélectionnés.}{\citep[p.~346]{RSI2010}}
+\entry{Échantillon aléatoire}{Un échantillon sélectionné de manière à ce que tous les cas de l'\textbf{univers des cas} aient la même probabilité d'être sélectionnés}{\citep[p.~346]{RSI2010}}.
 
-\entry{Échantillon aléatoire simple}{Forme la plus importante des \textbf{échantillons probabilistes}. Les individus y sont sélectionnés au hasard, en s'assurant que tous les membres de la \textbf{population} aient la même probabilité d'être choisis.}{\citep[p.~62]{VAB2020}}
+\entry{Échantillon aléatoire simple}{Forme la plus importante des \textbf{échantillons probabilistes}. Les individus y sont sélectionnés au hasard, en s'assurant que tous les membres de la \textbf{population} aient la même probabilité d'être choisis}{\citep[p.~62]{VAB2020}}.
 
-\entry{Échantillon probabiliste}{Caractéristique d'un échantillon où les individus qui en font partie ont été sélectionnés par une procédure aléatoire.}{\citep[p.~62]{VAB2020}}
+\entry{Échantillon probabiliste}{Caractéristique d'un échantillon où les individus qui en font partie ont été sélectionnés par une procédure aléatoire}{\citep[p.~62]{VAB2020}}.
 
-\entry{Erreur aléatoire}{Une erreur qui ne peut être attribuée à aucune relation systématique. N'a pas d'effet sur la capacité d'inférence descriptive de l'analyse}{\multicitep{RSI2010, p.~346; KKV1994, p.~63}}
+\entry{Erreur aléatoire}{Une erreur qui ne peut être attribuée à aucune relation systématique. N'a pas d'effet sur la capacité d'inférence descriptive de l'analyse}{\multicitep{RSI2010, p.~346; KKV1994, p.~63}}.
 
-\entry{Espace échantillonnale}{Ensemble de tous les \textbf{événements} que peut produire un processus physique ou social. Par exemple, l'espace échantillonnale de processus physique de lancer une pièce de monnaie est composée de l'événement «~\emph{tombe sur pile}~» et de l'événement «~\emph{tombe sur face}~».}{\citep[p.~38-39]{VAB2020}}
+\entry{Espace échantillonnale}{Ensemble de tous les \textbf{événements} que peut produire un processus physique ou social. Par exemple, l'espace échantillonnale de processus physique de lancer une pièce de monnaie est composée de l'événement «~\emph{tombe sur pile}~» et de l'événement «~\emph{tombe sur face}~»}{\citep[p.~38-39]{VAB2020}}.
 
-\entry{Espérance}{Opérateur mathématique qui représente la \textbf{moyenne} d'une \textbf{population} entière, plutôt que d'un échantillon. Pour toutes les valeurs $x$ possibles de la variable $X$, nous multiplions $x$ par la probabilité d’observer $x$, et nous prenons la somme. Dans les cas où la probabilité d'observer $x$ est \textbf{constante} (dans le cas d'un jeté de dé), l'espérance s'équivaut à la moyenne. C'est lorsque la probabilité d'observer $x$ est variable que l'espérance ce distingue.}{\citep[p.~50-51]{VAB2020}\begin{equation}E[X]=\sum_{\forall x\in X}x\cdot P(X=x)\end{equation}}
+\entry{Espérance}{Opérateur mathématique qui représente la \textbf{moyenne} d'une \textbf{population} entière, plutôt que d'un échantillon. Pour toutes les valeurs $x$ possibles de la variable $X$, nous multiplions $x$ par la probabilité d’observer $x$, et nous prenons la somme. Dans les cas où la probabilité d'observer $x$ est \textbf{constante} (dans le cas d'un jeté de dé), l'espérance s'équivaut à la moyenne. C'est lorsque la probabilité d'observer $x$ est variable que l'espérance ce distingue}{\citep[p.~50-51]{VAB2020}.\begin{equation}E[X]=\sum_{\forall x\in X}x\cdot P(X=x)\end{equation}}
 
-\entry{Événements}{Un résultat possible d'un processus physique ou social.}{\citep[p.~38-39]{VAB2020}}
+\entry{Événements}{Un résultat possible d'un processus physique ou social}{\citep[p.~38-39]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION F
 %----------------------------------------------------------------------------------------
 \section*{F}
 
-\entry{Fiabilité}{La stabilité d'un \textbf{indicateur} sur des réplications potentiellement hypothétiques de la procédure de mesure. La fiabilité implique l'ampleur de l'erreur aléatoire. L'application répétée d'une mesure fiable à un sujet qui n'a pas changé en ce qui concerne le trait mesuré produit des résultats similaires à chaque fois.}{\citep[p.~347]{RSI2010}}
+\entry{Fiabilité}{La stabilité d'un \textbf{indicateur} sur des réplications potentiellement hypothétiques de la procédure de mesure. La fiabilité implique l'ampleur de l'erreur aléatoire. L'application répétée d'une mesure fiable à un sujet qui n'a pas changé en ce qui concerne le trait mesuré produit des résultats similaires à chaque fois}{\citep[p.~347]{RSI2010}}.
 
-\entry{Fidélité}{Fait référence à notre capacité à mesurer le concept d’intérêt sans faire d’erreurs accidentelles ou aléatoires. Lorsque l’instrument est fidèle, mesurer le même phénomène à répétition produirait approximativement le même résultat à chaque fois.}{\citep[p.~170]{VAB2020}}
+\entry{Fidélité}{Fait référence à notre capacité à mesurer le concept d’intérêt sans faire d’erreurs accidentelles ou aléatoires. Lorsque l’instrument est fidèle, mesurer le même phénomène à répétition produirait approximativement le même résultat à chaque fois}{\citep[p.~170]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION G
 %----------------------------------------------------------------------------------------
 \section*{G}
 
-\entry{Graphe orienté acyclique}{GOA, un outil qui permet d’identifier les conditions nécessaires pour donner une interprétation causale à des résultats statistiques. Les GOA aident aussi à identifier les variables de contrôle qui doivent être incluses dans un modèle de régression multiple, de même que celles qui doivent en être exclues.}{\citep[p.~115]{VAB2020}}
+\entry{Graphe orienté acyclique}{GOA, un outil qui permet d’identifier les conditions nécessaires pour donner une interprétation causale à des résultats statistiques. Les GOA aident aussi à identifier les variables de contrôle qui doivent être incluses dans un modèle de régression multiple, de même que celles qui doivent en être exclues}{\citep[p.~115]{VAB2020}}.
 
-\entry{Groupe de contrôle}{Dans un devis expérimental, les sujets à l'étude assignés au groupe de contrôle ne reçoivent pas le traitement à l'étude. Par exemple, lors du test d'un vaccin, les membres du groupe de contrôle pourraient recevoir un placebo.}{\citep[p.~137-38]{VAB2020}}
+\entry{Groupe de contrôle}{Dans un devis expérimental, les sujets à l'étude assignés au groupe de contrôle ne reçoivent pas le traitement à l'étude. Par exemple, lors du test d'un vaccin, les membres du groupe de contrôle pourraient recevoir un placebo}{\citep[p.~137-38]{VAB2020}}.
 
-\entry{Groupe de traitement}{Dans un devis expérimental, les sujets à l'étude assignés au groupe de traitement reçoivent le traitement à l'étude. Par exemple, lors du test d'un vaccin, les membres du groupe de contrôle recevraient le vaccin.}{\citep[p.~137-38]{VAB2020}}
+\entry{Groupe de traitement}{Dans un devis expérimental, les sujets à l'étude assignés au groupe de traitement reçoivent le traitement à l'étude. Par exemple, lors du test d'un vaccin, les membres du groupe de contrôle recevraient le vaccin}{\citep[p.~137-38]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION H
 %----------------------------------------------------------------------------------------
 \section*{H}
 
-\entry{Hypothèse}{Une réponse provisoire à une question de recherche. En analyse causale, une hypothèse est une conjecture sur la relation entre une ou plusieurs \textbf{variables indépendantes} et une \textbf{variable dépendante}. Typiquement, une hypothèse est liée à un cadre conceptuel/théorique plus large.}{\citep[p.~331]{RSI2010}}
+\entry{Hypothèse}{Une réponse provisoire à une question de recherche. En analyse causale, une hypothèse est une conjecture sur la relation entre une ou plusieurs \textbf{variables indépendantes} et une \textbf{variable dépendante}. Typiquement, une hypothèse est liée à un cadre conceptuel/théorique plus large}{\citep[p.~331]{RSI2010}}.
 
-\entry{Hypothèse, test de}{Une procédure qui permet de déterminer si les données observées sont compatibles avec une hypothèse de re- cherche. En combinant de l’information sur l’estimé du paramètre et sur la variance échantillonnale de l’estimateur, il est possible de vérifier si une hypothèse de recherche est plausible ou si elle doit être rejetée.}{\citep[p.~67]{VAB2020}}
+\entry{Hypothèse, test de}{Une procédure qui permet de déterminer si les données observées sont compatibles avec une hypothèse de re- cherche. En combinant de l’information sur l’estimé du paramètre et sur la variance échantillonnale de l’estimateur, il est possible de vérifier si une hypothèse de recherche est plausible ou si elle doit être rejetée}{\citep[p.~67]{VAB2020}}.
 
-\entry{Hypothèse nulle}{Une phrase déclarative et quantitative qui pourrait potentiellement être infirmée par un test statistique. Définir cette phrase est la première étape à franchir pour construire un test d’hypothèse.}{\citep[p.~67]{VAB2020}}
+\entry{Hypothèse nulle}{Une phrase déclarative et quantitative qui pourrait potentiellement être infirmée par un test statistique. Définir cette phrase est la première étape à franchir pour construire un test d’hypothèse}{\citep[p.~67]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION I
 %----------------------------------------------------------------------------------------
 \section*{I}
 
-\entry{Indépendance}{Deux variables sont indépendantes si la valeur qu’assume une des variables n’a aucune relation avec la probabilité de l’autre. Par exemple, la taille d'une personne et sa religion sont deux variables indépendantes puisqu'il n'y a pas de lien entre mesurer 6'2 et être catholique ou prostesant. Cependant le lieu de résidence et la religion ne sont pas des variables indépendantes puisque le fait de vivre au Vatican augmente la probabilité d'être catholique et le fait de vivre à Tokyo la diminue.}{\citep[p.~43]{VAB2020}} 
+\entry{Indépendance}{Deux variables sont indépendantes si la valeur qu’assume une des variables n’a aucune relation avec la probabilité de l’autre. Par exemple, la taille d'une personne et sa religion sont deux variables indépendantes puisqu'il n'y a pas de lien entre mesurer 6'2 et être catholique ou protestant. Cependant le lieu de résidence et la religion ne sont pas des variables indépendantes puisque le fait de vivre au Vatican augmente la probabilité d'être catholique et le fait de vivre à Tokyo la diminue}{\citep[p.~43]{VAB2020}}.
 
-\entry{Indépendance des observations}{\textbf{Postulat} selon lequel pour chaque observation, un résultat donné se produit indépendamment de son occurrence ou de sa non-occurrence dans d'autres observations.}{\citep[p.~332]{RSI2010}}
+\entry{Indépendance des observations}{\textbf{Postulat} selon lequel pour chaque observation, un résultat donné se produit indépendamment de son occurrence ou de sa non-occurrence dans d'autres observations}{\citep[p.~332]{RSI2010}}.
 
-\entry{Indicateur}{Résulat de l'\textbf{opérationnalisation} d'une \textbf{variable latente}. L'indicateur est un concept mesurable directement qui est utilisé pour mesurer un concept non observable. Par exemple, il n'est pas possible de mesurer directement l'idéologie d'un individu. Or, il est possible de la mesurer indirectement avec des indicateurs comme la position sur l'avortement, l'économie, les changements climatiques, etc.  (not in VAB, not satisfying in RSI, not in KKV, not in Imai -> def maison)}{}
+\entry{Indicateur}{Résulat de l'\textbf{opérationnalisation} d'une \textbf{variable latente}. L'indicateur est un concept mesurable directement qui est utilisé pour mesurer un concept non observable. Par exemple, il n'est pas possible de mesurer directement l'idéologie d'un individu. Or, il est possible de la mesurer indirectement avec des indicateurs comme la position sur l'avortement, l'économie, les changements climatiques, etc.}{}
 
-\entry{Inférence}{Le processus d'utilisation des faits que nous connaissons pour en apprendre sur les faits que nous ne connaissons pas.}{\citep[p.~46]{KKV1994}}
+\entry{Inférence}{Le processus d'utilisation des faits que nous connaissons pour en apprendre sur les faits que nous ne connaissons pas}{\citep[p.~46]{KKV1994}}.
 
-\entry{Inférence causale}{Le processus de tirer des conclusions sur la causalité sur la base des données observées.}{\citep[p.~317]{RSI2010}}
+\entry{Inférence causale}{Le processus de tirer des conclusions sur la causalité sur la base des données observées}{\citep[p.~317]{RSI2010}}.
 
-\entry{Inférence causale, le problème fondamental de}{Le problème critique de l'inférence causale selon de nombreux philosophes des sciences. Étant donné une définition contre-factuelle de la causalité, le problème est que - pour un cas donné à un moment donné - le chercheur peut observer soit la \emph{présence} de la cause, soit l'\emph{absence} de la cause, mais pas les deux. Par conséquent, le chercheur ne pourra jamais faire les comparaisons qui répondent directement aux critères de la définition contre-factuelle de la causalité, et doit plutôt se tourner vers des comparaisons imparfaites entre des cas du monde réel.}{\citep[p.~317]{RSI2010}}
+\entry{Inférence causale, le problème fondamental de}{Le problème critique de l'inférence causale selon de nombreux philosophes des sciences. Étant donné une définition contre-factuelle de la causalité, le problème est que - pour un cas donné à un moment donné - le chercheur peut observer soit la \emph{présence} de la cause, soit l'\emph{absence} de la cause, mais pas les deux. Par conséquent, le chercheur ne pourra jamais faire les comparaisons qui répondent directement aux critères de la définition contre-factuelle de la causalité, et doit plutôt se tourner vers des comparaisons imparfaites entre des cas du monde réel}{\citep[p.~317]{RSI2010}}.
 
-\entry{Inférence descriptive}{Le processus de parvenir à des conclusions descriptives sur la base de données observées. Cela peut impliquer l'utilisation d'informations inévitablement partielles ou imparfaites sur le monde réel pour faire des inférences sur un concept, ou cela peut impliquer l'utilisation de ces informations pour caractériser un ensemble plus large de cas.}{\citep[p.~325-26]{RSI2010}}
+\entry{Inférence descriptive}{Le processus de parvenir à des conclusions descriptives sur la base de données observées. Cela peut impliquer l'utilisation d'informations inévitablement partielles ou imparfaites sur le monde réel pour faire des inférences sur un concept, ou cela peut impliquer l'utilisation de ces informations pour caractériser un ensemble plus large de cas}{\citep[p.~325-26]{RSI2010}}.
 
-\entry{Inférence statistique}{Le processus scientifique qui consiste à former un jugement sur les caractéristiques d'une \textbf{population} à partir des caractéristiques d'un \textbf{échantillon}. L'inférence statistique est une forme d'extrapolation, qui permet au chercheur d'étudier un nombre limité d'observations pour tirer des conclusions au sujet d'un plus grand groupe.}{\citep[p.~61]{VAB2020}}
+\entry{Inférence statistique}{Le processus scientifique qui consiste à former un jugement sur les caractéristiques d'une \textbf{population} à partir des caractéristiques d'un \textbf{échantillon}. L'inférence statistique est une forme d'extrapolation, qui permet au chercheur d'étudier un nombre limité d'observations pour tirer des conclusions au sujet d'un plus grand groupe}{\citep[p.~61]{VAB2020}}.
 
-\entry{Intervalle de confiance}{Une autre façon de représenter l’incertitude autour de nos estimés. Cet intervalle est borné par deux valeurs qui encadrent l’estimé. En général, l’analyste rejette une hypothèse nulle si celle-ci se situe hors de l’intervalle de confiance.}{\citep[p.~72]{VAB2020}\begin{equation}[\mu-2\cdot\sigma_{\mu};\mu+2\cdot\sigma_{\mu}]\end{equation}}
+\entry{Intervalle de confiance}{Une autre façon de représenter l’incertitude autour de nos estimés. Cet intervalle est borné par deux valeurs qui encadrent l’estimé. En général, l’analyste rejette une hypothèse nulle si celle-ci se situe hors de l’intervalle de confiance}{\citep[p.~72]{VAB2020}.\begin{equation}[\mu-2\cdot\sigma_{\mu};\mu+2\cdot\sigma_{\mu}]\end{equation}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION J
@@ -260,51 +293,51 @@
 %----------------------------------------------------------------------------------------
 \section*{L}
 
-\entry{Loi des distributions}{La loi de distribution d’une variable $X$ est l’ensemble des probabilités associées à toutes les valeurs possibles de $X$. Nous utilisons l’expression $P(X)$ pour faire référence à cette loi.}{\citep[p.~39]{VAB2020}}
+\entry{Loi des distributions}{La loi de distribution d’une variable $X$ est l’ensemble des probabilités associées à toutes les valeurs possibles de $X$. Nous utilisons l’expression $P(X)$ pour faire référence à cette loi}{\citep[p.~39]{VAB2020}}.
 
-\entry{Loi des grands nombres}{Loi démontrant que lorsque la taille d’un échantillon aléatoire augmente, les moyennes calculées à partir de cet échantillon convergent vers la moyenne de la population.}{\citep[p.~311]{VAB2020}}
+\entry{Loi des grands nombres}{Loi démontrant que lorsque la taille d’un échantillon aléatoire augmente, les moyennes calculées à partir de cet échantillon convergent vers la moyenne de la population}{\citep[p.~311]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION M
 %----------------------------------------------------------------------------------------
 \section*{M}
 
-\entry{Médiane}{\textbf{Mesure de tendance centrale} permettant d'identifier la valeur qui sépare une série ordonnée de nombres en deux parties contenant le même nombre d’éléments. \emph{Attention}, la médiane est plus «~robuste~» que la moyenne, au sens où elle est moins sensible aux valeurs extrêmes ou aberrantes. Dans la suite $\{1,3,4,8,9\}$, la médiane est 4. Pour une suite avec un nombre pair d'éléments, par convention la médiane est la moyenne des deux éléments du centre. Donc, dans la suite $\{1,3,4,6,8,9\}$, la médiane est $\frac{4+6}{2}=5$.}{\citep[p.~50]{VAB2020}}
+\entry{Médiane}{\textbf{Mesure de tendance centrale} permettant d'identifier la valeur qui sépare une série ordonnée de nombres en deux parties contenant le même nombre d’éléments. \emph{Attention}, la médiane est plus «~robuste~» que la moyenne, au sens où elle est moins sensible aux valeurs extrêmes ou aberrantes. Dans la suite $\{1,3,4,8,9\}$, la médiane est 4. Pour une suite avec un nombre pair d'éléments, par convention la médiane est la moyenne des deux éléments du centre. Donc, dans la suite $\{1,3,4,6,8,9\}$, la médiane est $\frac{4+6}{2}=5$}{\citep[p.~50]{VAB2020}}.
 
-\entry{Mesure}{Processus permettant d'établir des observations empiriques reliées à un concept donné. Un \textbf{indicateur} est une procédure spécifique de mesure. (Not in VAB, maybe better in Imai)}{\citep[p.~337]{RSI2010}}
+\entry{Mesure}{Processus permettant d'établir des observations empiriques reliées à un concept donné. Un \textbf{indicateur} est une procédure spécifique de mesure}{\citep[p.~337]{RSI2010}}.
 
-\entry{Mode}{\textbf{Mesure de tendance centrale} permettant d'identifier la valeur la plus fréquente d’un ensemble. Par exemple, le mode est 8 pour l'ensemble $\{1,2,2,3,4,7,8,8,8\}$.}{\citep[p.~50]{VAB2020}}
+\entry{Mode}{\textbf{Mesure de tendance centrale} permettant d'identifier la valeur la plus fréquente d’un ensemble. Par exemple, le mode est 8 pour l'ensemble $\{1,2,2,3,4,7,8,8,8\}$}{\citep[p.~50]{VAB2020}}.
 
-\entry{Moyenne}{\textbf{Mesure de tendance centrale} permettant d'identifier le centre d'équilibre d'une distribution. Pour un ensemble $X$ de taille $n$, la moyenne d'un échantillon est représentée par $\bar{X}$ et celle d'une population par $\mu$.}{\citep[p.~49]{VAB2020}\begin{equation}X=\frac{1}{n}\sum_{i=1}^{n}X_{i}\end{equation}}
+\entry{Moyenne}{\textbf{Mesure de tendance centrale} permettant d'identifier le centre d'équilibre d'une distribution. Pour un ensemble $X$ de taille $n$, la moyenne d'un échantillon est représentée par $\bar{X}$ et celle d'une population par $\mu$}{\citep[p.~49]{VAB2020}.\begin{equation}X=\frac{1}{n}\sum_{i=1}^{n}X_{i}\end{equation}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION N
 %----------------------------------------------------------------------------------------
 \section*{N}
 
-\entry{N}{Par convention, représente le nombre de cas ou d'individus de la \textbf{population} à l'étude}{}
+\entry{N}{Par convention, représente le nombre de cas ou d'individus de la \textbf{population} à l'étude.}{}
 
-\entry{n}{Par convention, représente le nombre de cas ou d'individus de l'\textbf{échantillon} à l'étude}{}
+\entry{n}{Par convention, représente le nombre de cas ou d'individus de l'\textbf{échantillon} à l'étude.}{}
 
 %----------------------------------------------------------------------------------------
 %	SECTION O
 %----------------------------------------------------------------------------------------
 \section*{O}
 
-\entry{Opérationnalisation}{Processus du développement, sur la base d'un concept systématisé, d'un ou plusieurs \textbf{indicateurs} permettant de mesurer ou de classifier les cas à l'étude.}{\citep[p.~531]{adcock2001}}
+\entry{Opérationnalisation}{Processus du développement, sur la base d'un concept systématisé, d'un ou plusieurs \textbf{indicateurs} permettant de mesurer ou de classifier les cas à l'étude}{\citep[p.~531]{adcock2001}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION P
 %----------------------------------------------------------------------------------------
 \section*{P}
 
-\entry{Population}{Voir \textbf{univers des cas}.}{\citep[p.~343]{RSI2010}}
+\entry{Population}{Voir \textbf{univers des cas}}{\citep[p.~343]{RSI2010}}.
 
-\entry{Population}{Ensemble des individus, des objets, ou des phénomènes qui pourraient potentiellement être observés. En général, l'analyste n'aura pas suffisamment de ressources pour observer tous les membres d'une population.}{\citep[p.~61]{VAB2020}}
+\entry{Population}{Ensemble des individus, des objets, ou des phénomènes qui pourraient potentiellement être observés. En général, l'analyste n'aura pas suffisamment de ressources pour observer tous les membres d'une population}{\citep[p.~61]{VAB2020}}.
 
-\entry{Postulat}{Principe que l’on demande d’admettre comme vrai sans démonstration.}{(Dictionnaire à trouver)}
+\entry{Postulat}{Principe que l’on demande d’admettre comme vrai sans démonstration.}{}
 
-\entry{Probabilité}{La probabilité d’un événement est un chiffre entre 0 et 1 qui correspond au risque d’observer cet événement. La loi de distribution d’une variable $X$ est l’ensemble des probabilités associées à toutes les valeurs possibles de $X$. Nous utilisons l’expression $P(X)$ pour faire référence à cette loi. Par exemple, si $X$ peut avoir 4 valeurs - être membre de la CAQ, du PLQ, de QS ou du PQ - et que sont réunis 10 membres de chaque parti dans une salle (donc un total de 40 personnes), la probabilité de piger un membre de QS dans la salle, $P(X=membre~de~QS)$, est de $\frac{10}{40}$ ou 25\%.}{\citep[p.~39]{VAB2020}}
+\entry{Probabilité}{La probabilité d’un événement est un chiffre entre 0 et 1 qui correspond au risque d’observer cet événement. La loi de distribution d’une variable $X$ est l’ensemble des probabilités associées à toutes les valeurs possibles de $X$. Nous utilisons l’expression $P(X)$ pour faire référence à cette loi. Par exemple, si $X$ peut avoir 4 valeurs - être membre de la CAQ, du PLQ, de QS ou du PQ - et que sont réunis 10 membres de chaque parti dans une salle (donc un total de 40 personnes), la probabilité de piger un membre de QS dans la salle, $P(X=membre~de~QS)$, est de $\frac{10}{40}$ ou 25\%}{\citep[p.~39]{VAB2020}}.
 
 
 %----------------------------------------------------------------------------------------
@@ -312,64 +345,72 @@
 %----------------------------------------------------------------------------------------
 \section*{Q}
 
-\entry{Quartile}{Les 3 valeurs qui divisent une variable $X$ en 4 groupes composés du même nombre d’observations. Le $1^{er}$ quartile est la valeur qui sépare les $25~\%$ des plus petites valeurs de $X$ du reste, le $2^{e}$ quartile est la valeur qui sépare les $50~\%$ des plus petites valeurs de $X$ du reste, et le $3^{e}$ quartile est la valeur qui sépare les $75~\%$ des plus petites valeurs de $X$ du reste. Voir aussi \textbf{centile}.}{\citep[p.~54]{VAB2020}}
+\entry{Quartile}{Les 3 valeurs qui divisent une variable $X$ en 4 groupes composés du même nombre d’observations. Le $1^{er}$ quartile est la valeur qui sépare les $25~\%$ des plus petites valeurs de $X$ du reste, le $2^{e}$ quartile est la valeur qui sépare les $50~\%$ des plus petites valeurs de $X$ du reste, et le $3^{e}$ quartile est la valeur qui sépare les $75~\%$ des plus petites valeurs de $X$ du reste. Voir aussi \textbf{centile}}{\citep[p.~54]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION R
 %----------------------------------------------------------------------------------------
 \section*{R}
 
-\entry{Régression linéaire}{La régression linéaire est un modèle statistique qui permet de décrire et de résumer la relation entre deux variables. L’avantage principal de la régression, au-delà de la corrélation, est qu’elle nous permet d’étudier une relation bivariée tout en «~ajustant~» ou en «~contrôlant~» l’influence de tiers facteurs qui pourraient biaiser nos conclusions. Une droite de régression cherche à identifier la droite de prédiction qui minimise la somme des erreurs élevées au carré.}{\citep[p.~77-82]{VAB2020}\begin{equation} Y = \beta_{0} + \beta{1}\cdot X + \epsilon \end{equation} L'équation d'une droite dans une forme plus familière~: \begin{equation} y = a\cdot x + b + c \end{equation}}
+\entry{Régression linéaire}{La régression linéaire est un modèle statistique qui permet de décrire et de résumer la relation entre deux variables. L’avantage principal de la régression, au-delà de la corrélation, est qu’elle nous permet d’étudier une relation bivariée tout en «~ajustant~» ou en «~contrôlant~» l’influence de tiers facteurs qui pourraient biaiser nos conclusions. Une droite de régression cherche à identifier la droite de prédiction qui minimise la somme des erreurs élevées au carré}{\citep[p.~77-82]{VAB2020}. \\
+\\ Régression linéaire simple : \begin{equation} Y = \alpha + \beta_{1}\cdot X_{1} + \epsilon \end{equation} Régression linéaire multiple : \begin{equation} Y = \alpha + \beta_{1}\cdot X_{1} +  \beta_{2}\cdot X_{2} + \beta_{k}\cdot X_{k} + \epsilon \end{equation} L'équation d'une droite dans une forme plus familière~: \begin{equation} y = a\cdot x + b + c \end{equation}}
 
 %----------------------------------------------------------------------------------------
 %	SECTION S
 %----------------------------------------------------------------------------------------
 \section*{S}
 
-\entry{Somme}{Le symbole $\sum$ représente l'opérateur de somme et est utilisé pour représenter une suite d'addition. Pour l'utiliser, il faut d’abord définir un «~compteur~» (le plus souvent $i$, $k$ ou $n$) qui changera de valeur chaque fois qu'un nouvel élément est additionné. L'expression \emph{sous} l'opérateur indique la valeur de départ du compteur et l'expression du \emph{dessus} indique la valeur finale du compteur.}{\citep[p.~289-90]{VAB2020}\begin{equation} \sum_{i=1}^{4} 2\cdot i = (2\cdot 1)+(2\cdot 2)+(2\cdot 3)+(2\cdot 4) =20 \end{equation}}
+\entry{Somme}{Le symbole $\sum$ représente l'opérateur de somme et est utilisé pour représenter une suite d'addition. Pour l'utiliser, il faut d’abord définir un «~compteur~» (le plus souvent $i$, $k$ ou $n$) qui changera de valeur chaque fois qu'un nouvel élément est additionné. L'expression \emph{sous} l'opérateur indique la valeur de départ du compteur et l'expression du \emph{dessus} indique la valeur finale du compteur}{\citep[p.~289-90]{VAB2020}.\begin{equation} \sum_{i=1}^{4} 2\cdot i = (2\cdot 1)+(2\cdot 2)+(2\cdot 3)+(2\cdot 4) =20 \end{equation}}
 
+\entry{Statistiques descriptives}{Voir \textbf{Inférence descriptive}}.
+
+\entry{Statistiques inférentielles}{Voir \textbf{inférence statistique}}.
 %----------------------------------------------------------------------------------------
 %	SECTION T
 %----------------------------------------------------------------------------------------
 \section*{T}
 
-\entry{Tendance centrale, mesure de}{Mesure permettant d’identifier les observations qui se trouvent «~au centre~» d’un échantillon. }{\citep[p.~49]{VAB2020}}
+\entry{Tendance centrale, mesure de}{Mesure permettant d’identifier les observations qui se trouvent «~au centre~» d’un échantillon}{\citep[p.~49]{VAB2020}}.
 
-\entry{Théorème central limite}{Démontre que les moyennes d’échantillons aléatoires indépendants sont distribuées de façon (approximativement) normale lorsque la taille des échantillons est suffisamment grande.}{\citep[p.~313]{VAB2020}}
+\entry{Théorème central limite}{Démontre que les moyennes d’échantillons aléatoires indépendants sont distribuées de façon (approximativement) normale lorsque la taille des échantillons est suffisamment grande}{\citep[p.~313]{VAB2020}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION U
 %----------------------------------------------------------------------------------------
 \section*{U}
 
-\entry{Univers des cas}{L'univers des cas sur lesquels l'analyse cherche à réaliser une \textbf{inférence}. La recherche peut se concentrer sur un \textbf{échantillon} de cas de cet univers. Alternativement, dans certaines études, l'ensemble des cas analysés est l'univers. L'identification d'une définition conceptuellement et théoriquement appropriée de l'univers à l'étude est une tâche fondamentale de la recherche. L'univers des cas est souvent utilisé de manière interchangeable avec \textbf{population}.}{\citep[p.~357]{RSI2010}}
+\entry{Univers des cas}{L'univers des cas sur lesquels l'analyse cherche à réaliser une \textbf{inférence}. La recherche peut se concentrer sur un \textbf{échantillon} de cas de cet univers. Alternativement, dans certaines études, l'ensemble des cas analysés est l'univers. L'identification d'une définition conceptuellement et théoriquement appropriée de l'univers à l'étude est une tâche fondamentale de la recherche. L'univers des cas est souvent utilisé de manière interchangeable avec \textbf{population}}{\citep[p.~357]{RSI2010}}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION V
 %----------------------------------------------------------------------------------------
 \section*{V}
 
-\entry{Valeur p}{Permet de mesurer à quel point les données observées sont compatibles avec l’hypothèse nulle. Il s'agit essentiellement de mesurer la probabilité d’observer une statistique au moins aussi extrême que celle mesurée par pur hasard. Lorsque la valeur p est très petite, les propriétés de l’échantillon seraient «~étranges~» ou «~inusitées~» si l’hypothèse nulle était vraie.}{\citep[p.~71]{VAB2020}}
+\entry{Valeur p}{Permet de mesurer à quel point les données observées sont compatibles avec l’hypothèse nulle. Il s'agit essentiellement de mesurer la probabilité d’observer une statistique au moins aussi extrême que celle mesurée par pur hasard. Lorsque la valeur p est très petite, les propriétés de l’échantillon seraient «~étranges~» ou «~inusitées~» si l’hypothèse nulle était vraie}{\citep[p.~71]{VAB2020}}.
 
-\entry{Validité}{Une mesure est valide si elle offre une bonne «~traduction~» du concept, c’est-à-dire si elle permet de généraliser à partir de l’observation concrète jusqu’au concept abstrait. Une mesure est valide si un changement dans cette mesure implique un changement dans le concept qu'elle représente. Une mesure pourrait être valide sans être \textbf{fidèle}.}{\citep[p.~170]{VAB2020}}
+\entry{Validité}{Une mesure est valide si elle offre une bonne «~traduction~» du concept, c’est-à-dire si elle permet de généraliser à partir de l’observation concrète jusqu’au concept abstrait. Une mesure est valide si un changement dans cette mesure implique un changement dans le concept qu'elle représente. Une mesure pourrait être valide sans être \textbf{fidèle}}{\citep[p.~170]{VAB2020}}.
 
-\entry{Variable}{Une représentation algébrique de l'\textbf{espace échantillonnale}.}{\citep[p.~38-39]{VAB2020}}
+\entry{Variable}{Une représentation algébrique de l'\textbf{espace échantillonnal}}{\citep[p.~38-39]{VAB2020}}.
 
-\entry{Variable binaire}{Lié à un espace échantillonnale qui comprend seulement deux éléments : vrai/faux, oui/non, 1/0, etc.}{\citep[p.~39]{VAB2020}}
+\entry{Variable binaire}{Lié à un espace échantillonnal qui comprend seulement deux éléments : vrai/faux, oui/non, 1/0, etc.}{\citep[p.~39]{VAB2020}}.
 
-\entry{Variable continue}{Prend n'importe quelle valeur sur un intervalle donné : -3; $\pi$; 4,5; etc.}{\citep[p.~39]{VAB2020}}
+\entry{Variable continue}{Prend n'importe quelle valeur sur un intervalle donné : -3; $\pi$; 4,5; etc.}{\citep[p.~39]{VAB2020}}.
 
-\entry{Variable de dénombrement}{Comprend des nombres entiers non négatifs : nombre d'accidents de travail dans une usine, le nombre de pommes dans un pommier, etc.}{\citep[p.~39]{VAB2020}}
+\entry{Variable de dénombrement}{Comprend des nombres entiers non négatifs : nombre d'accidents de travail dans une usine, le nombre de pommes dans un pommier, etc.}{\citep[p.~39]{VAB2020}}.
 
-\entry{Variable dépendante}{Ce que le chercheur cherche à expliquer. Elle est hypothétiquement supposée être causée par ou «~dépendre~» d’une ou plusieurs variables indépendantes. On l'appelle aussi variable expliquée.}{\multicitep{VAB2020, p.~77; RSI2010, p.~325}}
+\entry{Variable dépendante, Y}{Ce que le chercheur cherche à expliquer. Elle est hypothétiquement supposée être causée par ou «~dépendre~» d’une ou plusieurs variables indépendantes. On l'appelle aussi variable expliquée}{\multicitep{VAB2020, p.~77; RSI2010, p.~325}}.
 
-\entry{Variable indépendante}{Une variable qui influence, ou est hypothétiquement supposée influencer, la variable dépendante.}{\multicitep{VAB2020, p.~77; RSI2010, p.~332}}
+\entry{Variable indépendante, X}{Une variable qui influence, ou est hypothétiquement supposée influencer, la variable dépendante}{\multicitep{VAB2020, p.~77; RSI2010, p.~332}}.
 
-\entry{Variable latente}{Un attribut ou une caractéristique observés grâce à des \textbf{indicateurs} qui le mesure indirectement.}{\citep[p.~335]{RSI2010}}
+\entry{Variable intervalle}{Représente des catégories de données avec un ordre logique et une distance précise entre chaque catégorie : la température. Ce type de variable est pertinent pour la statistique comme les mesures de la tendance centrale et de dispersion peuvent y être appliquées.}
 
-\entry{Variable nominale}{Représente des catégories de données de façon \emph{non ordonnées} : Bleu, Jaune, Rouge.}{\citep[p.~39]{VAB2020}}
+\entry{Variable latente}{Un attribut ou une caractéristique observée grâce à des \textbf{indicateurs} qui le mesurent indirectement}{\citep[p.~335]{RSI2010}}.
 
-\entry{Variable ordinale}{Représente des catégories de données : Tout à fait d'accord, D'accord, Neutre, Pas d'accord, Pas du tout d'accord. La distance entre les catégories n'est pas nécessairement la même.}{\citep[p.~39]{VAB2020}}
+\entry{Variable nominale}{Représente des catégories de données de façon \emph{non ordonnées} : Bleu, Jaune, Rouge}{\citep[p.~39]{VAB2020}}.
+
+\entry{Variable ordinale}{Représente des catégories de données : Tout à fait d'accord, D'accord, Neutre, Pas d'accord, Pas du tout d'accord. Il est possible de mettre ces catégories en ordre, mais la distance entre les catégories n'est pas nécessairement la même}{\citep[p.~39]{VAB2020}}.
+
+\entry{Variable ratio}{Représente des catégories de données avec une ordre logique et une distance précise entre chaque catégorie et une \emph{zéro naturel} : temps, grandeur, etc. Ce type de variable est pertinent pour la statistique comme les mesures de la tendance centrale et de dispersion peuvent y être appliquées.}.
 
 \entry{Variance}{\textbf{Mesure de dispersion} calculant la somme du carré des écarts à la moyenne d'un ensemble d'observations. Plus la variance est grande, plus les valeurs ont tendance à s’éloigner du centre de la distribution. S'écrit pour un ensemble $X$ : $\sigma^{2}_{X}$ ou $VAR(X)$. À ne pas confondre avec l'\textbf{écart-type} $\sigma_{X}$. \emph{Attention}, la variance peut être affectée par les valeurs extrêmes ou aberrantes. }{\citep[p.~53]{VAB2020}\begin{equation}\sigma^{2}_{X}=\frac{1}{n}\sum_{n=i}^{n} (X_{i}-\bar{X})^2\end{equation}}
 %----------------------------------------------------------------------------------------
