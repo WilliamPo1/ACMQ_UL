@@ -1,7 +1,6 @@
 \documentclass[10.5pt,a4paper]{article} 
 \usepackage[utf8]{inputenc}  
-\usepackage{helvet}
-\renewcommand\familydefault{\sfdefault} 
+
 \usepackage[T1]{fontenc} 
 \usepackage[light]{merriweather} 
 %\usepackage{ulem}
@@ -22,10 +21,7 @@
 \catcode\%=14
 \makeatother
 % Colour
-\usepackage[svgnames]{xcolor}
-\definecolor{rstudio}{HTML}{4b84b7}
-\definecolor{rstudio2}{HTML}{111c1c}
-\definecolor{cloud}{HTML}{e4eef8}
+\usepackage{xcolor}
 \hypersetup{breaklinks=true} 
 \Urlmuskip=0mu plus 1mu\relax 
 \usepackage[margin=2.5cm]{geometry} 
@@ -115,35 +111,7 @@
  }
 \ExplSyntaxOff
 
-
-\title{\textbf{Glossaire POL-2000}}
-\author{William Poirier, Université Laval}
-\date{POL-2000 -- Hivers 2022}
-
 \begin{document} 
-
-% ----------------------------------------------------------------
-\begin{titlepage}
-\newgeometry{left=7.5cm} %defines the geometry for the titlepage
-\pagecolor{rstudio2}
-\noindent
-\includegraphics[width=13.6cm]{_graphs/literary-joust-1.jpg}\\[-1em]
-\color{cloud}
-\makebox[0pt][l]{\rule{1.4\textwidth}{2pt}}
-\par
-\noindent
-\color{white}
-\textbf{Université Laval}
-\vfill
-\noindent
-{\huge\textbf{Glossaire}}
-\vskip\baselineskip
-\noindent
-POL-2000 -- Hivers 2022
-\end{titlepage}
-\restoregeometry % restores the geometry
-\nopagecolor% Use this to restore the color pages to white
-% ----------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	SECTION A
